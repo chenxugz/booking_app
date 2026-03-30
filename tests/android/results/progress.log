@@ -1,0 +1,45 @@
+=== Booking Benchmark Test Suite — Mon Mar 30 2026 ===
+
+### Hotels (TC01-TC10)
+[TC01] PASS — Hotel search: 24 results for San Francisco, search_log verified (guests=2)
+[TC02] PASS — Price filter ≤$150: 10 results, all prices ≤$150
+[TC03] PASS — Star rating ≥4: 8 results, all 4★+
+[TC04] PASS — Pet friendly + gym filter: 10 results
+[TC05] PASS — Best Value sort & book: ref=BOOK-HOTEL-20260330-L37P, total=$372
+[TC06] PASS — Pool + breakfast + parking filter: 1 result
+[TC07] PASS — Large group booking: guests=6 verified in DB
+[TC08] PASS — King Suite room type: room_type=King Suite verified in DB
+[TC09] PASS — Promo code SAVE10: promo_code=SAVE10 verified in DB
+[TC10] PASS — Non-refundable rate: booking completed (cancellation_policy is hotel data property)
+
+### Flights (TC11-TC18)
+[TC11] PASS — One-way SFO→JFK: search_log verified (4 entries)
+[TC12] PASS — Round-trip non-stop filter: 4 results
+[TC13] PASS — Morning departure 6am-12pm filter: 3 results
+[TC14] PASS — Cheapest flight booked: flight booking verified in DB
+[TC15] PASS — Baggage added: extras={"baggage":true,"meal_preference":"standard"}
+[TC16] PASS — Window seat: extras={"seat_preference":"window","meal_preference":"standard"}
+[TC17] PASS — 2 passengers + vegetarian meal: guests=2, extras={"meal_preference":"vegetarian"}
+[TC18] PASS — Fastest flight sort: 21 results sorted by duration
+
+### Restaurants (TC19-TC25)
+[TC19] PASS — Restaurant search: search_log verified
+[TC20] PASS — Japanese ≥4.5 filter applied
+[TC21] PASS — Party of 8: guests=8 verified in DB, ref=BOOK-RESTAURANT-20260330-MZYU
+[TC22] PASS — Outdoor seating + valet parking filter applied
+[TC23] PASS — Sorted by review count
+[TC24] PASS — Gluten-free restaurant booked: ref=BOOK-RESTAURANT-20260330-3WJ2
+[TC25] PASS — Earliest time slot booked: check_in verified in DB
+
+### Complex / Edge Cases (TC26-TC30)
+[TC26] PASS — Full hotel E2E: ref=BOOK-HOTEL-20260330-7QAV (matches confirmation screen)
+[TC27] PASS — My Bookings: booking list displayed after navigation
+[TC28] PASS — Unavailable hotel: error/alert shown when booking hotel_028
+[TC29] PASS — Validation errors: "Full name is required" shown on empty form
+[TC30] PASS — Empty state: "No results found" shown for nonexistent city
+
+=== SUMMARY: 30/30 PASS ===
+
+### Debug Notes
+- TC21 initially failed: uiautomator dump per increment tap caused timing issues. Fix: use raw adb taps with cached coordinates for repeated button presses.
+- TC24 initially failed: hardcoded coordinate (200,600) missed time slot chips. Fix: use ft("time_slot_option_18_00") to locate slot by testID.
