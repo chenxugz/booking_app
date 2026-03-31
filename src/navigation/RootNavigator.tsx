@@ -8,6 +8,10 @@ import DetailScreen from '../screens/DetailScreen';
 import CheckoutScreen from '../screens/CheckoutScreen';
 import ConfirmationScreen from '../screens/ConfirmationScreen';
 import MyBookingsScreen from '../screens/MyBookingsScreen';
+import ExpenseFolderScreen from '../screens/ExpenseFolderScreen';
+import ReviewsScreen from '../screens/ReviewsScreen';
+import BulkBookingScreen from '../screens/BulkBookingScreen';
+import CompensationClaimScreen from '../screens/CompensationClaimScreen';
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
 
@@ -44,6 +48,26 @@ export default function RootNavigator() {
           name="MyBookings"
           component={MyBookingsScreen}
           options={{ title: 'My Bookings' }}
+        />
+        <Stack.Screen
+          name="ExpenseFolder"
+          component={ExpenseFolderScreen}
+          options={{ title: 'Expense Reports' }}
+        />
+        <Stack.Screen
+          name="Reviews"
+          component={ReviewsScreen}
+          options={{ title: 'Reviews' }}
+        />
+        <Stack.Screen
+          name="BulkBooking"
+          component={BulkBookingScreen}
+          options={{ title: 'Bulk Booking' }}
+        />
+        <Stack.Screen
+          name="CompensationClaim"
+          component={CompensationClaimScreen}
+          options={{ title: 'Compensation Claim' }}
         />
       </Stack.Navigator>
     </NavigationContainer>

@@ -32,4 +32,32 @@ export async function createTables(db: SQLiteDatabase): Promise<void> {
       timestamp INTEGER DEFAULT (strftime('%s','now'))
     )
   `);
+
+  await db.executeSql(`
+    CREATE TABLE IF NOT EXISTS download_log (
+      id INTEGER PRIMARY KEY AUTOINCREMENT,
+      reference_number TEXT,
+      downloaded_at INTEGER DEFAULT (strftime('%s','now'))
+    )
+  `);
+
+  await db.executeSql(`
+    CREATE TABLE IF NOT EXISTS review_searches (
+      id INTEGER PRIMARY KEY AUTOINCREMENT,
+      hotel_id TEXT,
+      keyword TEXT,
+      match_count INTEGER,
+      searched_at INTEGER DEFAULT (strftime('%s','now'))
+    )
+  `);
+
+  await db.executeSql(`
+    CREATE TABLE IF NOT EXISTS compensation_claims (
+      id INTEGER PRIMARY KEY AUTOINCREMENT,
+      booking_reference TEXT,
+      delay_minutes INTEGER,
+      claim_reference TEXT,
+      submitted_at INTEGER DEFAULT (strftime('%s','now'))
+    )
+  `);
 }

@@ -15,7 +15,359 @@
     "distance_to_union_square_miles": 0.8,
     "availability": true,
     "cancellation_policy": "flexible",
-    "image_placeholder": "hotel_001"
+    "image_placeholder": "hotel_001",
+    "reviews": [
+      {
+        "id": "rev_001",
+        "author": "Jane D.",
+        "rating": 3,
+        "date": "2024-03-01",
+        "text": "Great location but construction noise woke us up at 7am every morning. Hard to sleep in."
+      },
+      {
+        "id": "rev_002",
+        "author": "Michael R.",
+        "rating": 2,
+        "date": "2024-04-12",
+        "text": "The hotel itself is nice but the constant construction noise from the building next door was unbearable during the day."
+      },
+      {
+        "id": "rev_003",
+        "author": "Patricia K.",
+        "rating": 3,
+        "date": "2024-06-18",
+        "text": "Room was lovely but beware of the construction noise outside. Bring earplugs if you are a light sleeper."
+      },
+      {
+        "id": "rev_004",
+        "author": "Thomas L.",
+        "rating": 3,
+        "date": "2024-02-05",
+        "text": "Beautiful hotel but the elevator wait times are ridiculous during peak hours. We waited 10 minutes multiple times."
+      },
+      {
+        "id": "rev_005",
+        "author": "Sandra M.",
+        "rating": 3,
+        "date": "2024-05-22",
+        "text": "Everything was great except for the elevator wait times. With only two elevators for 20 floors, expect delays."
+      },
+      {
+        "id": "rev_006",
+        "author": "Emily W.",
+        "rating": 5,
+        "date": "2024-01-10",
+        "text": "Absolutely wonderful stay! The room was spotless and the staff went above and beyond."
+      },
+      {
+        "id": "rev_007",
+        "author": "James H.",
+        "rating": 5,
+        "date": "2024-03-15",
+        "text": "Best hotel experience I've ever had. Would definitely come back."
+      },
+      {
+        "id": "rev_008",
+        "author": "Laura S.",
+        "rating": 4,
+        "date": "2024-02-20",
+        "text": "Very nice hotel overall. Minor issues with the air conditioning but staff fixed it quickly."
+      },
+      {
+        "id": "rev_009",
+        "author": "Robert G.",
+        "rating": 5,
+        "date": "2024-07-01",
+        "text": "Everything was perfect from check-in to check-out. Highly recommended!"
+      },
+      {
+        "id": "rev_010",
+        "author": "Amanda P.",
+        "rating": 4,
+        "date": "2024-01-25",
+        "text": "Great location and comfortable rooms. Breakfast selection could be wider."
+      },
+      {
+        "id": "rev_011",
+        "author": "Christopher B.",
+        "rating": 5,
+        "date": "2024-04-03",
+        "text": "Stunning views, amazing service, and incredibly comfortable beds."
+      },
+      {
+        "id": "rev_012",
+        "author": "Jessica T.",
+        "rating": 4,
+        "date": "2024-06-10",
+        "text": "Really enjoyed our stay. Only minor complaint is that parking was a bit tight."
+      },
+      {
+        "id": "rev_013",
+        "author": "Daniel F.",
+        "rating": 3,
+        "date": "2024-03-28",
+        "text": "Decent hotel for the price. Nothing fancy but gets the job done."
+      },
+      {
+        "id": "rev_014",
+        "author": "Sarah N.",
+        "rating": 5,
+        "date": "2024-08-14",
+        "text": "We celebrated our anniversary here and it was magical. Five stars all around."
+      },
+      {
+        "id": "rev_015",
+        "author": "Kevin C.",
+        "rating": 4,
+        "date": "2024-05-07",
+        "text": "Solid choice for business travel. Fast Wi-Fi and quiet rooms."
+      },
+      {
+        "id": "rev_016",
+        "author": "Nicole A.",
+        "rating": 2,
+        "date": "2024-07-19",
+        "text": "Disappointing stay. The room was not as clean as expected and the furniture was worn."
+      },
+      {
+        "id": "rev_017",
+        "author": "William J.",
+        "rating": 5,
+        "date": "2024-01-03",
+        "text": "The concierge was incredibly helpful with dinner reservations and sightseeing tips."
+      },
+      {
+        "id": "rev_018",
+        "author": "Megan V.",
+        "rating": 5,
+        "date": "2024-09-05",
+        "text": "Loved every minute of our stay. The amenities were top-notch."
+      },
+      {
+        "id": "rev_019",
+        "author": "Richard E.",
+        "rating": 4,
+        "date": "2024-02-14",
+        "text": "Good value for the price. Rooms are well-maintained and the gym is decent."
+      },
+      {
+        "id": "rev_020",
+        "author": "Stephanie Q.",
+        "rating": 5,
+        "date": "2024-04-22",
+        "text": "Clean, modern, and beautifully decorated. The breakfast was also excellent."
+      },
+      {
+        "id": "rev_021",
+        "author": "Mark Z.",
+        "rating": 4,
+        "date": "2024-06-30",
+        "text": "Pleasant stay with friendly staff. The bar had a great cocktail menu."
+      },
+      {
+        "id": "rev_022",
+        "author": "Ashley O.",
+        "rating": 3,
+        "date": "2023-11-08",
+        "text": "Average stay. Room was clean but felt a bit dated. Location is convenient though."
+      },
+      {
+        "id": "rev_023",
+        "author": "Andrew I.",
+        "rating": 5,
+        "date": "2024-08-01",
+        "text": "Outstanding service and a prime location. Could not ask for more."
+      },
+      {
+        "id": "rev_024",
+        "author": "Katherine U.",
+        "rating": 4,
+        "date": "2024-05-18",
+        "text": "Nice hotel in a convenient location. Room was smaller than expected but clean."
+      },
+      {
+        "id": "rev_025",
+        "author": "Brian Y.",
+        "rating": 5,
+        "date": "2023-12-20",
+        "text": "Room was spacious with a gorgeous view. Staff remembered our names by day two."
+      },
+      {
+        "id": "rev_026",
+        "author": "Michelle X.",
+        "rating": 1,
+        "date": "2024-03-11",
+        "text": "Terrible experience. Found hair in the bathroom and stains on the sheets."
+      },
+      {
+        "id": "rev_027",
+        "author": "Steven D.",
+        "rating": 5,
+        "date": "2024-07-25",
+        "text": "Perfect for a family vacation. Kids loved the pool and we loved the spa."
+      },
+      {
+        "id": "rev_028",
+        "author": "Rachel W.",
+        "rating": 4,
+        "date": "2024-09-12",
+        "text": "Would recommend to friends. The pool area was lovely though a bit crowded on weekends."
+      },
+      {
+        "id": "rev_029",
+        "author": "Timothy F.",
+        "rating": 5,
+        "date": "2024-04-08",
+        "text": "Exceeded all expectations. The attention to detail was remarkable."
+      },
+      {
+        "id": "rev_030",
+        "author": "Christina L.",
+        "rating": 3,
+        "date": "2024-01-17",
+        "text": "It was okay. The walls were thin and we could hear neighbors at night."
+      },
+      {
+        "id": "rev_031",
+        "author": "Paul G.",
+        "rating": 4,
+        "date": "2023-10-05",
+        "text": "Comfortable beds and good service. The restaurant was a nice bonus."
+      },
+      {
+        "id": "rev_032",
+        "author": "Diana B.",
+        "rating": 5,
+        "date": "2024-06-02",
+        "text": "One of the nicest hotels I have stayed at. Will be returning next year for sure."
+      },
+      {
+        "id": "rev_033",
+        "author": "Nathan S.",
+        "rating": 4,
+        "date": "2024-02-28",
+        "text": "Overall a great experience. The check-in process was smooth and efficient."
+      },
+      {
+        "id": "rev_034",
+        "author": "Olivia H.",
+        "rating": 2,
+        "date": "2024-05-30",
+        "text": "Not great. Noisy location and the room smelled like smoke despite being non-smoking."
+      },
+      {
+        "id": "rev_035",
+        "author": "George T.",
+        "rating": 5,
+        "date": "2024-08-20",
+        "text": "Fantastic experience overall. The rooftop bar was a highlight."
+      },
+      {
+        "id": "rev_036",
+        "author": "Lauren P.",
+        "rating": 4,
+        "date": "2023-09-14",
+        "text": "Lovely property with character. The neighborhood is walkable and safe."
+      },
+      {
+        "id": "rev_037",
+        "author": "Ryan M.",
+        "rating": 5,
+        "date": "2024-10-01",
+        "text": "Impeccable cleanliness, friendly staff, and great location near shopping."
+      },
+      {
+        "id": "rev_038",
+        "author": "Samantha C.",
+        "rating": 3,
+        "date": "2024-03-22",
+        "text": "Mixed feelings. Staff was friendly but the room had a musty smell initially."
+      },
+      {
+        "id": "rev_039",
+        "author": "Carlos N.",
+        "rating": 4,
+        "date": "2024-07-08",
+        "text": "Good amenities and responsive housekeeping. Will consider staying again."
+      },
+      {
+        "id": "rev_040",
+        "author": "Anna R.",
+        "rating": 5,
+        "date": "2024-01-30",
+        "text": "Absolutely wonderful stay! The room was spotless and the staff went above and beyond."
+      },
+      {
+        "id": "rev_041",
+        "author": "Victor K.",
+        "rating": 3,
+        "date": "2024-04-15",
+        "text": "Fair value. The bed was comfortable but the bathroom could use a renovation."
+      },
+      {
+        "id": "rev_042",
+        "author": "Julia E.",
+        "rating": 4,
+        "date": "2023-08-22",
+        "text": "Enjoyed the stay. Rooms are modern and bathroom was well-appointed."
+      },
+      {
+        "id": "rev_043",
+        "author": "Craig A.",
+        "rating": 5,
+        "date": "2024-09-28",
+        "text": "Best hotel experience I've ever had. Would definitely come back."
+      },
+      {
+        "id": "rev_044",
+        "author": "Natalie J.",
+        "rating": 4,
+        "date": "2024-06-14",
+        "text": "Good hotel for the price point. Location is walking distance to major attractions."
+      },
+      {
+        "id": "rev_045",
+        "author": "Patrick V.",
+        "rating": 5,
+        "date": "2024-02-09",
+        "text": "Stunning views, amazing service, and incredibly comfortable beds."
+      },
+      {
+        "id": "rev_046",
+        "author": "Grace Z.",
+        "rating": 3,
+        "date": "2024-05-03",
+        "text": "Location is the main selling point. The room itself was just adequate."
+      },
+      {
+        "id": "rev_047",
+        "author": "Dennis O.",
+        "rating": 5,
+        "date": "2024-08-08",
+        "text": "Everything was perfect from check-in to check-out. Highly recommended!"
+      },
+      {
+        "id": "rev_048",
+        "author": "Heather I.",
+        "rating": 2,
+        "date": "2023-07-15",
+        "text": "Below expectations. The amenities listed online were not all available during our visit."
+      },
+      {
+        "id": "rev_049",
+        "author": "Tyler U.",
+        "rating": 5,
+        "date": "2024-10-10",
+        "text": "The concierge was incredibly helpful with dinner reservations and sightseeing tips."
+      },
+      {
+        "id": "rev_050",
+        "author": "Maria B.",
+        "rating": 4,
+        "date": "2024-03-05",
+        "text": "Very nice hotel overall. Minor issues with the air conditioning but staff fixed it quickly."
+      }
+    ]
   },
   {
     "id": "hotel_002",
@@ -33,7 +385,51 @@
     "distance_to_union_square_miles": 2.1,
     "availability": true,
     "cancellation_policy": "moderate",
-    "image_placeholder": "hotel_002"
+    "image_placeholder": "hotel_002",
+    "reviews": [
+      {
+        "id": "rev_051",
+        "author": "Frank T.",
+        "rating": 4,
+        "date": "2024-01-14",
+        "text": "Great location and comfortable rooms. Breakfast selection could be wider."
+      },
+      {
+        "id": "rev_052",
+        "author": "Susan M.",
+        "rating": 5,
+        "date": "2024-03-22",
+        "text": "Loved every minute of our stay. The amenities were top-notch."
+      },
+      {
+        "id": "rev_053",
+        "author": "Harold J.",
+        "rating": 3,
+        "date": "2024-05-10",
+        "text": "Decent hotel for the price. Nothing fancy but gets the job done."
+      },
+      {
+        "id": "rev_054",
+        "author": "Deborah K.",
+        "rating": 4,
+        "date": "2024-06-28",
+        "text": "Solid choice for business travel. Fast Wi-Fi and quiet rooms."
+      },
+      {
+        "id": "rev_055",
+        "author": "Gregory P.",
+        "rating": 5,
+        "date": "2024-08-03",
+        "text": "Outstanding service and a prime location. Could not ask for more."
+      },
+      {
+        "id": "rev_056",
+        "author": "Carol A.",
+        "rating": 2,
+        "date": "2024-04-17",
+        "text": "Would not stay again. Slow service and the room was not ready at check-in time."
+      }
+    ]
   },
   {
     "id": "hotel_003",
@@ -51,7 +447,58 @@
     "distance_to_union_square_miles": 1.2,
     "availability": true,
     "cancellation_policy": "flexible",
-    "image_placeholder": "hotel_003"
+    "image_placeholder": "hotel_003",
+    "reviews": [
+      {
+        "id": "rev_057",
+        "author": "Benjamin F.",
+        "rating": 5,
+        "date": "2024-02-08",
+        "text": "Exceeded all expectations. The attention to detail was remarkable."
+      },
+      {
+        "id": "rev_058",
+        "author": "Margaret S.",
+        "rating": 5,
+        "date": "2024-04-19",
+        "text": "We celebrated our anniversary here and it was magical. Five stars all around."
+      },
+      {
+        "id": "rev_059",
+        "author": "Douglas W.",
+        "rating": 4,
+        "date": "2024-06-03",
+        "text": "Very nice hotel overall. Minor issues with the air conditioning but staff fixed it quickly."
+      },
+      {
+        "id": "rev_060",
+        "author": "Lisa R.",
+        "rating": 5,
+        "date": "2024-07-14",
+        "text": "Room was spacious with a gorgeous view. Staff remembered our names by day two."
+      },
+      {
+        "id": "rev_061",
+        "author": "Jeffrey L.",
+        "rating": 5,
+        "date": "2024-09-01",
+        "text": "Impeccable cleanliness, friendly staff, and great location near shopping."
+      },
+      {
+        "id": "rev_062",
+        "author": "Karen H.",
+        "rating": 4,
+        "date": "2024-03-30",
+        "text": "Would recommend to friends. The pool area was lovely though a bit crowded on weekends."
+      },
+      {
+        "id": "rev_063",
+        "author": "Raymond C.",
+        "rating": 3,
+        "date": "2023-11-25",
+        "text": "Breakfast was underwhelming but the room and location made up for it partially."
+      }
+    ]
   },
   {
     "id": "hotel_004",
@@ -69,7 +516,65 @@
     "distance_to_union_square_miles": 1.5,
     "availability": true,
     "cancellation_policy": "moderate",
-    "image_placeholder": "hotel_004"
+    "image_placeholder": "hotel_004",
+    "reviews": [
+      {
+        "id": "rev_064",
+        "author": "Walter B.",
+        "rating": 5,
+        "date": "2024-01-22",
+        "text": "Fantastic experience overall. The rooftop bar was a highlight."
+      },
+      {
+        "id": "rev_065",
+        "author": "Donna N.",
+        "rating": 4,
+        "date": "2024-03-09",
+        "text": "Lovely property with character. The neighborhood is walkable and safe."
+      },
+      {
+        "id": "rev_066",
+        "author": "Peter E.",
+        "rating": 4,
+        "date": "2024-05-14",
+        "text": "Good amenities and responsive housekeeping. Will consider staying again."
+      },
+      {
+        "id": "rev_067",
+        "author": "Ruth G.",
+        "rating": 3,
+        "date": "2024-07-02",
+        "text": "Middle of the road experience. Not bad, not great. Would consider alternatives next time."
+      },
+      {
+        "id": "rev_068",
+        "author": "Edward V.",
+        "rating": 5,
+        "date": "2024-08-18",
+        "text": "Clean, modern, and beautifully decorated. The breakfast was also excellent."
+      },
+      {
+        "id": "rev_069",
+        "author": "Sharon Y.",
+        "rating": 4,
+        "date": "2024-09-25",
+        "text": "Overall a great experience. The check-in process was smooth and efficient."
+      },
+      {
+        "id": "rev_070",
+        "author": "Henry D.",
+        "rating": 2,
+        "date": "2024-04-05",
+        "text": "Not great. Noisy location and the room smelled like smoke despite being non-smoking."
+      },
+      {
+        "id": "rev_071",
+        "author": "Betty Z.",
+        "rating": 5,
+        "date": "2024-06-20",
+        "text": "Loved every minute of our stay. The amenities were top-notch."
+      }
+    ]
   },
   {
     "id": "hotel_005",
@@ -87,7 +592,44 @@
     "distance_to_union_square_miles": 0.1,
     "availability": true,
     "cancellation_policy": "flexible",
-    "image_placeholder": "hotel_005"
+    "image_placeholder": "hotel_005",
+    "reviews": [
+      {
+        "id": "rev_072",
+        "author": "Albert Q.",
+        "rating": 5,
+        "date": "2024-02-14",
+        "text": "Best hotel experience I've ever had. Would definitely come back."
+      },
+      {
+        "id": "rev_073",
+        "author": "Dorothy X.",
+        "rating": 5,
+        "date": "2024-04-28",
+        "text": "Perfect for a family vacation. Kids loved the pool and we loved the spa."
+      },
+      {
+        "id": "rev_074",
+        "author": "Roy F.",
+        "rating": 5,
+        "date": "2024-06-11",
+        "text": "Absolutely wonderful stay! The room was spotless and the staff went above and beyond."
+      },
+      {
+        "id": "rev_075",
+        "author": "Janet M.",
+        "rating": 4,
+        "date": "2024-08-07",
+        "text": "Really enjoyed our stay. Only minor complaint is that parking was a bit tight."
+      },
+      {
+        "id": "rev_076",
+        "author": "Eugene S.",
+        "rating": 5,
+        "date": "2024-09-15",
+        "text": "Everything was perfect from check-in to check-out. Highly recommended!"
+      }
+    ]
   },
   {
     "id": "hotel_006",
@@ -105,7 +647,51 @@
     "distance_to_union_square_miles": 3.4,
     "availability": true,
     "cancellation_policy": "non_refundable",
-    "image_placeholder": "hotel_006"
+    "image_placeholder": "hotel_006",
+    "reviews": [
+      {
+        "id": "rev_077",
+        "author": "Howard P.",
+        "rating": 3,
+        "date": "2024-01-18",
+        "text": "Decent hotel for the price. Nothing fancy but gets the job done."
+      },
+      {
+        "id": "rev_078",
+        "author": "Cynthia L.",
+        "rating": 4,
+        "date": "2024-03-05",
+        "text": "Good value for the price. Rooms are well-maintained and the gym is decent."
+      },
+      {
+        "id": "rev_079",
+        "author": "Philip R.",
+        "rating": 2,
+        "date": "2024-05-22",
+        "text": "The price was low but you get what you pay for. Needs significant updates."
+      },
+      {
+        "id": "rev_080",
+        "author": "Virginia T.",
+        "rating": 4,
+        "date": "2024-07-10",
+        "text": "Solid choice for business travel. Fast Wi-Fi and quiet rooms."
+      },
+      {
+        "id": "rev_081",
+        "author": "Russell H.",
+        "rating": 3,
+        "date": "2024-08-28",
+        "text": "It was okay. The walls were thin and we could hear neighbors at night."
+      },
+      {
+        "id": "rev_082",
+        "author": "Gloria W.",
+        "rating": 5,
+        "date": "2024-10-03",
+        "text": "Outstanding service and a prime location. Could not ask for more."
+      }
+    ]
   },
   {
     "id": "hotel_007",
@@ -123,7 +709,58 @@
     "distance_to_union_square_miles": 2.3,
     "availability": true,
     "cancellation_policy": "flexible",
-    "image_placeholder": "hotel_007"
+    "image_placeholder": "hotel_007",
+    "reviews": [
+      {
+        "id": "rev_083",
+        "author": "Arthur C.",
+        "rating": 5,
+        "date": "2024-02-01",
+        "text": "Stunning views, amazing service, and incredibly comfortable beds."
+      },
+      {
+        "id": "rev_084",
+        "author": "Teresa A.",
+        "rating": 4,
+        "date": "2024-04-14",
+        "text": "Pleasant stay with friendly staff. The bar had a great cocktail menu."
+      },
+      {
+        "id": "rev_085",
+        "author": "Lawrence J.",
+        "rating": 4,
+        "date": "2024-06-07",
+        "text": "Nice hotel in a convenient location. Room was smaller than expected but clean."
+      },
+      {
+        "id": "rev_086",
+        "author": "Pamela G.",
+        "rating": 3,
+        "date": "2024-07-22",
+        "text": "Room was smaller than pictured online. Otherwise a reasonable stay."
+      },
+      {
+        "id": "rev_087",
+        "author": "Joe K.",
+        "rating": 5,
+        "date": "2024-09-09",
+        "text": "The concierge was incredibly helpful with dinner reservations and sightseeing tips."
+      },
+      {
+        "id": "rev_088",
+        "author": "Brenda N.",
+        "rating": 4,
+        "date": "2024-10-18",
+        "text": "Good hotel for the price point. Location is walking distance to major attractions."
+      },
+      {
+        "id": "rev_089",
+        "author": "Randy S.",
+        "rating": 2,
+        "date": "2023-12-05",
+        "text": "Disappointing stay. The room was not as clean as expected and the furniture was worn."
+      }
+    ]
   },
   {
     "id": "hotel_008",
@@ -141,7 +778,65 @@
     "distance_to_union_square_miles": 0.6,
     "availability": true,
     "cancellation_policy": "moderate",
-    "image_placeholder": "hotel_008"
+    "image_placeholder": "hotel_008",
+    "reviews": [
+      {
+        "id": "rev_090",
+        "author": "Ernest B.",
+        "rating": 4,
+        "date": "2024-01-27",
+        "text": "Comfortable beds and good service. The restaurant was a nice bonus."
+      },
+      {
+        "id": "rev_091",
+        "author": "Judith D.",
+        "rating": 5,
+        "date": "2024-03-12",
+        "text": "One of the nicest hotels I have stayed at. Will be returning next year for sure."
+      },
+      {
+        "id": "rev_092",
+        "author": "Louis F.",
+        "rating": 3,
+        "date": "2024-05-20",
+        "text": "Average stay. Room was clean but felt a bit dated. Location is convenient though."
+      },
+      {
+        "id": "rev_093",
+        "author": "Andrea H.",
+        "rating": 4,
+        "date": "2024-07-06",
+        "text": "Good amenities and responsive housekeeping. Will consider staying again."
+      },
+      {
+        "id": "rev_094",
+        "author": "Gerald L.",
+        "rating": 5,
+        "date": "2024-08-25",
+        "text": "Clean, modern, and beautifully decorated. The breakfast was also excellent."
+      },
+      {
+        "id": "rev_095",
+        "author": "Marilyn P.",
+        "rating": 3,
+        "date": "2024-10-08",
+        "text": "Check-in was slow and the elevator was out of service for part of our stay."
+      },
+      {
+        "id": "rev_096",
+        "author": "Wayne R.",
+        "rating": 1,
+        "date": "2024-04-25",
+        "text": "Terrible experience. Found hair in the bathroom and stains on the sheets."
+      },
+      {
+        "id": "rev_097",
+        "author": "Diane T.",
+        "rating": 4,
+        "date": "2024-06-15",
+        "text": "Enjoyed the stay. Rooms are modern and bathroom was well-appointed."
+      }
+    ]
   },
   {
     "id": "hotel_009",
@@ -159,7 +854,44 @@
     "distance_to_union_square_miles": 2.8,
     "availability": true,
     "cancellation_policy": "non_refundable",
-    "image_placeholder": "hotel_009"
+    "image_placeholder": "hotel_009",
+    "reviews": [
+      {
+        "id": "rev_098",
+        "author": "Fred V.",
+        "rating": 3,
+        "date": "2024-02-15",
+        "text": "Decent hotel for the price. Nothing fancy but gets the job done."
+      },
+      {
+        "id": "rev_099",
+        "author": "Catherine W.",
+        "rating": 4,
+        "date": "2024-04-02",
+        "text": "Good value for the price. Rooms are well-maintained and the gym is decent."
+      },
+      {
+        "id": "rev_100",
+        "author": "Alan X.",
+        "rating": 2,
+        "date": "2024-06-18",
+        "text": "Uncomfortable beds and poor soundproofing. Light sleepers beware."
+      },
+      {
+        "id": "rev_101",
+        "author": "Marie Y.",
+        "rating": 3,
+        "date": "2024-08-04",
+        "text": "Mixed feelings. Staff was friendly but the room had a musty smell initially."
+      },
+      {
+        "id": "rev_102",
+        "author": "Ralph Z.",
+        "rating": 5,
+        "date": "2024-09-20",
+        "text": "Best hotel experience I've ever had. Would definitely come back."
+      }
+    ]
   },
   {
     "id": "hotel_010",
@@ -177,7 +909,51 @@
     "distance_to_union_square_miles": 3.2,
     "availability": true,
     "cancellation_policy": "flexible",
-    "image_placeholder": "hotel_010"
+    "image_placeholder": "hotel_010",
+    "reviews": [
+      {
+        "id": "rev_103",
+        "author": "Clifford A.",
+        "rating": 5,
+        "date": "2024-01-08",
+        "text": "Absolutely wonderful stay! The room was spotless and the staff went above and beyond."
+      },
+      {
+        "id": "rev_104",
+        "author": "Evelyn B.",
+        "rating": 4,
+        "date": "2024-03-18",
+        "text": "Great location and comfortable rooms. Breakfast selection could be wider."
+      },
+      {
+        "id": "rev_105",
+        "author": "Curtis C.",
+        "rating": 4,
+        "date": "2024-05-25",
+        "text": "Really enjoyed our stay. Only minor complaint is that parking was a bit tight."
+      },
+      {
+        "id": "rev_106",
+        "author": "Irene D.",
+        "rating": 5,
+        "date": "2024-07-12",
+        "text": "Perfect for a family vacation. Kids loved the pool and we loved the spa."
+      },
+      {
+        "id": "rev_107",
+        "author": "Norman E.",
+        "rating": 3,
+        "date": "2024-09-03",
+        "text": "Location is the main selling point. The room itself was just adequate."
+      },
+      {
+        "id": "rev_108",
+        "author": "Wanda F.",
+        "rating": 4,
+        "date": "2024-10-22",
+        "text": "Overall a great experience. The check-in process was smooth and efficient."
+      }
+    ]
   },
   {
     "id": "hotel_011",
@@ -195,7 +971,58 @@
     "distance_to_union_square_miles": 1.0,
     "availability": true,
     "cancellation_policy": "moderate",
-    "image_placeholder": "hotel_011"
+    "image_placeholder": "hotel_011",
+    "reviews": [
+      {
+        "id": "rev_109",
+        "author": "Herbert G.",
+        "rating": 4,
+        "date": "2024-02-22",
+        "text": "Nice hotel in a convenient location. Room was smaller than expected but clean."
+      },
+      {
+        "id": "rev_110",
+        "author": "Rose H.",
+        "rating": 3,
+        "date": "2024-04-10",
+        "text": "Average stay. Room was clean but felt a bit dated. Location is convenient though."
+      },
+      {
+        "id": "rev_111",
+        "author": "Leonard I.",
+        "rating": 5,
+        "date": "2024-06-24",
+        "text": "Exceeded all expectations. The attention to detail was remarkable."
+      },
+      {
+        "id": "rev_112",
+        "author": "Phyllis J.",
+        "rating": 4,
+        "date": "2024-08-11",
+        "text": "Solid choice for business travel. Fast Wi-Fi and quiet rooms."
+      },
+      {
+        "id": "rev_113",
+        "author": "Oscar K.",
+        "rating": 2,
+        "date": "2024-09-28",
+        "text": "Staff seemed disinterested and the room had a broken lamp that was never fixed."
+      },
+      {
+        "id": "rev_114",
+        "author": "Lillian L.",
+        "rating": 4,
+        "date": "2024-05-15",
+        "text": "Lovely property with character. The neighborhood is walkable and safe."
+      },
+      {
+        "id": "rev_115",
+        "author": "Melvin M.",
+        "rating": 3,
+        "date": "2023-10-18",
+        "text": "Fair value. The bed was comfortable but the bathroom could use a renovation."
+      }
+    ]
   },
   {
     "id": "hotel_012",
@@ -213,7 +1040,65 @@
     "distance_to_union_square_miles": 2.6,
     "availability": true,
     "cancellation_policy": "flexible",
-    "image_placeholder": "hotel_012"
+    "image_placeholder": "hotel_012",
+    "reviews": [
+      {
+        "id": "rev_116",
+        "author": "Chester N.",
+        "rating": 5,
+        "date": "2024-01-30",
+        "text": "Fantastic experience overall. The rooftop bar was a highlight."
+      },
+      {
+        "id": "rev_117",
+        "author": "Constance O.",
+        "rating": 5,
+        "date": "2024-03-25",
+        "text": "Stunning views, amazing service, and incredibly comfortable beds."
+      },
+      {
+        "id": "rev_118",
+        "author": "Vincent P.",
+        "rating": 4,
+        "date": "2024-05-08",
+        "text": "Would recommend to friends. The pool area was lovely though a bit crowded on weekends."
+      },
+      {
+        "id": "rev_119",
+        "author": "Gladys Q.",
+        "rating": 4,
+        "date": "2024-07-16",
+        "text": "Good amenities and responsive housekeeping. Will consider staying again."
+      },
+      {
+        "id": "rev_120",
+        "author": "Martin R.",
+        "rating": 3,
+        "date": "2024-09-07",
+        "text": "It was okay. The walls were thin and we could hear neighbors at night."
+      },
+      {
+        "id": "rev_121",
+        "author": "Edna S.",
+        "rating": 5,
+        "date": "2024-10-15",
+        "text": "One of the nicest hotels I have stayed at. Will be returning next year for sure."
+      },
+      {
+        "id": "rev_122",
+        "author": "Leo T.",
+        "rating": 4,
+        "date": "2024-06-01",
+        "text": "Comfortable beds and good service. The restaurant was a nice bonus."
+      },
+      {
+        "id": "rev_123",
+        "author": "Mildred U.",
+        "rating": 2,
+        "date": "2023-11-10",
+        "text": "Below expectations. The amenities listed online were not all available during our visit."
+      }
+    ]
   },
   {
     "id": "hotel_013",
@@ -231,7 +1116,44 @@
     "distance_to_union_square_miles": 0.9,
     "availability": true,
     "cancellation_policy": "non_refundable",
-    "image_placeholder": "hotel_013"
+    "image_placeholder": "hotel_013",
+    "reviews": [
+      {
+        "id": "rev_124",
+        "author": "Floyd V.",
+        "rating": 3,
+        "date": "2024-02-05",
+        "text": "Decent hotel for the price. Nothing fancy but gets the job done."
+      },
+      {
+        "id": "rev_125",
+        "author": "Hazel W.",
+        "rating": 2,
+        "date": "2024-04-18",
+        "text": "Not great. Noisy location and the room smelled like smoke despite being non-smoking."
+      },
+      {
+        "id": "rev_126",
+        "author": "Gordon X.",
+        "rating": 4,
+        "date": "2024-06-12",
+        "text": "Good value for the price. Rooms are well-maintained and the gym is decent."
+      },
+      {
+        "id": "rev_127",
+        "author": "Ethel Y.",
+        "rating": 3,
+        "date": "2024-08-02",
+        "text": "Check-in was slow and the elevator was out of service for part of our stay."
+      },
+      {
+        "id": "rev_128",
+        "author": "Stuart Z.",
+        "rating": 1,
+        "date": "2024-09-22",
+        "text": "Worst hotel stay of my life. Rude staff and filthy room. Avoid at all costs."
+      }
+    ]
   },
   {
     "id": "hotel_014",
@@ -249,7 +1171,51 @@
     "distance_to_union_square_miles": 1.8,
     "availability": true,
     "cancellation_policy": "flexible",
-    "image_placeholder": "hotel_014"
+    "image_placeholder": "hotel_014",
+    "reviews": [
+      {
+        "id": "rev_129",
+        "author": "Clarence A.",
+        "rating": 5,
+        "date": "2024-01-12",
+        "text": "Everything was perfect from check-in to check-out. Highly recommended!"
+      },
+      {
+        "id": "rev_130",
+        "author": "Lucille B.",
+        "rating": 5,
+        "date": "2024-03-28",
+        "text": "Room was spacious with a gorgeous view. Staff remembered our names by day two."
+      },
+      {
+        "id": "rev_131",
+        "author": "Elmer C.",
+        "rating": 4,
+        "date": "2024-05-16",
+        "text": "Really enjoyed our stay. Only minor complaint is that parking was a bit tight."
+      },
+      {
+        "id": "rev_132",
+        "author": "Josephine D.",
+        "rating": 5,
+        "date": "2024-07-04",
+        "text": "Loved every minute of our stay. The amenities were top-notch."
+      },
+      {
+        "id": "rev_133",
+        "author": "Nelson E.",
+        "rating": 4,
+        "date": "2024-08-22",
+        "text": "Pleasant stay with friendly staff. The bar had a great cocktail menu."
+      },
+      {
+        "id": "rev_134",
+        "author": "Pearl F.",
+        "rating": 5,
+        "date": "2024-10-05",
+        "text": "The concierge was incredibly helpful with dinner reservations and sightseeing tips."
+      }
+    ]
   },
   {
     "id": "hotel_015",
@@ -267,7 +1233,58 @@
     "distance_to_union_square_miles": 2.5,
     "availability": true,
     "cancellation_policy": "moderate",
-    "image_placeholder": "hotel_015"
+    "image_placeholder": "hotel_015",
+    "reviews": [
+      {
+        "id": "rev_135",
+        "author": "Warren G.",
+        "rating": 4,
+        "date": "2024-02-10",
+        "text": "Solid choice for business travel. Fast Wi-Fi and quiet rooms."
+      },
+      {
+        "id": "rev_136",
+        "author": "Bernice H.",
+        "rating": 3,
+        "date": "2024-04-23",
+        "text": "Middle of the road experience. Not bad, not great. Would consider alternatives next time."
+      },
+      {
+        "id": "rev_137",
+        "author": "Oliver I.",
+        "rating": 5,
+        "date": "2024-06-08",
+        "text": "Clean, modern, and beautifully decorated. The breakfast was also excellent."
+      },
+      {
+        "id": "rev_138",
+        "author": "Thelma J.",
+        "rating": 4,
+        "date": "2024-08-14",
+        "text": "Good hotel for the price point. Location is walking distance to major attractions."
+      },
+      {
+        "id": "rev_139",
+        "author": "Benny K.",
+        "rating": 4,
+        "date": "2024-09-30",
+        "text": "Overall a great experience. The check-in process was smooth and efficient."
+      },
+      {
+        "id": "rev_140",
+        "author": "Vivian L.",
+        "rating": 2,
+        "date": "2024-05-02",
+        "text": "Would not stay again. Slow service and the room was not ready at check-in time."
+      },
+      {
+        "id": "rev_141",
+        "author": "Maxwell M.",
+        "rating": 5,
+        "date": "2024-07-20",
+        "text": "Outstanding service and a prime location. Could not ask for more."
+      }
+    ]
   },
   {
     "id": "hotel_016",
@@ -285,7 +1302,65 @@
     "distance_to_union_square_miles": 999.0,
     "availability": true,
     "cancellation_policy": "flexible",
-    "image_placeholder": "hotel_016"
+    "image_placeholder": "hotel_016",
+    "reviews": [
+      {
+        "id": "rev_142",
+        "author": "Lester N.",
+        "rating": 5,
+        "date": "2024-01-20",
+        "text": "We celebrated our anniversary here and it was magical. Five stars all around."
+      },
+      {
+        "id": "rev_143",
+        "author": "Marlene O.",
+        "rating": 5,
+        "date": "2024-03-14",
+        "text": "Impeccable cleanliness, friendly staff, and great location near shopping."
+      },
+      {
+        "id": "rev_144",
+        "author": "Harvey P.",
+        "rating": 5,
+        "date": "2024-05-28",
+        "text": "Best hotel experience I've ever had. Would definitely come back."
+      },
+      {
+        "id": "rev_145",
+        "author": "Lorraine Q.",
+        "rating": 4,
+        "date": "2024-07-15",
+        "text": "Very nice hotel overall. Minor issues with the air conditioning but staff fixed it quickly."
+      },
+      {
+        "id": "rev_146",
+        "author": "Jesse R.",
+        "rating": 5,
+        "date": "2024-09-10",
+        "text": "Absolutely wonderful stay! The room was spotless and the staff went above and beyond."
+      },
+      {
+        "id": "rev_147",
+        "author": "Pauline S.",
+        "rating": 5,
+        "date": "2024-10-25",
+        "text": "Exceeded all expectations. The attention to detail was remarkable."
+      },
+      {
+        "id": "rev_148",
+        "author": "Darrell T.",
+        "rating": 4,
+        "date": "2024-06-19",
+        "text": "Lovely property with character. The neighborhood is walkable and safe."
+      },
+      {
+        "id": "rev_149",
+        "author": "Sylvia U.",
+        "rating": 3,
+        "date": "2023-09-08",
+        "text": "Breakfast was underwhelming but the room and location made up for it partially."
+      }
+    ]
   },
   {
     "id": "hotel_017",
@@ -303,7 +1378,44 @@
     "distance_to_union_square_miles": 999.0,
     "availability": true,
     "cancellation_policy": "non_refundable",
-    "image_placeholder": "hotel_017"
+    "image_placeholder": "hotel_017",
+    "reviews": [
+      {
+        "id": "rev_150",
+        "author": "Alvin V.",
+        "rating": 3,
+        "date": "2024-02-18",
+        "text": "It was okay. The walls were thin and we could hear neighbors at night."
+      },
+      {
+        "id": "rev_151",
+        "author": "Vera W.",
+        "rating": 4,
+        "date": "2024-04-06",
+        "text": "Good value for the price. Rooms are well-maintained and the gym is decent."
+      },
+      {
+        "id": "rev_152",
+        "author": "Sidney X.",
+        "rating": 2,
+        "date": "2024-06-22",
+        "text": "The price was low but you get what you pay for. Needs significant updates."
+      },
+      {
+        "id": "rev_153",
+        "author": "Arlene Y.",
+        "rating": 4,
+        "date": "2024-08-10",
+        "text": "Comfortable beds and good service. The restaurant was a nice bonus."
+      },
+      {
+        "id": "rev_154",
+        "author": "Wilbur Z.",
+        "rating": 5,
+        "date": "2024-09-26",
+        "text": "Fantastic experience overall. The rooftop bar was a highlight."
+      }
+    ]
   },
   {
     "id": "hotel_018",
@@ -321,7 +1433,51 @@
     "distance_to_union_square_miles": 999.0,
     "availability": true,
     "cancellation_policy": "moderate",
-    "image_placeholder": "hotel_018"
+    "image_placeholder": "hotel_018",
+    "reviews": [
+      {
+        "id": "rev_155",
+        "author": "Milton A.",
+        "rating": 4,
+        "date": "2024-01-05",
+        "text": "Good amenities and responsive housekeeping. Will consider staying again."
+      },
+      {
+        "id": "rev_156",
+        "author": "Naomi B.",
+        "rating": 5,
+        "date": "2024-03-20",
+        "text": "Perfect for a family vacation. Kids loved the pool and we loved the spa."
+      },
+      {
+        "id": "rev_157",
+        "author": "Otis C.",
+        "rating": 4,
+        "date": "2024-05-12",
+        "text": "Enjoyed the stay. Rooms are modern and bathroom was well-appointed."
+      },
+      {
+        "id": "rev_158",
+        "author": "Dolores D.",
+        "rating": 3,
+        "date": "2024-07-08",
+        "text": "Room was smaller than pictured online. Otherwise a reasonable stay."
+      },
+      {
+        "id": "rev_159",
+        "author": "Fredrick E.",
+        "rating": 5,
+        "date": "2024-09-01",
+        "text": "Room was spacious with a gorgeous view. Staff remembered our names by day two."
+      },
+      {
+        "id": "rev_160",
+        "author": "Edith F.",
+        "rating": 4,
+        "date": "2024-10-18",
+        "text": "Would recommend to friends. The pool area was lovely though a bit crowded on weekends."
+      }
+    ]
   },
   {
     "id": "hotel_019",
@@ -339,7 +1495,58 @@
     "distance_to_union_square_miles": 999.0,
     "availability": true,
     "cancellation_policy": "flexible",
-    "image_placeholder": "hotel_019"
+    "image_placeholder": "hotel_019",
+    "reviews": [
+      {
+        "id": "rev_161",
+        "author": "Clyde G.",
+        "rating": 5,
+        "date": "2024-02-12",
+        "text": "Stunning views, amazing service, and incredibly comfortable beds."
+      },
+      {
+        "id": "rev_162",
+        "author": "Rosemary H.",
+        "rating": 4,
+        "date": "2024-04-25",
+        "text": "Pleasant stay with friendly staff. The bar had a great cocktail menu."
+      },
+      {
+        "id": "rev_163",
+        "author": "Terrence I.",
+        "rating": 4,
+        "date": "2024-06-14",
+        "text": "Nice hotel in a convenient location. Room was smaller than expected but clean."
+      },
+      {
+        "id": "rev_164",
+        "author": "Alma J.",
+        "rating": 5,
+        "date": "2024-08-08",
+        "text": "The concierge was incredibly helpful with dinner reservations and sightseeing tips."
+      },
+      {
+        "id": "rev_165",
+        "author": "Wendell K.",
+        "rating": 3,
+        "date": "2024-09-18",
+        "text": "Decent hotel for the price. Nothing fancy but gets the job done."
+      },
+      {
+        "id": "rev_166",
+        "author": "Iris L.",
+        "rating": 4,
+        "date": "2024-07-30",
+        "text": "Solid choice for business travel. Fast Wi-Fi and quiet rooms."
+      },
+      {
+        "id": "rev_167",
+        "author": "Archie M.",
+        "rating": 2,
+        "date": "2023-11-15",
+        "text": "Disappointing stay. The room was not as clean as expected and the furniture was worn."
+      }
+    ]
   },
   {
     "id": "hotel_020",
@@ -357,7 +1564,65 @@
     "distance_to_union_square_miles": 999.0,
     "availability": true,
     "cancellation_policy": "moderate",
-    "image_placeholder": "hotel_020"
+    "image_placeholder": "hotel_020",
+    "reviews": [
+      {
+        "id": "rev_168",
+        "author": "Clay N.",
+        "rating": 3,
+        "date": "2024-01-22",
+        "text": "Average stay. Room was clean but felt a bit dated. Location is convenient though."
+      },
+      {
+        "id": "rev_169",
+        "author": "Loretta O.",
+        "rating": 4,
+        "date": "2024-03-10",
+        "text": "Good hotel for the price point. Location is walking distance to major attractions."
+      },
+      {
+        "id": "rev_170",
+        "author": "Simon P.",
+        "rating": 5,
+        "date": "2024-05-20",
+        "text": "Outstanding service and a prime location. Could not ask for more."
+      },
+      {
+        "id": "rev_171",
+        "author": "Estelle Q.",
+        "rating": 2,
+        "date": "2024-07-05",
+        "text": "Not great. Noisy location and the room smelled like smoke despite being non-smoking."
+      },
+      {
+        "id": "rev_172",
+        "author": "Leroy R.",
+        "rating": 4,
+        "date": "2024-09-12",
+        "text": "Overall a great experience. The check-in process was smooth and efficient."
+      },
+      {
+        "id": "rev_173",
+        "author": "Norma S.",
+        "rating": 3,
+        "date": "2024-10-28",
+        "text": "Mixed feelings. Staff was friendly but the room had a musty smell initially."
+      },
+      {
+        "id": "rev_174",
+        "author": "Horace T.",
+        "rating": 5,
+        "date": "2024-06-25",
+        "text": "Clean, modern, and beautifully decorated. The breakfast was also excellent."
+      },
+      {
+        "id": "rev_175",
+        "author": "Gail U.",
+        "rating": 1,
+        "date": "2024-04-08",
+        "text": "Do not book this hotel. Broken AC in summer heat and no one came to fix it."
+      }
+    ]
   },
   {
     "id": "hotel_021",
@@ -375,7 +1640,44 @@
     "distance_to_union_square_miles": 999.0,
     "availability": true,
     "cancellation_policy": "flexible",
-    "image_placeholder": "hotel_021"
+    "image_placeholder": "hotel_021",
+    "reviews": [
+      {
+        "id": "rev_176",
+        "author": "Gilbert V.",
+        "rating": 5,
+        "date": "2024-02-28",
+        "text": "Loved every minute of our stay. The amenities were top-notch."
+      },
+      {
+        "id": "rev_177",
+        "author": "Eleanor W.",
+        "rating": 5,
+        "date": "2024-04-15",
+        "text": "We celebrated our anniversary here and it was magical. Five stars all around."
+      },
+      {
+        "id": "rev_178",
+        "author": "Rodney X.",
+        "rating": 4,
+        "date": "2024-06-03",
+        "text": "Great location and comfortable rooms. Breakfast selection could be wider."
+      },
+      {
+        "id": "rev_179",
+        "author": "Marion Y.",
+        "rating": 4,
+        "date": "2024-08-18",
+        "text": "Lovely property with character. The neighborhood is walkable and safe."
+      },
+      {
+        "id": "rev_180",
+        "author": "Luther Z.",
+        "rating": 5,
+        "date": "2024-10-02",
+        "text": "Exceeded all expectations. The attention to detail was remarkable."
+      }
+    ]
   },
   {
     "id": "hotel_022",
@@ -393,7 +1695,51 @@
     "distance_to_union_square_miles": 4.1,
     "availability": true,
     "cancellation_policy": "flexible",
-    "image_placeholder": "hotel_022"
+    "image_placeholder": "hotel_022",
+    "reviews": [
+      {
+        "id": "rev_181",
+        "author": "Boyd A.",
+        "rating": 4,
+        "date": "2024-01-16",
+        "text": "Good amenities and responsive housekeeping. Will consider staying again."
+      },
+      {
+        "id": "rev_182",
+        "author": "Faye B.",
+        "rating": 5,
+        "date": "2024-03-05",
+        "text": "Fantastic experience overall. The rooftop bar was a highlight."
+      },
+      {
+        "id": "rev_183",
+        "author": "Dewey C.",
+        "rating": 3,
+        "date": "2024-05-18",
+        "text": "Location is the main selling point. The room itself was just adequate."
+      },
+      {
+        "id": "rev_184",
+        "author": "Miriam D.",
+        "rating": 4,
+        "date": "2024-07-25",
+        "text": "Enjoyed the stay. Rooms are modern and bathroom was well-appointed."
+      },
+      {
+        "id": "rev_185",
+        "author": "Noel E.",
+        "rating": 5,
+        "date": "2024-09-08",
+        "text": "Impeccable cleanliness, friendly staff, and great location near shopping."
+      },
+      {
+        "id": "rev_186",
+        "author": "Paulette F.",
+        "rating": 2,
+        "date": "2024-04-12",
+        "text": "Staff seemed disinterested and the room had a broken lamp that was never fixed."
+      }
+    ]
   },
   {
     "id": "hotel_023",
@@ -411,7 +1757,58 @@
     "distance_to_union_square_miles": 0.7,
     "availability": true,
     "cancellation_policy": "moderate",
-    "image_placeholder": "hotel_023"
+    "image_placeholder": "hotel_023",
+    "reviews": [
+      {
+        "id": "rev_187",
+        "author": "Irving G.",
+        "rating": 4,
+        "date": "2024-02-03",
+        "text": "Really enjoyed our stay. Only minor complaint is that parking was a bit tight."
+      },
+      {
+        "id": "rev_188",
+        "author": "Stella H.",
+        "rating": 5,
+        "date": "2024-04-20",
+        "text": "Best hotel experience I've ever had. Would definitely come back."
+      },
+      {
+        "id": "rev_189",
+        "author": "Willard I.",
+        "rating": 3,
+        "date": "2024-06-10",
+        "text": "Fair value. The bed was comfortable but the bathroom could use a renovation."
+      },
+      {
+        "id": "rev_190",
+        "author": "Bessie J.",
+        "rating": 4,
+        "date": "2024-08-22",
+        "text": "Nice hotel in a convenient location. Room was smaller than expected but clean."
+      },
+      {
+        "id": "rev_191",
+        "author": "Grant K.",
+        "rating": 5,
+        "date": "2024-10-08",
+        "text": "Absolutely wonderful stay! The room was spotless and the staff went above and beyond."
+      },
+      {
+        "id": "rev_192",
+        "author": "Roberta L.",
+        "rating": 4,
+        "date": "2024-05-30",
+        "text": "Would recommend to friends. The pool area was lovely though a bit crowded on weekends."
+      },
+      {
+        "id": "rev_193",
+        "author": "Jasper M.",
+        "rating": 3,
+        "date": "2023-12-14",
+        "text": "Average stay. Room was clean but felt a bit dated. Location is convenient though."
+      }
+    ]
   },
   {
     "id": "hotel_024",
@@ -429,7 +1826,65 @@
     "distance_to_union_square_miles": 2.0,
     "availability": true,
     "cancellation_policy": "flexible",
-    "image_placeholder": "hotel_024"
+    "image_placeholder": "hotel_024",
+    "reviews": [
+      {
+        "id": "rev_194",
+        "author": "Kenny N.",
+        "rating": 5,
+        "date": "2024-01-28",
+        "text": "Everything was perfect from check-in to check-out. Highly recommended!"
+      },
+      {
+        "id": "rev_195",
+        "author": "Bonnie O.",
+        "rating": 5,
+        "date": "2024-03-15",
+        "text": "Stunning views, amazing service, and incredibly comfortable beds."
+      },
+      {
+        "id": "rev_196",
+        "author": "Malcolm P.",
+        "rating": 4,
+        "date": "2024-05-22",
+        "text": "Comfortable beds and good service. The restaurant was a nice bonus."
+      },
+      {
+        "id": "rev_197",
+        "author": "Bertha Q.",
+        "rating": 4,
+        "date": "2024-07-10",
+        "text": "Solid choice for business travel. Fast Wi-Fi and quiet rooms."
+      },
+      {
+        "id": "rev_198",
+        "author": "Cecil R.",
+        "rating": 5,
+        "date": "2024-09-02",
+        "text": "One of the nicest hotels I have stayed at. Will be returning next year for sure."
+      },
+      {
+        "id": "rev_199",
+        "author": "Blanche S.",
+        "rating": 3,
+        "date": "2024-10-20",
+        "text": "It was okay. The walls were thin and we could hear neighbors at night."
+      },
+      {
+        "id": "rev_200",
+        "author": "Hector T.",
+        "rating": 4,
+        "date": "2024-06-18",
+        "text": "Good value for the price. Rooms are well-maintained and the gym is decent."
+      },
+      {
+        "id": "rev_201",
+        "author": "Eloise U.",
+        "rating": 2,
+        "date": "2023-10-25",
+        "text": "Uncomfortable beds and poor soundproofing. Light sleepers beware."
+      }
+    ]
   },
   {
     "id": "hotel_025",
@@ -447,7 +1902,44 @@
     "distance_to_union_square_miles": 1.3,
     "availability": true,
     "cancellation_policy": "moderate",
-    "image_placeholder": "hotel_025"
+    "image_placeholder": "hotel_025",
+    "reviews": [
+      {
+        "id": "rev_202",
+        "author": "Drake V.",
+        "rating": 5,
+        "date": "2024-02-06",
+        "text": "Room was spacious with a gorgeous view. Staff remembered our names by day two."
+      },
+      {
+        "id": "rev_203",
+        "author": "Lydia W.",
+        "rating": 4,
+        "date": "2024-04-18",
+        "text": "Pleasant stay with friendly staff. The bar had a great cocktail menu."
+      },
+      {
+        "id": "rev_204",
+        "author": "Abel X.",
+        "rating": 5,
+        "date": "2024-06-05",
+        "text": "Loved every minute of our stay. The amenities were top-notch."
+      },
+      {
+        "id": "rev_205",
+        "author": "Colleen Y.",
+        "rating": 4,
+        "date": "2024-08-12",
+        "text": "Great location and comfortable rooms. Breakfast selection could be wider."
+      },
+      {
+        "id": "rev_206",
+        "author": "Ruben Z.",
+        "rating": 3,
+        "date": "2024-09-25",
+        "text": "Decent hotel for the price. Nothing fancy but gets the job done."
+      }
+    ]
   },
   {
     "id": "hotel_026",
@@ -465,7 +1957,51 @@
     "distance_to_union_square_miles": 1.6,
     "availability": true,
     "cancellation_policy": "flexible",
-    "image_placeholder": "hotel_026"
+    "image_placeholder": "hotel_026",
+    "reviews": [
+      {
+        "id": "rev_207",
+        "author": "Sheldon A.",
+        "rating": 5,
+        "date": "2024-01-10",
+        "text": "The concierge was incredibly helpful with dinner reservations and sightseeing tips."
+      },
+      {
+        "id": "rev_208",
+        "author": "Ramona B.",
+        "rating": 4,
+        "date": "2024-03-22",
+        "text": "Good hotel for the price point. Location is walking distance to major attractions."
+      },
+      {
+        "id": "rev_209",
+        "author": "Kelvin C.",
+        "rating": 5,
+        "date": "2024-05-14",
+        "text": "Clean, modern, and beautifully decorated. The breakfast was also excellent."
+      },
+      {
+        "id": "rev_210",
+        "author": "Jeanne D.",
+        "rating": 3,
+        "date": "2024-07-28",
+        "text": "Check-in was slow and the elevator was out of service for part of our stay."
+      },
+      {
+        "id": "rev_211",
+        "author": "Doyle E.",
+        "rating": 4,
+        "date": "2024-09-15",
+        "text": "Overall a great experience. The check-in process was smooth and efficient."
+      },
+      {
+        "id": "rev_212",
+        "author": "Leona F.",
+        "rating": 5,
+        "date": "2024-10-30",
+        "text": "Exceeded all expectations. The attention to detail was remarkable."
+      }
+    ]
   },
   {
     "id": "hotel_027",
@@ -483,7 +2019,58 @@
     "distance_to_union_square_miles": 1.9,
     "availability": true,
     "cancellation_policy": "moderate",
-    "image_placeholder": "hotel_027"
+    "image_placeholder": "hotel_027",
+    "reviews": [
+      {
+        "id": "rev_213",
+        "author": "Barrett G.",
+        "rating": 5,
+        "date": "2024-02-16",
+        "text": "Absolutely wonderful stay! The room was spotless and the staff went above and beyond."
+      },
+      {
+        "id": "rev_214",
+        "author": "Maxine H.",
+        "rating": 4,
+        "date": "2024-04-08",
+        "text": "Good amenities and responsive housekeeping. Will consider staying again."
+      },
+      {
+        "id": "rev_215",
+        "author": "Conrad I.",
+        "rating": 4,
+        "date": "2024-06-20",
+        "text": "Enjoyed the stay. Rooms are modern and bathroom was well-appointed."
+      },
+      {
+        "id": "rev_216",
+        "author": "Francine J.",
+        "rating": 5,
+        "date": "2024-08-05",
+        "text": "Perfect for a family vacation. Kids loved the pool and we loved the spa."
+      },
+      {
+        "id": "rev_217",
+        "author": "Cedric K.",
+        "rating": 3,
+        "date": "2024-09-22",
+        "text": "Middle of the road experience. Not bad, not great. Would consider alternatives next time."
+      },
+      {
+        "id": "rev_218",
+        "author": "Olga L.",
+        "rating": 4,
+        "date": "2024-10-12",
+        "text": "Really enjoyed our stay. Only minor complaint is that parking was a bit tight."
+      },
+      {
+        "id": "rev_219",
+        "author": "Emery M.",
+        "rating": 2,
+        "date": "2023-08-18",
+        "text": "Below expectations. The amenities listed online were not all available during our visit."
+      }
+    ]
   },
   {
     "id": "hotel_028",
@@ -501,7 +2088,51 @@
     "distance_to_union_square_miles": 3.5,
     "availability": false,
     "cancellation_policy": "moderate",
-    "image_placeholder": "hotel_028"
+    "image_placeholder": "hotel_028",
+    "reviews": [
+      {
+        "id": "rev_220",
+        "author": "Darren N.",
+        "rating": 4,
+        "date": "2024-01-14",
+        "text": "Lovely property with character. The neighborhood is walkable and safe."
+      },
+      {
+        "id": "rev_221",
+        "author": "Sadie O.",
+        "rating": 5,
+        "date": "2024-03-28",
+        "text": "Best hotel experience I've ever had. Would definitely come back."
+      },
+      {
+        "id": "rev_222",
+        "author": "Lamar P.",
+        "rating": 3,
+        "date": "2024-05-15",
+        "text": "Breakfast was underwhelming but the room and location made up for it partially."
+      },
+      {
+        "id": "rev_223",
+        "author": "Winifred Q.",
+        "rating": 4,
+        "date": "2024-07-18",
+        "text": "Solid choice for business travel. Fast Wi-Fi and quiet rooms."
+      },
+      {
+        "id": "rev_224",
+        "author": "Grover R.",
+        "rating": 5,
+        "date": "2024-09-05",
+        "text": "Outstanding service and a prime location. Could not ask for more."
+      },
+      {
+        "id": "rev_225",
+        "author": "Nellie S.",
+        "rating": 4,
+        "date": "2024-10-22",
+        "text": "Nice hotel in a convenient location. Room was smaller than expected but clean."
+      }
+    ]
   },
   {
     "id": "hotel_029",
@@ -519,7 +2150,58 @@
     "distance_to_union_square_miles": 0.5,
     "availability": true,
     "cancellation_policy": "non_refundable",
-    "image_placeholder": "hotel_029"
+    "image_placeholder": "hotel_029",
+    "reviews": [
+      {
+        "id": "rev_226",
+        "author": "Myles T.",
+        "rating": 3,
+        "date": "2024-02-22",
+        "text": "Decent hotel for the price. Nothing fancy but gets the job done."
+      },
+      {
+        "id": "rev_227",
+        "author": "Opal U.",
+        "rating": 2,
+        "date": "2024-04-10",
+        "text": "The price was low but you get what you pay for. Needs significant updates."
+      },
+      {
+        "id": "rev_228",
+        "author": "Reginald V.",
+        "rating": 1,
+        "date": "2024-06-28",
+        "text": "Absolutely unacceptable. The room had bugs and management did not care."
+      },
+      {
+        "id": "rev_229",
+        "author": "Clarice W.",
+        "rating": 4,
+        "date": "2024-08-15",
+        "text": "Good value for the price. Rooms are well-maintained and the gym is decent."
+      },
+      {
+        "id": "rev_230",
+        "author": "Hubert X.",
+        "rating": 3,
+        "date": "2024-09-30",
+        "text": "It was okay. The walls were thin and we could hear neighbors at night."
+      },
+      {
+        "id": "rev_231",
+        "author": "Lena Y.",
+        "rating": 4,
+        "date": "2024-05-08",
+        "text": "Overall a great experience. The check-in process was smooth and efficient."
+      },
+      {
+        "id": "rev_232",
+        "author": "Quincy Z.",
+        "rating": 2,
+        "date": "2023-11-20",
+        "text": "Not great. Noisy location and the room smelled like smoke despite being non-smoking."
+      }
+    ]
   },
   {
     "id": "hotel_030",
@@ -537,6 +2219,50 @@
     "distance_to_union_square_miles": 2.2,
     "availability": true,
     "cancellation_policy": "flexible",
-    "image_placeholder": "hotel_030"
+    "image_placeholder": "hotel_030",
+    "reviews": [
+      {
+        "id": "rev_233",
+        "author": "Garth A.",
+        "rating": 5,
+        "date": "2024-01-05",
+        "text": "We celebrated our anniversary here and it was magical. Five stars all around."
+      },
+      {
+        "id": "rev_234",
+        "author": "Celeste B.",
+        "rating": 5,
+        "date": "2024-03-18",
+        "text": "Room was spacious with a gorgeous view. Staff remembered our names by day two."
+      },
+      {
+        "id": "rev_235",
+        "author": "Orville C.",
+        "rating": 4,
+        "date": "2024-05-06",
+        "text": "Would recommend to friends. The pool area was lovely though a bit crowded on weekends."
+      },
+      {
+        "id": "rev_236",
+        "author": "Harriet D.",
+        "rating": 5,
+        "date": "2024-07-22",
+        "text": "Fantastic experience overall. The rooftop bar was a highlight."
+      },
+      {
+        "id": "rev_237",
+        "author": "Felix E.",
+        "rating": 4,
+        "date": "2024-09-08",
+        "text": "Comfortable beds and good service. The restaurant was a nice bonus."
+      },
+      {
+        "id": "rev_238",
+        "author": "Rosalyn F.",
+        "rating": 5,
+        "date": "2024-10-15",
+        "text": "Impeccable cleanliness, friendly staff, and great location near shopping."
+      }
+    ]
   }
 ]

@@ -13,4 +13,8 @@ export type RootStackParamList = {
   Checkout: { type: 'hotel' | 'flight' | 'restaurant' };
   Confirmation: undefined;
   MyBookings: undefined;
+  ExpenseFolder: undefined;
+  Reviews: { hotelId: string };
+  BulkBooking: { hotelId: string; hotelName: string; pricePerNight: number; roomTypes: string[] };
+  CompensationClaim: { bookingReference: string; delayMinutes: number };
 };

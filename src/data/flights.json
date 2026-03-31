@@ -14,7 +14,12 @@
     "seat_classes": ["Economy", "Business"],
     "available_seats": 14,
     "baggage_included": false,
-    "meal_options": ["standard", "vegetarian", "gluten_free"]
+    "meal_options": ["standard", "vegetarian", "gluten_free"],
+    "baggage_policy": {
+      "personal_item_max_cm": "40x30x15",
+      "carry_on_max_cm": "55x40x20",
+      "checked_bag_fee": 35.0
+    }
   },
   {
     "id": "flight_002",
@@ -31,7 +36,12 @@
     "seat_classes": ["Economy", "Comfort+", "First"],
     "available_seats": 22,
     "baggage_included": false,
-    "meal_options": ["standard", "vegetarian"]
+    "meal_options": ["standard", "vegetarian"],
+    "baggage_policy": {
+      "personal_item_max_cm": "45x35x20",
+      "carry_on_max_cm": "56x36x23",
+      "checked_bag_fee": 30.0
+    }
   },
   {
     "id": "flight_003",
@@ -48,7 +58,12 @@
     "seat_classes": ["Economy", "Business"],
     "available_seats": 8,
     "baggage_included": true,
-    "meal_options": ["standard", "vegetarian", "gluten_free", "kosher"]
+    "meal_options": ["standard", "vegetarian", "gluten_free", "kosher"],
+    "baggage_policy": {
+      "personal_item_max_cm": "40x30x15",
+      "carry_on_max_cm": "56x36x23",
+      "checked_bag_fee": 35.0
+    }
   },
   {
     "id": "flight_004",
@@ -65,7 +80,12 @@
     "seat_classes": ["Economy", "Mint"],
     "available_seats": 30,
     "baggage_included": false,
-    "meal_options": ["standard", "vegetarian"]
+    "meal_options": ["standard", "vegetarian"],
+    "baggage_policy": {
+      "personal_item_max_cm": "43x33x18",
+      "carry_on_max_cm": "55x35x22",
+      "checked_bag_fee": 35.0
+    }
   },
   {
     "id": "flight_005",
@@ -82,7 +102,12 @@
     "seat_classes": ["Economy"],
     "available_seats": 45,
     "baggage_included": true,
-    "meal_options": ["standard"]
+    "meal_options": ["standard"],
+    "baggage_policy": {
+      "personal_item_max_cm": "45x35x20",
+      "carry_on_max_cm": "60x40x25",
+      "checked_bag_fee": 0.0
+    }
   },
   {
     "id": "flight_006",
@@ -99,7 +124,12 @@
     "seat_classes": ["Economy", "First"],
     "available_seats": 18,
     "baggage_included": false,
-    "meal_options": ["standard", "vegetarian"]
+    "meal_options": ["standard", "vegetarian"],
+    "baggage_policy": {
+      "personal_item_max_cm": "43x33x17",
+      "carry_on_max_cm": "55x35x22",
+      "checked_bag_fee": 30.0
+    }
   },
   {
     "id": "flight_007",
@@ -116,7 +146,12 @@
     "seat_classes": ["Economy", "Business"],
     "available_seats": 12,
     "baggage_included": false,
-    "meal_options": ["standard", "vegetarian", "gluten_free"]
+    "meal_options": ["standard", "vegetarian", "gluten_free"],
+    "baggage_policy": {
+      "personal_item_max_cm": "40x30x15",
+      "carry_on_max_cm": "55x40x20",
+      "checked_bag_fee": 35.0
+    }
   },
   {
     "id": "flight_008",
@@ -133,7 +168,12 @@
     "seat_classes": ["Economy", "Comfort+", "First"],
     "available_seats": 20,
     "baggage_included": false,
-    "meal_options": ["standard", "vegetarian", "gluten_free"]
+    "meal_options": ["standard", "vegetarian", "gluten_free"],
+    "baggage_policy": {
+      "personal_item_max_cm": "45x35x20",
+      "carry_on_max_cm": "56x36x23",
+      "checked_bag_fee": 30.0
+    }
   },
   {
     "id": "flight_009",
@@ -150,7 +190,12 @@
     "seat_classes": ["Economy", "Business"],
     "available_seats": 16,
     "baggage_included": false,
-    "meal_options": ["standard", "vegetarian"]
+    "meal_options": ["standard", "vegetarian"],
+    "baggage_policy": {
+      "personal_item_max_cm": "40x30x15",
+      "carry_on_max_cm": "56x36x23",
+      "checked_bag_fee": 35.0
+    }
   },
   {
     "id": "flight_010",
@@ -167,7 +212,12 @@
     "seat_classes": ["Economy", "Mint"],
     "available_seats": 25,
     "baggage_included": false,
-    "meal_options": ["standard"]
+    "meal_options": ["standard"],
+    "baggage_policy": {
+      "personal_item_max_cm": "43x33x18",
+      "carry_on_max_cm": "55x35x22",
+      "checked_bag_fee": 35.0
+    }
   },
   {
     "id": "flight_011",
@@ -184,7 +234,12 @@
     "seat_classes": ["Economy", "Business"],
     "available_seats": 19,
     "baggage_included": false,
-    "meal_options": ["standard", "vegetarian", "gluten_free"]
+    "meal_options": ["standard", "vegetarian", "gluten_free"],
+    "baggage_policy": {
+      "personal_item_max_cm": "40x30x15",
+      "carry_on_max_cm": "55x40x20",
+      "checked_bag_fee": 35.0
+    }
   },
   {
     "id": "flight_012",
@@ -201,7 +256,12 @@
     "seat_classes": ["Economy", "Business"],
     "available_seats": 11,
     "baggage_included": false,
-    "meal_options": ["standard", "vegetarian"]
+    "meal_options": ["standard", "vegetarian"],
+    "baggage_policy": {
+      "personal_item_max_cm": "40x30x15",
+      "carry_on_max_cm": "56x36x23",
+      "checked_bag_fee": 35.0
+    }
   },
   {
     "id": "flight_013",
@@ -218,7 +278,12 @@
     "seat_classes": ["Economy"],
     "available_seats": 50,
     "baggage_included": true,
-    "meal_options": ["standard"]
+    "meal_options": ["standard"],
+    "baggage_policy": {
+      "personal_item_max_cm": "45x35x20",
+      "carry_on_max_cm": "60x40x25",
+      "checked_bag_fee": 0.0
+    }
   },
   {
     "id": "flight_014",
@@ -235,7 +300,12 @@
     "seat_classes": ["Economy", "First"],
     "available_seats": 28,
     "baggage_included": false,
-    "meal_options": ["standard", "vegetarian"]
+    "meal_options": ["standard", "vegetarian"],
+    "baggage_policy": {
+      "personal_item_max_cm": "43x33x17",
+      "carry_on_max_cm": "55x35x22",
+      "checked_bag_fee": 30.0
+    }
   },
   {
     "id": "flight_015",
@@ -252,7 +322,12 @@
     "seat_classes": ["Economy", "Comfort+", "First"],
     "available_seats": 15,
     "baggage_included": false,
-    "meal_options": ["standard", "vegetarian", "gluten_free"]
+    "meal_options": ["standard", "vegetarian", "gluten_free"],
+    "baggage_policy": {
+      "personal_item_max_cm": "45x35x20",
+      "carry_on_max_cm": "56x36x23",
+      "checked_bag_fee": 30.0
+    }
   },
   {
     "id": "flight_016",
@@ -269,7 +344,12 @@
     "seat_classes": ["Economy"],
     "available_seats": 33,
     "baggage_included": false,
-    "meal_options": ["standard", "vegetarian"]
+    "meal_options": ["standard", "vegetarian"],
+    "baggage_policy": {
+      "personal_item_max_cm": "40x30x15",
+      "carry_on_max_cm": "55x40x20",
+      "checked_bag_fee": 35.0
+    }
   },
   {
     "id": "flight_017",
@@ -286,7 +366,12 @@
     "seat_classes": ["Economy", "Business"],
     "available_seats": 7,
     "baggage_included": false,
-    "meal_options": ["standard", "vegetarian", "gluten_free", "kosher"]
+    "meal_options": ["standard", "vegetarian", "gluten_free", "kosher"],
+    "baggage_policy": {
+      "personal_item_max_cm": "40x30x15",
+      "carry_on_max_cm": "56x36x23",
+      "checked_bag_fee": 35.0
+    }
   },
   {
     "id": "flight_018",
@@ -303,7 +388,12 @@
     "seat_classes": ["Economy"],
     "available_seats": 60,
     "baggage_included": true,
-    "meal_options": ["standard"]
+    "meal_options": ["standard"],
+    "baggage_policy": {
+      "personal_item_max_cm": "45x35x20",
+      "carry_on_max_cm": "60x40x25",
+      "checked_bag_fee": 0.0
+    }
   },
   {
     "id": "flight_019",
@@ -320,7 +410,12 @@
     "seat_classes": ["Economy", "Mint"],
     "available_seats": 18,
     "baggage_included": false,
-    "meal_options": ["standard", "vegetarian"]
+    "meal_options": ["standard", "vegetarian"],
+    "baggage_policy": {
+      "personal_item_max_cm": "43x33x18",
+      "carry_on_max_cm": "55x35x22",
+      "checked_bag_fee": 35.0
+    }
   },
   {
     "id": "flight_020",
@@ -337,7 +432,12 @@
     "seat_classes": ["Economy", "First"],
     "available_seats": 22,
     "baggage_included": false,
-    "meal_options": ["standard", "vegetarian"]
+    "meal_options": ["standard", "vegetarian"],
+    "baggage_policy": {
+      "personal_item_max_cm": "43x33x17",
+      "carry_on_max_cm": "55x35x22",
+      "checked_bag_fee": 30.0
+    }
   },
   {
     "id": "flight_021",
@@ -354,7 +454,12 @@
     "seat_classes": ["Economy", "First"],
     "available_seats": 14,
     "baggage_included": false,
-    "meal_options": ["standard", "vegetarian", "gluten_free"]
+    "meal_options": ["standard", "vegetarian", "gluten_free"],
+    "baggage_policy": {
+      "personal_item_max_cm": "45x35x20",
+      "carry_on_max_cm": "56x36x23",
+      "checked_bag_fee": 30.0
+    }
   },
   {
     "id": "flight_022",
@@ -371,7 +476,12 @@
     "seat_classes": ["Economy", "Business"],
     "available_seats": 26,
     "baggage_included": false,
-    "meal_options": ["standard", "vegetarian"]
+    "meal_options": ["standard", "vegetarian"],
+    "baggage_policy": {
+      "personal_item_max_cm": "40x30x15",
+      "carry_on_max_cm": "55x40x20",
+      "checked_bag_fee": 35.0
+    }
   },
   {
     "id": "flight_023",
@@ -388,7 +498,12 @@
     "seat_classes": ["Economy", "Business"],
     "available_seats": 20,
     "baggage_included": false,
-    "meal_options": ["standard"]
+    "meal_options": ["standard"],
+    "baggage_policy": {
+      "personal_item_max_cm": "40x30x15",
+      "carry_on_max_cm": "56x36x23",
+      "checked_bag_fee": 35.0
+    }
   },
   {
     "id": "flight_024",
@@ -405,7 +520,12 @@
     "seat_classes": ["Economy"],
     "available_seats": 48,
     "baggage_included": true,
-    "meal_options": ["standard"]
+    "meal_options": ["standard"],
+    "baggage_policy": {
+      "personal_item_max_cm": "45x35x20",
+      "carry_on_max_cm": "60x40x25",
+      "checked_bag_fee": 0.0
+    }
   },
   {
     "id": "flight_025",
@@ -422,7 +542,12 @@
     "seat_classes": ["Economy", "Mint"],
     "available_seats": 31,
     "baggage_included": false,
-    "meal_options": ["standard", "vegetarian"]
+    "meal_options": ["standard", "vegetarian"],
+    "baggage_policy": {
+      "personal_item_max_cm": "43x33x18",
+      "carry_on_max_cm": "55x35x22",
+      "checked_bag_fee": 35.0
+    }
   },
   {
     "id": "flight_026",
@@ -439,7 +564,12 @@
     "seat_classes": ["Economy", "First"],
     "available_seats": 17,
     "baggage_included": false,
-    "meal_options": ["standard", "vegetarian", "gluten_free"]
+    "meal_options": ["standard", "vegetarian", "gluten_free"],
+    "baggage_policy": {
+      "personal_item_max_cm": "43x33x17",
+      "carry_on_max_cm": "55x35x22",
+      "checked_bag_fee": 30.0
+    }
   },
   {
     "id": "flight_027",
@@ -456,7 +586,12 @@
     "seat_classes": ["Economy", "Comfort+", "First"],
     "available_seats": 9,
     "baggage_included": false,
-    "meal_options": ["standard", "vegetarian"]
+    "meal_options": ["standard", "vegetarian"],
+    "baggage_policy": {
+      "personal_item_max_cm": "45x35x20",
+      "carry_on_max_cm": "56x36x23",
+      "checked_bag_fee": 30.0
+    }
   },
   {
     "id": "flight_028",
@@ -473,7 +608,12 @@
     "seat_classes": ["Economy", "Business"],
     "available_seats": 23,
     "baggage_included": false,
-    "meal_options": ["standard", "vegetarian", "gluten_free"]
+    "meal_options": ["standard", "vegetarian", "gluten_free"],
+    "baggage_policy": {
+      "personal_item_max_cm": "40x30x15",
+      "carry_on_max_cm": "55x40x20",
+      "checked_bag_fee": 35.0
+    }
   },
   {
     "id": "flight_029",
@@ -490,7 +630,12 @@
     "seat_classes": ["Economy"],
     "available_seats": 40,
     "baggage_included": false,
-    "meal_options": ["standard", "vegetarian"]
+    "meal_options": ["standard", "vegetarian"],
+    "baggage_policy": {
+      "personal_item_max_cm": "40x30x15",
+      "carry_on_max_cm": "56x36x23",
+      "checked_bag_fee": 35.0
+    }
   },
   {
     "id": "flight_030",
@@ -507,6 +652,11 @@
     "seat_classes": ["Economy"],
     "available_seats": 55,
     "baggage_included": true,
-    "meal_options": ["standard", "vegetarian", "gluten_free"]
+    "meal_options": ["standard", "vegetarian", "gluten_free"],
+    "baggage_policy": {
+      "personal_item_max_cm": "45x35x20",
+      "carry_on_max_cm": "60x40x25",
+      "checked_bag_fee": 0.0
+    }
   }
 ]

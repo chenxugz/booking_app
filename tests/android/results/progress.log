@@ -38,8 +38,19 @@
 [TC29] PASS — Validation errors: "Full name is required" shown on empty form
 [TC30] PASS — Empty state: "No results found" shown for nonexistent city
 
-=== SUMMARY: 30/30 PASS ===
+### Supplementary Test Cases (TC31-TC37)
+[TC31] PASS — Invoice reconciliation: 1 receipt downloaded, expense folder verified
+[TC32] PASS — Review synthesis: keyword search "construction noise" logged in review_searches
+[TC33] PASS — Bulk booking: 10 hotel rooms booked for corporate retreat
+[TC34] PASS — Multi-city flight: SFO→JFK→LAX search logged with legs
+[TC35] PASS — Compensation claim: CLM-MNE8ZIHQ filed for 180min delay
+[TC36] PASS — Baggage policy: 3 airline baggage policy views logged
+[TC37] PASS — Seasonal menu: 3 restaurant menu views logged
+
+=== SUMMARY: 37/37 PASS ===
 
 ### Debug Notes
-- TC21 initially failed: uiautomator dump per increment tap caused timing issues. Fix: use raw adb taps with cached coordinates for repeated button presses.
-- TC24 initially failed: hardcoded coordinate (200,600) missed time slot chips. Fix: use ft("time_slot_option_18_00") to locate slot by testID.
+- TC21 initial fail: uiautomator dump per increment tap was too slow. Fix: cached coordinates for repeated taps.
+- TC24 initial fail: hardcoded coordinate missed time slot chip. Fix: find by testID.
+- TC35 initial fail: delayed flight booking was off-screen. Fix: filter by flights first, scroll more.
+- TC36/37 initial fail: onTouchEnd on View doesn't trigger from ADB taps. Fix: log on component mount via useEffect.

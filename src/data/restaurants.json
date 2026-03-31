@@ -13,7 +13,12 @@
     "amenities": ["outdoor_seating", "valet_parking", "private_dining"],
     "dietary": ["gluten_free", "vegan", "vegetarian"],
     "max_party_size": 12,
-    "availability_slots": ["12:00", "12:30", "13:00", "18:00", "18:30", "19:00", "20:00", "20:30"]
+    "availability_slots": ["12:00", "12:30", "13:00", "18:00", "18:30", "19:00", "20:00", "20:30"],
+    "seasonal_specials": [
+      { "item": "Sakura Mochi", "price": 12.0 },
+      { "item": "Spring Bamboo Tempura", "price": 18.0 },
+      { "item": "Yuzu Sorbet", "price": 9.0 }
+    ]
   },
   {
     "id": "rest_002",
@@ -29,7 +34,12 @@
     "amenities": ["outdoor_seating", "private_dining", "valet_parking"],
     "dietary": ["vegetarian", "gluten_free"],
     "max_party_size": 10,
-    "availability_slots": ["12:00", "13:00", "18:00", "19:00", "19:30", "20:00", "21:00"]
+    "availability_slots": ["12:00", "13:00", "18:00", "19:00", "19:30", "20:00", "21:00"],
+    "seasonal_specials": [
+      { "item": "Truffle Risotto", "price": 28.0 },
+      { "item": "Burrata with Heirloom Tomatoes", "price": 19.0 },
+      { "item": "Limoncello Tiramisu", "price": 14.0 }
+    ]
   },
   {
     "id": "rest_003",
@@ -45,7 +55,12 @@
     "amenities": ["private_dining"],
     "dietary": ["vegan", "vegetarian", "gluten_free"],
     "max_party_size": 20,
-    "availability_slots": ["11:00", "11:30", "12:00", "12:30", "18:00", "18:30", "19:00", "19:30", "20:00"]
+    "availability_slots": ["11:00", "11:30", "12:00", "12:30", "18:00", "18:30", "19:00", "19:30", "20:00"],
+    "seasonal_specials": [
+      { "item": "Lunar New Year Dumplings", "price": 16.0 },
+      { "item": "Peking Duck Spring Rolls", "price": 14.0 },
+      { "item": "Lychee Pudding", "price": 10.0 }
+    ]
   },
   {
     "id": "rest_004",
@@ -61,7 +76,11 @@
     "amenities": ["outdoor_seating"],
     "dietary": ["vegetarian", "vegan"],
     "max_party_size": 8,
-    "availability_slots": ["11:00", "12:00", "13:00", "17:00", "18:00", "19:00", "20:00", "21:00"]
+    "availability_slots": ["11:00", "12:00", "13:00", "17:00", "18:00", "19:00", "20:00", "21:00"],
+    "seasonal_specials": [
+      { "item": "Mole Poblano Enchiladas", "price": 15.0 },
+      { "item": "Elote Street Corn", "price": 8.0 }
+    ]
   },
   {
     "id": "rest_005",
@@ -77,7 +96,12 @@
     "amenities": ["outdoor_seating", "private_dining"],
     "dietary": ["gluten_free", "vegan", "vegetarian"],
     "max_party_size": 15,
-    "availability_slots": ["12:00", "12:30", "13:00", "18:00", "18:30", "19:00", "19:30", "20:00"]
+    "availability_slots": ["12:00", "12:30", "13:00", "18:00", "18:30", "19:00", "19:30", "20:00"],
+    "seasonal_specials": [
+      { "item": "Lemongrass Prawns", "price": 22.0 },
+      { "item": "Green Papaya Salad", "price": 14.0 },
+      { "item": "Vietnamese Coffee Panna Cotta", "price": 11.0 }
+    ]
   },
   {
     "id": "rest_006",
@@ -93,7 +117,12 @@
     "amenities": ["outdoor_seating", "bar"],
     "dietary": ["gluten_free", "vegetarian"],
     "max_party_size": 12,
-    "availability_slots": ["12:00", "13:00", "18:00", "19:00", "20:00", "21:00"]
+    "availability_slots": ["12:00", "13:00", "18:00", "19:00", "20:00", "21:00"],
+    "seasonal_specials": [
+      { "item": "Brick Oven Roasted Chicken", "price": 29.0 },
+      { "item": "Heirloom Beet Salad", "price": 16.0 },
+      { "item": "Meyer Lemon Soufflé", "price": 14.0 }
+    ]
   },
   {
     "id": "rest_007",
@@ -109,7 +138,12 @@
     "amenities": ["private_dining", "valet_parking"],
     "dietary": ["gluten_free", "vegetarian"],
     "max_party_size": 8,
-    "availability_slots": ["18:00", "18:30", "19:00", "19:30", "20:00", "20:30"]
+    "availability_slots": ["18:00", "18:30", "19:00", "19:30", "20:00", "20:30"],
+    "seasonal_specials": [
+      { "item": "Duck Confit with Cherry Gastrique", "price": 36.0 },
+      { "item": "Bouillabaisse Provençale", "price": 32.0 },
+      { "item": "Tarte Tatin", "price": 16.0 }
+    ]
   },
   {
     "id": "rest_008",
@@ -125,7 +159,12 @@
     "amenities": ["outdoor_seating"],
     "dietary": ["gluten_free", "vegan", "vegetarian", "halal"],
     "max_party_size": 10,
-    "availability_slots": ["11:30", "12:00", "12:30", "18:00", "18:30", "19:00", "20:00", "20:30"]
+    "availability_slots": ["11:30", "12:00", "12:30", "18:00", "18:30", "19:00", "20:00", "20:30"],
+    "seasonal_specials": [
+      { "item": "Mango Sticky Rice", "price": 12.0 },
+      { "item": "Tom Kha Gai with Seasonal Mushrooms", "price": 16.0 },
+      { "item": "Crispy Soft Shell Crab", "price": 24.0 }
+    ]
   },
   {
     "id": "rest_009",
@@ -141,7 +180,12 @@
     "amenities": ["private_dining"],
     "dietary": ["gluten_free", "vegan", "vegetarian", "halal"],
     "max_party_size": 16,
-    "availability_slots": ["12:00", "12:30", "13:00", "18:00", "19:00", "19:30", "20:00"]
+    "availability_slots": ["12:00", "12:30", "13:00", "18:00", "19:00", "19:30", "20:00"],
+    "seasonal_specials": [
+      { "item": "Lamb Rogan Josh", "price": 22.0 },
+      { "item": "Saffron Kulfi", "price": 10.0 },
+      { "item": "Paneer Tikka Masala", "price": 18.0 }
+    ]
   },
   {
     "id": "rest_010",
@@ -157,7 +201,12 @@
     "amenities": ["outdoor_seating", "private_dining", "valet_parking"],
     "dietary": ["gluten_free", "vegetarian"],
     "max_party_size": 18,
-    "availability_slots": ["12:00", "13:00", "18:00", "18:30", "19:00", "19:30", "20:00", "21:00"]
+    "availability_slots": ["12:00", "13:00", "18:00", "18:30", "19:00", "19:30", "20:00", "21:00"],
+    "seasonal_specials": [
+      { "item": "Grilled Branzino", "price": 34.0 },
+      { "item": "Lamb Moussaka", "price": 26.0 },
+      { "item": "Baklava with Pistachio Ice Cream", "price": 14.0 }
+    ]
   },
   {
     "id": "rest_011",
@@ -173,7 +222,12 @@
     "amenities": ["outdoor_seating"],
     "dietary": ["gluten_free"],
     "max_party_size": 8,
-    "availability_slots": ["11:30", "12:00", "12:30", "13:00", "18:00", "18:30", "19:00", "19:30"]
+    "availability_slots": ["11:30", "12:00", "12:30", "13:00", "18:00", "18:30", "19:00", "19:30"],
+    "seasonal_specials": [
+      { "item": "Kumamoto Oyster Flight", "price": 28.0 },
+      { "item": "Dungeness Crab Louie", "price": 26.0 },
+      { "item": "Smoked Trout Dip", "price": 15.0 }
+    ]
   },
   {
     "id": "rest_012",
@@ -189,7 +243,12 @@
     "amenities": ["private_dining", "valet_parking", "bar"],
     "dietary": ["gluten_free"],
     "max_party_size": 14,
-    "availability_slots": ["17:30", "18:00", "18:30", "19:00", "19:30", "20:00", "21:00"]
+    "availability_slots": ["17:30", "18:00", "18:30", "19:00", "19:30", "20:00", "21:00"],
+    "seasonal_specials": [
+      { "item": "Oysters Rockefeller", "price": 24.0 },
+      { "item": "Wagyu Tartare", "price": 32.0 },
+      { "item": "Bone-In Ribeye 22oz", "price": 68.0 }
+    ]
   },
   {
     "id": "rest_013",
@@ -205,7 +264,12 @@
     "amenities": ["outdoor_seating", "valet_parking", "private_dining", "bar"],
     "dietary": ["gluten_free", "vegan", "vegetarian"],
     "max_party_size": 20,
-    "availability_slots": ["12:00", "13:00", "18:00", "18:30", "19:00", "19:30", "20:00", "20:30", "21:00"]
+    "availability_slots": ["12:00", "13:00", "18:00", "18:30", "19:00", "19:30", "20:00", "20:30", "21:00"],
+    "seasonal_specials": [
+      { "item": "Black Cod Miso", "price": 38.0 },
+      { "item": "Toro Tartare with Caviar", "price": 42.0 },
+      { "item": "Sakura Crème Brûlée", "price": 16.0 }
+    ]
   },
   {
     "id": "rest_014",
@@ -221,7 +285,12 @@
     "amenities": ["private_dining", "bar"],
     "dietary": ["gluten_free", "vegetarian", "vegan"],
     "max_party_size": 12,
-    "availability_slots": ["18:00", "18:30", "19:00", "19:30", "20:00", "20:30", "21:00"]
+    "availability_slots": ["18:00", "18:30", "19:00", "19:30", "20:00", "20:30", "21:00"],
+    "seasonal_specials": [
+      { "item": "Roasted Cauliflower with Romesco", "price": 18.0 },
+      { "item": "Pan-Seared Halibut", "price": 34.0 },
+      { "item": "Blood Orange Pavlova", "price": 14.0 }
+    ]
   },
   {
     "id": "rest_015",
@@ -237,7 +306,12 @@
     "amenities": ["outdoor_seating", "private_dining"],
     "dietary": ["gluten_free", "vegetarian"],
     "max_party_size": 10,
-    "availability_slots": ["12:00", "12:30", "13:00", "18:00", "19:00", "20:00", "21:00"]
+    "availability_slots": ["12:00", "12:30", "13:00", "18:00", "19:00", "20:00", "21:00"],
+    "seasonal_specials": [
+      { "item": "White Truffle Tagliatelle", "price": 34.0 },
+      { "item": "Porcini Mushroom Risotto", "price": 26.0 },
+      { "item": "Panna Cotta with Fig Compote", "price": 14.0 }
+    ]
   },
   {
     "id": "rest_016",
@@ -253,12 +327,16 @@
     "amenities": ["outdoor_seating"],
     "dietary": ["vegetarian", "vegan"],
     "max_party_size": 6,
-    "availability_slots": ["11:00", "12:00", "13:00", "17:00", "18:00", "19:00", "20:00", "21:00", "21:30"]
+    "availability_slots": ["11:00", "12:00", "13:00", "17:00", "18:00", "19:00", "20:00", "21:00", "21:30"],
+    "seasonal_specials": [
+      { "item": "Chiles en Nogada", "price": 16.0 },
+      { "item": "Pozole Rojo", "price": 14.0 }
+    ]
   },
   {
     "id": "rest_017",
     "name": "Bix Restaurant",
-    "cuisine": "American",
+    "cuisine": "Steakhouse",
     "address": "56 Gold St, San Francisco, CA",
     "price_tier": 3,
     "rating": 4.4,
@@ -269,7 +347,12 @@
     "amenities": ["bar", "private_dining"],
     "dietary": ["gluten_free", "vegetarian"],
     "max_party_size": 16,
-    "availability_slots": ["18:00", "18:30", "19:00", "19:30", "20:00", "21:00", "21:30"]
+    "availability_slots": ["18:00", "18:30", "19:00", "19:30", "20:00", "21:00", "21:30"],
+    "seasonal_specials": [
+      { "item": "Grilled Oysters with Herb Butter", "price": 22.0 },
+      { "item": "Dry-Aged New York Strip", "price": 52.0 },
+      { "item": "Steak Diane", "price": 44.0 }
+    ]
   },
   {
     "id": "rest_018",
@@ -285,7 +368,12 @@
     "amenities": [],
     "dietary": ["vegan", "vegetarian", "gluten_free", "halal"],
     "max_party_size": 10,
-    "availability_slots": ["12:00", "12:30", "18:00", "18:30", "19:00", "19:30", "20:00"]
+    "availability_slots": ["12:00", "12:30", "18:00", "18:30", "19:00", "19:30", "20:00"],
+    "seasonal_specials": [
+      { "item": "Mango Lassi Panna Cotta", "price": 10.0 },
+      { "item": "Tandoori Lamb Chops", "price": 24.0 },
+      { "item": "Seasonal Vegetable Biryani", "price": 18.0 }
+    ]
   },
   {
     "id": "rest_019",
@@ -301,7 +389,11 @@
     "amenities": ["outdoor_seating", "bar"],
     "dietary": ["gluten_free", "vegan", "vegetarian"],
     "max_party_size": 8,
-    "availability_slots": ["18:00", "18:30", "19:00", "19:30", "20:00", "20:30", "21:00", "21:30"]
+    "availability_slots": ["18:00", "18:30", "19:00", "19:30", "20:00", "20:30", "21:00", "21:30"],
+    "seasonal_specials": [
+      { "item": "Wood-Fired Pork Chop", "price": 32.0 },
+      { "item": "Grilled Peach Salad", "price": 16.0 }
+    ]
   },
   {
     "id": "rest_020",
@@ -317,7 +409,12 @@
     "amenities": ["private_dining", "valet_parking"],
     "dietary": ["gluten_free", "vegetarian"],
     "max_party_size": 6,
-    "availability_slots": ["17:30", "18:00", "19:00", "19:30", "20:00"]
+    "availability_slots": ["17:30", "18:00", "19:00", "19:30", "20:00"],
+    "seasonal_specials": [
+      { "item": "Faux Shark Fin Soup", "price": 38.0 },
+      { "item": "Thousand-Year Quail Egg", "price": 28.0 },
+      { "item": "Truffle Custard", "price": 22.0 }
+    ]
   },
   {
     "id": "rest_021",
@@ -333,7 +430,11 @@
     "amenities": ["outdoor_seating"],
     "dietary": ["gluten_free", "vegetarian"],
     "max_party_size": 10,
-    "availability_slots": ["11:30", "12:00", "12:30", "18:00", "18:30", "19:00", "20:00", "20:30"]
+    "availability_slots": ["11:30", "12:00", "12:30", "18:00", "18:30", "19:00", "20:00", "20:30"],
+    "seasonal_specials": [
+      { "item": "Matcha Parfait", "price": 11.0 },
+      { "item": "Seasonal Chirashi Bowl", "price": 24.0 }
+    ]
   },
   {
     "id": "rest_022",
@@ -349,7 +450,11 @@
     "amenities": [],
     "dietary": ["vegan", "vegetarian"],
     "max_party_size": 12,
-    "availability_slots": ["11:00", "12:00", "13:00", "17:30", "18:00", "19:00", "20:00"]
+    "availability_slots": ["11:00", "12:00", "13:00", "17:30", "18:00", "19:00", "20:00"],
+    "seasonal_specials": [
+      { "item": "Hairy Crab Xiaolongbao", "price": 18.0 },
+      { "item": "Osmanthus Jelly", "price": 8.0 }
+    ]
   },
   {
     "id": "rest_023",
@@ -365,7 +470,12 @@
     "amenities": ["outdoor_seating", "bar"],
     "dietary": ["vegetarian", "vegan", "gluten_free"],
     "max_party_size": 14,
-    "availability_slots": ["11:30", "12:00", "13:00", "17:30", "18:00", "19:00", "20:00", "20:30"]
+    "availability_slots": ["11:30", "12:00", "13:00", "17:30", "18:00", "19:00", "20:00", "20:30"],
+    "seasonal_specials": [
+      { "item": "Oaxacan Tamales", "price": 14.0 },
+      { "item": "Mango Habanero Ceviche", "price": 16.0 },
+      { "item": "Churros con Chocolate", "price": 10.0 }
+    ]
   },
   {
     "id": "rest_024",
@@ -381,7 +491,12 @@
     "amenities": ["private_dining", "valet_parking"],
     "dietary": ["gluten_free", "vegetarian", "kosher"],
     "max_party_size": 8,
-    "availability_slots": ["18:00", "18:30", "19:00", "19:30", "20:00", "20:30"]
+    "availability_slots": ["18:00", "18:30", "19:00", "19:30", "20:00", "20:30"],
+    "seasonal_specials": [
+      { "item": "Foie Gras Torchon", "price": 38.0 },
+      { "item": "Lobster Thermidor", "price": 48.0 },
+      { "item": "Soufflé Grand Marnier", "price": 18.0 }
+    ]
   },
   {
     "id": "rest_025",
@@ -397,7 +512,12 @@
     "amenities": ["bar"],
     "dietary": ["gluten_free", "vegetarian", "vegan"],
     "max_party_size": 8,
-    "availability_slots": ["17:30", "18:00", "18:30", "19:00", "19:30", "20:00", "21:00"]
+    "availability_slots": ["17:30", "18:00", "18:30", "19:00", "19:30", "20:00", "21:00"],
+    "seasonal_specials": [
+      { "item": "State Bird with Provisions", "price": 19.0 },
+      { "item": "Garlic Bread with Burrata", "price": 16.0 },
+      { "item": "Seasonal Fruit Galette", "price": 14.0 }
+    ]
   },
   {
     "id": "rest_026",
@@ -413,7 +533,11 @@
     "amenities": [],
     "dietary": ["vegetarian", "vegan"],
     "max_party_size": 6,
-    "availability_slots": ["11:00", "11:30", "12:00", "13:00", "17:30", "18:00", "19:00", "19:30", "20:00"]
+    "availability_slots": ["11:00", "11:30", "12:00", "13:00", "17:30", "18:00", "19:00", "19:30", "20:00"],
+    "seasonal_specials": [
+      { "item": "Truffle Tori Paitan Ramen", "price": 19.0 },
+      { "item": "Spicy Miso Tsukemen", "price": 17.0 }
+    ]
   },
   {
     "id": "rest_027",
@@ -429,7 +553,12 @@
     "amenities": ["outdoor_seating"],
     "dietary": ["gluten_free", "vegan", "vegetarian", "halal"],
     "max_party_size": 14,
-    "availability_slots": ["12:00", "12:30", "13:00", "17:30", "18:00", "19:00", "19:30", "20:00", "21:00"]
+    "availability_slots": ["12:00", "12:30", "13:00", "17:30", "18:00", "19:00", "19:30", "20:00", "21:00"],
+    "seasonal_specials": [
+      { "item": "Durian Sticky Rice", "price": 14.0 },
+      { "item": "Pla Rad Prik (Crispy Whole Fish)", "price": 28.0 },
+      { "item": "Thai Iced Tea Crème Brûlée", "price": 12.0 }
+    ]
   },
   {
     "id": "rest_028",
@@ -445,7 +574,13 @@
     "amenities": ["outdoor_seating", "valet_parking", "private_dining", "bar"],
     "dietary": ["gluten_free", "vegetarian", "halal", "kosher"],
     "max_party_size": 18,
-    "availability_slots": ["17:30", "18:00", "18:30", "19:00", "19:30", "20:00", "20:30", "21:00", "21:30"]
+    "availability_slots": ["17:30", "18:00", "18:30", "19:00", "19:30", "20:00", "20:30", "21:00", "21:30"],
+    "seasonal_specials": [
+      { "item": "Moroccan Lamb Tagine", "price": 34.0 },
+      { "item": "Harissa Roasted Vegetables", "price": 18.0 },
+      { "item": "Rose Water Panna Cotta", "price": 14.0 },
+      { "item": "Stuffed Grape Leaves with Pomegranate", "price": 16.0 }
+    ]
   },
   {
     "id": "rest_029",
@@ -461,7 +596,12 @@
     "amenities": ["outdoor_seating"],
     "dietary": ["gluten_free"],
     "max_party_size": 10,
-    "availability_slots": ["11:30", "12:00", "12:30", "13:00", "18:00", "18:30", "19:00", "19:30", "20:00"]
+    "availability_slots": ["11:30", "12:00", "12:30", "13:00", "18:00", "18:30", "19:00", "19:30", "20:00"],
+    "seasonal_specials": [
+      { "item": "New England Clam Chowder", "price": 14.0 },
+      { "item": "Grilled Swordfish Steak", "price": 28.0 },
+      { "item": "Lobster Roll", "price": 26.0 }
+    ]
   },
   {
     "id": "rest_030",
@@ -477,6 +617,11 @@
     "amenities": ["valet_parking", "private_dining", "bar"],
     "dietary": ["gluten_free"],
     "max_party_size": 20,
-    "availability_slots": ["17:30", "18:00", "18:30", "19:00", "19:30", "20:00", "20:30", "21:00", "21:30"]
+    "availability_slots": ["17:30", "18:00", "18:30", "19:00", "19:30", "20:00", "20:30", "21:00", "21:30"],
+    "seasonal_specials": [
+      { "item": "Prime Rib au Jus", "price": 58.0 },
+      { "item": "Creamed Spinach", "price": 14.0 },
+      { "item": "Chocolate Lava Cake", "price": 16.0 }
+    ]
   }
 ]
