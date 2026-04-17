@@ -9,6 +9,7 @@ import { useSearchStore } from '../store/searchStore';
 import { logSearch } from '../db/queries';
 import { filterHotels } from '../utils/filterEngine';
 import { useDataStore } from '../store/dataStore';
+import DatePickerInput from '../components/DatePickerInput';
 
 type NavProp = NativeStackNavigationProp<RootStackParamList>;
 
@@ -53,21 +54,21 @@ export default function HotelSearchScreen() {
       />
 
       <Text style={styles.label}>Check-in Date</Text>
-      <TextInput placeholderTextColor="#999"
+      <DatePickerInput
         testID="checkin_date_picker"
-        style={styles.input}
-        placeholder="YYYY-MM-DD"
         value={checkIn}
-        onChangeText={setCheckIn}
+        placeholder="Select check-in date"
+        onDateChange={setCheckIn}
+        minimumDate={new Date()}
       />
 
       <Text style={styles.label}>Check-out Date</Text>
-      <TextInput placeholderTextColor="#999"
+      <DatePickerInput
         testID="checkout_date_picker"
-        style={styles.input}
-        placeholder="YYYY-MM-DD"
         value={checkOut}
-        onChangeText={setCheckOut}
+        placeholder="Select check-out date"
+        onDateChange={setCheckOut}
+        minimumDate={checkIn ? new Date(checkIn + 'T00:00:00') : new Date()}
       />
 
       <Text style={styles.label}>Guests</Text>

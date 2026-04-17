@@ -9,6 +9,7 @@ import { useSearchStore, FlightLeg } from '../store/searchStore';
 import { logSearch } from '../db/queries';
 import { filterFlights } from '../utils/filterEngine';
 import { useDataStore } from '../store/dataStore';
+import DatePickerInput from '../components/DatePickerInput';
 
 type NavProp = NativeStackNavigationProp<RootStackParamList>;
 
@@ -138,23 +139,23 @@ export default function FlightSearchScreen() {
           />
 
           <Text style={styles.label}>Departure Date</Text>
-          <TextInput placeholderTextColor="#999"
+          <DatePickerInput
             testID="flight_departure_date"
-            style={styles.input}
-            placeholder="YYYY-MM-DD"
             value={date}
-            onChangeText={setDate}
+            placeholder="Select departure date"
+            onDateChange={setDate}
+            minimumDate={new Date()}
           />
 
           {tripType === 'round_trip' && (
             <>
               <Text style={styles.label}>Return Date</Text>
-              <TextInput placeholderTextColor="#999"
+              <DatePickerInput
                 testID="flight_return_date"
-                style={styles.input}
-                placeholder="YYYY-MM-DD"
                 value={returnDate}
-                onChangeText={setReturnDate}
+                placeholder="Select return date"
+                onDateChange={setReturnDate}
+                minimumDate={date ? new Date(date + 'T00:00:00') : new Date()}
               />
             </>
           )}
@@ -204,12 +205,12 @@ export default function FlightSearchScreen() {
               />
 
               <Text style={styles.label}>Date</Text>
-              <TextInput placeholderTextColor="#999"
+              <DatePickerInput
                 testID={`multi_city_date_${index + 1}`}
-                style={styles.input}
-                placeholder="YYYY-MM-DD"
                 value={leg.date}
-                onChangeText={(v) => updateLeg(index, 'date', v)}
+                placeholder="Select date"
+                onDateChange={(v) => updateLeg(index, 'date', v)}
+                minimumDate={new Date()}
               />
             </View>
           ))}

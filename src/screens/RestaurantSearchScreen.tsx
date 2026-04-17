@@ -9,6 +9,8 @@ import { useSearchStore } from '../store/searchStore';
 import { logSearch } from '../db/queries';
 import { filterRestaurants } from '../utils/filterEngine';
 import { useDataStore } from '../store/dataStore';
+import DatePickerInput from '../components/DatePickerInput';
+import TimePickerInput from '../components/TimePickerInput';
 
 type NavProp = NativeStackNavigationProp<RootStackParamList>;
 
@@ -51,21 +53,20 @@ export default function RestaurantSearchScreen() {
       />
 
       <Text style={styles.label}>Date</Text>
-      <TextInput placeholderTextColor="#999"
+      <DatePickerInput
         testID="restaurant_date_picker"
-        style={styles.input}
-        placeholder="YYYY-MM-DD"
         value={date}
-        onChangeText={setDate}
+        placeholder="Select date"
+        onDateChange={setDate}
+        minimumDate={new Date()}
       />
 
       <Text style={styles.label}>Time</Text>
-      <TextInput placeholderTextColor="#999"
+      <TimePickerInput
         testID="restaurant_time_picker"
-        style={styles.input}
-        placeholder="e.g. 19:00"
         value={time}
-        onChangeText={setTime}
+        placeholder="Select time"
+        onTimeChange={setTime}
       />
 
       <Text style={styles.label}>Party Size</Text>
