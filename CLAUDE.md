@@ -150,7 +150,16 @@ Must be rich enough to support all 30 test cases below.
   "distance_to_union_square_miles": 0.8,
   "availability": true,
   "cancellation_policy": "flexible",
-  "image_placeholder": "hotel_001"
+  "image_placeholder": "hotel_001",
+  "reviews": [
+    {
+      "id": "rev_001",
+      "author": "Jane D.",
+      "rating": 3,
+      "date": "2024-03-01",
+      "text": "Great location but construction noise woke us up at 7am."
+    }
+  ]
 }
 ```
 
@@ -171,7 +180,12 @@ Must be rich enough to support all 30 test cases below.
   "seat_classes": ["Economy", "Business"],
   "available_seats": 14,
   "baggage_included": false,
-  "meal_options": ["standard", "vegetarian", "gluten_free"]
+  "meal_options": ["standard", "vegetarian", "gluten_free"],
+  "baggage_policy": {
+    "personal_item_max_cm": "40x30x15",
+    "carry_on_max_cm": "55x40x20",
+    "checked_bag_fee": 35.0
+  }
 }
 ```
 
@@ -191,7 +205,11 @@ Must be rich enough to support all 30 test cases below.
   "amenities": ["outdoor_seating", "valet_parking", "private_dining"],
   "dietary": ["gluten_free", "vegan", "vegetarian"],
   "max_party_size": 12,
-  "availability_slots": ["18:00", "18:30", "19:00", "20:00", "20:30"]
+  "availability_slots": ["18:00", "18:30", "19:00", "20:00", "20:30"],
+  "seasonal_specials": [
+    { "item": "Oysters Rockefeller", "price": 24.0 },
+    { "item": "Wagyu Tartare", "price": 32.0 }
+  ]
 }
 ```
 
@@ -228,12 +246,36 @@ CREATE TABLE IF NOT EXISTS search_log (
   selected_item_id TEXT,
   timestamp INTEGER DEFAULT (strftime('%s','now'))
 );
+
+CREATE TABLE IF NOT EXISTS download_log (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  reference_number TEXT,
+  downloaded_at INTEGER DEFAULT (strftime('%s','now'))
+);
+
+CREATE TABLE IF NOT EXISTS review_searches (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  hotel_id TEXT,
+  keyword TEXT,
+  match_count INTEGER,
+  searched_at INTEGER DEFAULT (strftime('%s','now'))
+);
+
+CREATE TABLE IF NOT EXISTS compensation_claims (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  booking_reference TEXT,
+  delay_minutes INTEGER,
+  claim_reference TEXT,
+  submitted_at INTEGER DEFAULT (strftime('%s','now'))
+);
 ```
 
 Reference number format: `BOOK-{TYPE}-{yyyyMMdd}-{XXXX}`
 Example: `BOOK-HOTEL-20240315-A7K2`
 
 Every booking MUST write to `bookings`. Every search MUST write to `search_log`.
+Receipt downloads write to `download_log`. Review keyword searches write to `review_searches`.
+Compensation claims write to `compensation_claims`.
 
 ---
 
