@@ -1,63 +1,27 @@
 #!/bin/bash
+# TC13: Morning departure 6am-12pm filter
+# Dates: Departure = 2024-04-01
+# DB Check: flight_filter with departure 6-12 -> result_count = 3
 source ./tests/android/adb/common.sh
 TC_ID="TC13"
 PASS=0
 
-echo "[$TC_ID] Filter flights departing between 6am-12pm (morning)"
+echo "[TC13] Search flights SFO to JFK on 2024-04-01, then filter by morning departure (6am-12pm)"
+clear_db
 
-launch_app
-screenshot "before_${TC_ID}"
+tap 540 2303; sleep 2
+find_and_tap "flight_origin_input"; sleep 0.3; type_text "SFO"; adb shell input keyevent KEYCODE_ESCAPE; sleep 0.3
+find_and_tap "flight_destination_input"; sleep 0.3; type_text "JFK"; adb shell input keyevent KEYCODE_ESCAPE; sleep 0.3
+pick_date "flight_departure_date" "2024-04-01"
+find_and_tap "search_button"; sleep 4
 
-# Tap Flights tab
-tap 540 2200
-sleep 1
-
-# One-way
-tap 270 350
-sleep 1
-
-# Origin
-tap 540 460
-sleep 1
-type_text "SFO"
-sleep 1
-
-# Destination
-tap 540 580
-sleep 1
-type_text "JFK"
-sleep 1
-
-# Date
-tap 540 700
-sleep 1
-tap 540 900
-sleep 1
-
-# Tap Search
-tap 540 950
-sleep 3
-
-# Tap Filter on results
-tap 810 300
-sleep 2
-
-# Select Morning departure time filter (6am-12pm chip)
-tap 270 600
-sleep 1
-
-# Apply
-tap 540 2100
-sleep 2
-
+find_and_tap "filter_button"; sleep 1
+find_and_tap "filter_departure_6_12"; sleep 0.5
+find_and_tap "filter_close_button"; sleep 2
 screenshot "after_${TC_ID}"
 
-pull_db
-
-COUNT=$(sqlite3 $DB_LOCAL \
-  "SELECT COUNT(*) FROM search_log WHERE search_type='flight';" 2>/dev/null)
-[ "${COUNT:-0}" -gt "0" ] && PASS=1
-
-STATUS="FAIL"
-[ $PASS -eq 1 ] && STATUS="PASS"
-log_result "$TC_ID" "$STATUS"
+pull_db_cat
+RC=$(qdb "SELECT COUNT(*) FROM search_log WHERE search_type LIKE '%_filter' AND query_params = '{\"departureWindow\":\"6-12\"}' AND result_count = 3;")
+[ "$RC" -gt 0 ] && PASS=1
+STATUS="FAIL"; [ $PASS -eq 1 ] && STATUS="PASS"
+log_result "$TC_ID" "$STATUS — morning departure matching_entries=$RC (expected >=1 with result_count=3)"

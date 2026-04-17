@@ -1,73 +1,32 @@
 #!/bin/bash
+# TC25: Book earliest available time slot
+# Dates: Date = 2024-04-01
 source ./tests/android/adb/common.sh
 TC_ID="TC25"
 PASS=0
 
-echo "[$TC_ID] Book earliest available time slot at restaurant"
+echo "[TC25] Search restaurants in San Francisco on 2024-04-01, book a restaurant and select the earliest available time slot"
+clear_db
+tap 900 2303; sleep 2
+find_and_tap "restaurant_search_input"; sleep 0.3; type_text "San%sFrancisco"; adb shell input keyevent KEYCODE_ESCAPE; sleep 0.3
+pick_date "restaurant_date_picker" "2024-04-01"
+find_and_tap "search_button"; sleep 4
 
-launch_app
-screenshot "before_${TC_ID}"
+tap 540 570; sleep 3
+adb shell input swipe 540 1800 540 400 400; sleep 0.5
+find_and_tap "book_now_button" || { adb shell input swipe 540 1800 540 400 400; sleep 0.5; find_and_tap "book_now_button"; }; sleep 3
 
-# Tap Restaurants tab
-tap 900 2200
-sleep 1
+find_and_tap "guest_name_input"; sleep 0.3; type_text "Early%sUser"; adb shell input keyevent KEYCODE_ESCAPE; sleep 0.3
+find_and_tap "guest_email_input"; sleep 0.3; type_text "early@test.com"; adb shell input keyevent KEYCODE_ESCAPE; sleep 0.3
+find_and_tap "guest_phone_input"; sleep 0.3; type_text "15550002525"; adb shell input keyevent KEYCODE_ESCAPE; sleep 0.5
+find_and_tap "checkout_next_button"; sleep 3
+# First slot = earliest
+find_and_tap "time_slot_option_18_00" || find_and_tap "time_slot_option_11_00" || find_and_tap "time_slot_option_11_30"; sleep 0.5
+find_and_tap "checkout_next_button"; sleep 3
+find_and_tap "confirm_booking_button"; sleep 4
 
-# Tap location input
-tap 540 420
-sleep 1
-type_text "San%20Francisco"
-sleep 1
-
-# Tap Search
-tap 540 950
-sleep 3
-
-# Tap first restaurant card
-tap 540 600
-sleep 2
-
-# On detail screen tap first available time slot chip
-tap 200 1400
-sleep 1
-
-# Tap Book / Make Reservation button
-tap 540 2050
-sleep 2
-
-# Step 1: Guest info
-tap 540 400
-sleep 1
-type_text "Julia%20Roberts"
-sleep 1
-tap 540 520
-sleep 1
-type_text "julia@example.com"
-sleep 1
-tap 540 640
-sleep 1
-type_text "5552468135"
-sleep 1
-
-# Next
-tap 540 2050
-sleep 2
-
-# Step 2: Confirm selected time slot (first/earliest)
-tap 540 2050
-sleep 2
-
-# Step 3: Confirm
-tap 540 2050
-sleep 3
-
-screenshot "after_${TC_ID}"
-
-pull_db
-
-COUNT=$(sqlite3 $DB_LOCAL \
-  "SELECT COUNT(*) FROM bookings WHERE booking_type='restaurant';" 2>/dev/null)
-[ "${COUNT:-0}" -gt "0" ] && PASS=1
-
-STATUS="FAIL"
-[ $PASS -eq 1 ] && STATUS="PASS"
-log_result "$TC_ID" "$STATUS"
+pull_db_cat
+CI=$(qdb "SELECT check_in FROM bookings ORDER BY created_at DESC LIMIT 1;")
+[ -n "$CI" ] && PASS=1
+STATUS="FAIL"; [ $PASS -eq 1 ] && STATUS="PASS"
+log_result "$TC_ID" "$STATUS — time_slot=$CI"

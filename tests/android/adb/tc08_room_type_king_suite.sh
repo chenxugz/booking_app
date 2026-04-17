@@ -1,86 +1,39 @@
 #!/bin/bash
+# TC08: Select King Suite room type (hotel_005)
+# Dates: Check-in = today+1, Check-out = today+4
 source ./tests/android/adb/common.sh
 TC_ID="TC08"
 PASS=0
 
-echo "[$TC_ID] Select King Suite room type during checkout"
+echo "[TC08] Search hotels in San Francisco, find Union Square Premier, book it and select King Suite room type"
+clear_db
+tap 180 2303; sleep 1
+tap 540 668; sleep 0.5; type_text "San%sFrancisco"
+adb shell input keyevent KEYCODE_ESCAPE; sleep 0.3
+find_and_tap "search_button"; sleep 4
 
-launch_app
-screenshot "before_${TC_ID}"
+# Sort by price desc to bring hotel_005 ($299) closer to top
+find_and_tap "sort_button"; sleep 1
+find_and_tap "sort_option_price_desc"; sleep 2
 
-# Tap Hotels tab
-tap 180 2200
-sleep 1
+# Find hotel_005
+adb shell input swipe 540 1200 540 600 300; sleep 0.5
+find_and_tap "hotel_card_hotel_005" || { adb shell input swipe 540 1200 540 600 300; sleep 0.5; find_and_tap "hotel_card_hotel_005"; }; sleep 3
 
-# Enter city
-tap 540 420
-sleep 1
-type_text "San%20Francisco"
-sleep 1
+adb shell input swipe 540 1800 540 400 400; sleep 0.5
+find_and_tap "book_now_button" || { adb shell input swipe 540 1800 540 400 400; sleep 0.5; find_and_tap "book_now_button"; }; sleep 3
 
-# Set dates
-tap 270 560
-sleep 1
-tap 540 900
-sleep 1
-tap 810 560
-sleep 1
-tap 720 900
-sleep 1
+find_and_tap "guest_name_input"; sleep 0.3; type_text "Suite%sGuest"; adb shell input keyevent KEYCODE_ESCAPE; sleep 0.3
+find_and_tap "guest_email_input"; sleep 0.3; type_text "suite@test.com"; adb shell input keyevent KEYCODE_ESCAPE; sleep 0.3
+find_and_tap "guest_phone_input"; sleep 0.3; type_text "15550008888"; adb shell input keyevent KEYCODE_ESCAPE; sleep 0.5
+find_and_tap "checkout_next_button"; sleep 3
 
-# Tap Search
-tap 540 950
-sleep 3
+find_and_tap "room_type_option_king_suite" || { adb shell input swipe 540 1200 540 600 300; sleep 0.5; find_and_tap "room_type_option_king_suite"; }; sleep 0.5
+find_and_tap "checkout_next_button"; sleep 3
+find_and_tap "confirm_booking_button"; sleep 4
 
-# Tap first hotel card
-tap 540 600
-sleep 2
-
-# Tap Book Now on detail screen
-tap 540 2050
-sleep 2
-
-# Step 1: Guest info
-tap 540 400
-sleep 1
-type_text "Alice%20Walker"
-sleep 1
-tap 540 520
-sleep 1
-type_text "alice@example.com"
-sleep 1
-tap 540 640
-sleep 1
-type_text "5551112222"
-sleep 1
-
-# Next
-tap 540 2050
-sleep 2
-
-# Step 2: Select King Suite room type from dropdown/selector
-tap 540 400
-sleep 1
-# Tap King Suite option in the room type list
-tap 540 550
-sleep 1
-
-# Next
-tap 540 2050
-sleep 2
-
-# Step 3: Confirm
-tap 540 2050
-sleep 3
-
-screenshot "after_${TC_ID}"
-
-pull_db
-
-COUNT=$(sqlite3 $DB_LOCAL \
-  "SELECT COUNT(*) FROM bookings WHERE booking_type='hotel' AND room_type='King Suite';" 2>/dev/null)
-[ "${COUNT:-0}" -gt "0" ] && PASS=1
-
-STATUS="FAIL"
-[ $PASS -eq 1 ] && STATUS="PASS"
-log_result "$TC_ID" "$STATUS"
+pull_db_cat
+RT=$(qdb "SELECT room_type FROM bookings ORDER BY created_at DESC LIMIT 1;")
+echo "$RT" | grep -qi "king suite" && PASS=1
+STATUS="FAIL"; [ $PASS -eq 1 ] && STATUS="PASS"
+log_result "$TC_ID" "$STATUS — room_type=$RT"

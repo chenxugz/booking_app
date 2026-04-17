@@ -1,47 +1,26 @@
 #!/bin/bash
+# TC03: Star Rating >= 4
+# DB Check: hotel_filter entry with minStars=4 -> result_count = 8
 source ./tests/android/adb/common.sh
 TC_ID="TC03"
 PASS=0
 
-echo "[$TC_ID] Filter by 4-star rating and above"
+echo "[TC03] Search hotels in San Francisco, then filter by 4-star rating and above"
+clear_db
 
-launch_app
-screenshot "before_${TC_ID}"
+tap 180 2303; sleep 1
+tap 540 668; sleep 0.5; type_text "San%sFrancisco"
+adb shell input keyevent KEYCODE_ESCAPE; sleep 0.3
+find_and_tap "search_button"; sleep 4
 
-# Tap Hotels tab
-tap 180 2200
-sleep 1
-
-# Enter city
-tap 540 420
-sleep 1
-type_text "San%20Francisco"
-sleep 1
-
-# Tap Search
-tap 540 950
-sleep 3
-
-# Tap Filter button
-tap 810 300
-sleep 2
-
-# Tap 4-star filter chip/button (approximate position in filter panel)
-tap 540 550
-sleep 1
-
-# Apply filter
-tap 540 2100
-sleep 2
-
+find_and_tap "filter_button"; sleep 1
+adb shell input swipe 540 1800 540 600 400; sleep 0.5
+find_and_tap "filter_stars_4"; sleep 0.5
+find_and_tap "filter_close_button"; sleep 2
 screenshot "after_${TC_ID}"
 
-pull_db
-
-COUNT=$(sqlite3 $DB_LOCAL \
-  "SELECT COUNT(*) FROM search_log WHERE search_type='hotel';" 2>/dev/null)
-[ "${COUNT:-0}" -gt "0" ] && PASS=1
-
-STATUS="FAIL"
-[ $PASS -eq 1 ] && STATUS="PASS"
-log_result "$TC_ID" "$STATUS"
+pull_db_cat
+RC=$(qdb "SELECT COUNT(*) FROM search_log WHERE search_type LIKE '%_filter' AND query_params = '{\"minStars\":4}' AND result_count = 8;")
+[ "$RC" -gt 0 ] && PASS=1
+STATUS="FAIL"; [ $PASS -eq 1 ] && STATUS="PASS"
+log_result "$TC_ID" "$STATUS — 4-star filter matching_entries=$RC (expected >=1 with result_count=8)"

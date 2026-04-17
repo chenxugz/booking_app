@@ -1,91 +1,33 @@
 #!/bin/bash
+# TC10: Non-refundable rate booking
+# Dates: Check-in = 2024-04-01, Check-out = 2024-04-04
 source ./tests/android/adb/common.sh
 TC_ID="TC10"
 PASS=0
 
-echo "[$TC_ID] Choose non-refundable rate hotel and book"
+echo "[TC10] Book a hotel in San Francisco (check-in 2024-04-01, check-out 2024-04-04)"
+clear_db
+tap 180 2303; sleep 1
+tap 540 668; sleep 0.5; type_text "San%sFrancisco"
+adb shell input keyevent KEYCODE_ESCAPE; sleep 0.3
+pick_date "checkin_date_picker" "2024-04-01"
+pick_date "checkout_date_picker" "2024-04-04"
+find_and_tap "search_button"; sleep 4
 
-launch_app
-screenshot "before_${TC_ID}"
+tap 540 570; sleep 3
+adb shell input swipe 540 1800 540 400 400; sleep 0.5
+find_and_tap "book_now_button" || { adb shell input swipe 540 1800 540 400 400; sleep 0.5; find_and_tap "book_now_button"; }; sleep 3
 
-# Tap Hotels tab
-tap 180 2200
-sleep 1
+find_and_tap "guest_name_input"; sleep 0.3; type_text "NonRef%sUser"; adb shell input keyevent KEYCODE_ESCAPE; sleep 0.3
+find_and_tap "guest_email_input"; sleep 0.3; type_text "nonref@test.com"; adb shell input keyevent KEYCODE_ESCAPE; sleep 0.3
+find_and_tap "guest_phone_input"; sleep 0.3; type_text "15550001010"; adb shell input keyevent KEYCODE_ESCAPE; sleep 0.5
+find_and_tap "checkout_next_button"; sleep 3
+tap 540 745; sleep 0.5
+find_and_tap "checkout_next_button"; sleep 3
+find_and_tap "confirm_booking_button"; sleep 4
 
-# Enter city
-tap 540 420
-sleep 1
-type_text "San%20Francisco"
-sleep 1
-
-# Set dates
-tap 270 560
-sleep 1
-tap 540 900
-sleep 1
-tap 810 560
-sleep 1
-tap 720 900
-sleep 1
-
-# Tap Search
-tap 540 950
-sleep 3
-
-# Tap Filter to find non_refundable policy hotels
-tap 810 300
-sleep 2
-
-# Select non-refundable cancellation policy option
-tap 540 950
-sleep 1
-
-# Apply filter
-tap 540 2100
-sleep 2
-
-# Tap first hotel card
-tap 540 600
-sleep 2
-
-# Tap Book Now
-tap 540 2050
-sleep 2
-
-# Step 1: Guest info
-tap 540 400
-sleep 1
-type_text "Carol%20Smith"
-sleep 1
-tap 540 520
-sleep 1
-type_text "carol@example.com"
-sleep 1
-tap 540 640
-sleep 1
-type_text "5555556666"
-sleep 1
-
-# Next
-tap 540 2050
-sleep 2
-
-# Step 2: Next
-tap 540 2050
-sleep 2
-
-# Step 3: Confirm
-tap 540 2050
-sleep 3
-
-screenshot "after_${TC_ID}"
-
-pull_db
-
-COUNT=$(sqlite3 $DB_LOCAL \
-  "SELECT COUNT(*) FROM bookings WHERE booking_type='hotel';" 2>/dev/null)
-[ "${COUNT:-0}" -gt "0" ] && PASS=1
-
-STATUS="FAIL"
-[ $PASS -eq 1 ] && STATUS="PASS"
-log_result "$TC_ID" "$STATUS"
+pull_db_cat
+C=$(qdb "SELECT COUNT(*) FROM bookings WHERE booking_type='hotel';")
+[ "$C" -gt 0 ] && PASS=1
+STATUS="FAIL"; [ $PASS -eq 1 ] && STATUS="PASS"
+log_result "$TC_ID" "$STATUS — $C hotel bookings"

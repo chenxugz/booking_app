@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { TouchableOpacity, Text, StyleSheet } from 'react-native';
+import { TextInput, TouchableOpacity, Text, StyleSheet, View } from 'react-native';
 import DatePicker from 'react-native-date-picker';
 
 interface TimePickerInputProps {
@@ -12,31 +12,34 @@ interface TimePickerInputProps {
 export default function TimePickerInput({
   testID,
   value,
-  placeholder = 'Select time',
+  placeholder = 'HH:MM',
   onTimeChange,
 }: TimePickerInputProps) {
   const [open, setOpen] = useState(false);
 
-  const displayTime = value || placeholder;
-  const isPlaceholder = !value;
-
   const currentDate = new Date();
-  if (value) {
+  const isValidTime = /^\d{2}:\d{2}$/.test(value);
+  if (isValidTime) {
     const [hours, minutes] = value.split(':').map(Number);
     currentDate.setHours(hours, minutes, 0, 0);
   }
 
   return (
-    <>
-      <TouchableOpacity
+    <View style={styles.row}>
+      <TextInput
         testID={testID}
         style={styles.input}
+        placeholder={placeholder}
+        placeholderTextColor="#999"
+        value={value}
+        onChangeText={onTimeChange}
+      />
+      <TouchableOpacity
+        testID={`${testID}_button`}
+        style={styles.pickerBtn}
         onPress={() => setOpen(true)}
-        activeOpacity={0.7}
       >
-        <Text style={[styles.text, isPlaceholder && styles.placeholder]}>
-          {displayTime}
-        </Text>
+        <Text style={styles.pickerBtnText}>🕐</Text>
       </TouchableOpacity>
       <DatePicker
         modal
@@ -52,24 +55,38 @@ export default function TimePickerInput({
         }}
         onCancel={() => setOpen(false)}
       />
-    </>
+    </View>
   );
 }
 
 const styles = StyleSheet.create({
+  row: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 8,
+  },
   input: {
+    flex: 1,
     borderWidth: 1,
     borderColor: '#ccc',
     borderRadius: 8,
     paddingHorizontal: 12,
-    paddingVertical: 12,
+    paddingVertical: 10,
     backgroundColor: '#fff',
-  },
-  text: {
     fontSize: 16,
     color: '#1a1a1a',
   },
-  placeholder: {
-    color: '#999',
+  pickerBtn: {
+    width: 44,
+    height: 44,
+    borderRadius: 8,
+    backgroundColor: '#e3f2fd',
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderWidth: 1,
+    borderColor: '#bbdefb',
+  },
+  pickerBtnText: {
+    fontSize: 20,
   },
 });

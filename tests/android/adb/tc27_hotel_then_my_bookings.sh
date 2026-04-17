@@ -1,85 +1,40 @@
 #!/bin/bash
+# TC27: Book hotel, then verify in My Bookings
+# Dates: Check-in = 2024-04-01, Check-out = 2024-04-04
+# DB Check: bookings has 1 hotel entry with ref matching BOOK-HOTEL
 source ./tests/android/adb/common.sh
 TC_ID="TC27"
 PASS=0
 
-echo "[$TC_ID] Book hotel, navigate to My Bookings, verify entry listed"
+echo "[TC27] Book a hotel in San Francisco (check-in 2024-04-01, check-out 2024-04-04), then navigate to My Bookings to verify the booking appears"
+clear_db
 
-launch_app
-screenshot "before_${TC_ID}"
+# Do a full hotel booking first
+tap 180 2303; sleep 1
+tap 540 668; sleep 0.5; type_text "San%sFrancisco"
+adb shell input keyevent KEYCODE_ESCAPE; sleep 0.3
+pick_date "checkin_date_picker" "2024-04-01"
+pick_date "checkout_date_picker" "2024-04-04"
+find_and_tap "search_button"; sleep 4
+tap 540 570; sleep 3
+adb shell input swipe 540 1800 540 400 400; sleep 0.5
+find_and_tap "book_now_button" || { adb shell input swipe 540 1800 540 400 400; sleep 0.5; find_and_tap "book_now_button"; }; sleep 3
+find_and_tap "guest_name_input"; sleep 0.3; type_text "TC27%sUser"; adb shell input keyevent KEYCODE_ESCAPE; sleep 0.3
+find_and_tap "guest_email_input"; sleep 0.3; type_text "tc27@test.com"; adb shell input keyevent KEYCODE_ESCAPE; sleep 0.3
+find_and_tap "guest_phone_input"; sleep 0.3; type_text "15550002727"; adb shell input keyevent KEYCODE_ESCAPE; sleep 0.5
+find_and_tap "checkout_next_button"; sleep 3
+tap 540 745; sleep 0.5
+find_and_tap "checkout_next_button"; sleep 3
+find_and_tap "confirm_booking_button"; sleep 4
 
-# Tap Hotels tab
-tap 180 2200
-sleep 1
-
-# Enter city
-tap 540 420
-sleep 1
-type_text "San%20Francisco"
-sleep 1
-
-# Set dates
-tap 270 560
-sleep 1
-tap 540 900
-sleep 1
-tap 810 560
-sleep 1
-tap 720 900
-sleep 1
-
-# Tap Search
-tap 540 950
-sleep 3
-
-# Tap first hotel card
-tap 540 600
-sleep 2
-
-# Tap Book Now
-tap 540 2050
-sleep 2
-
-# Step 1: Guest info
-tap 540 400
-sleep 1
-type_text "Laura%20Kim"
-sleep 1
-tap 540 520
-sleep 1
-type_text "laura@example.com"
-sleep 1
-tap 540 640
-sleep 1
-type_text "5559990000"
-sleep 1
-
-# Next
-tap 540 2050
-sleep 2
-
-# Step 2: Next
-tap 540 2050
-sleep 2
-
-# Step 3: Confirm
-tap 540 2050
-sleep 3
-
-screenshot "mid_${TC_ID}_confirmation"
-
-# Tap View My Bookings CTA on confirmation screen
-tap 540 1800
-sleep 2
-
+# Now tap View My Bookings
+find_and_tap "view_my_bookings_button"; sleep 3
 screenshot "after_${TC_ID}"
 
-pull_db
+pull_db_cat
+TOTAL=$(qdb "SELECT COUNT(*) FROM bookings WHERE booking_type='hotel';")
+LATEST_REF=$(qdb "SELECT reference_number FROM bookings ORDER BY created_at DESC LIMIT 1;")
 
-COUNT=$(sqlite3 $DB_LOCAL \
-  "SELECT COUNT(*) FROM bookings WHERE booking_type='hotel';" 2>/dev/null)
-[ "${COUNT:-0}" -gt "0" ] && PASS=1
-
-STATUS="FAIL"
-[ $PASS -eq 1 ] && STATUS="PASS"
-log_result "$TC_ID" "$STATUS"
+[ "$TOTAL" = "1" ] && echo "$LATEST_REF" | grep -q "BOOK-HOTEL" && PASS=1
+STATUS="FAIL"; [ $PASS -eq 1 ] && STATUS="PASS"
+log_result "$TC_ID" "$STATUS — hotel_bookings=$TOTAL, ref=$LATEST_REF (expected 1 booking)"

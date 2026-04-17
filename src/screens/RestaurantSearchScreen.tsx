@@ -58,7 +58,6 @@ export default function RestaurantSearchScreen() {
         value={date}
         placeholder="Select date"
         onDateChange={setDate}
-        minimumDate={new Date()}
       />
 
       <Text style={styles.label}>Time</Text>

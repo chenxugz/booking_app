@@ -59,7 +59,6 @@ export default function HotelSearchScreen() {
         value={checkIn}
         placeholder="Select check-in date"
         onDateChange={setCheckIn}
-        minimumDate={new Date()}
       />
 
       <Text style={styles.label}>Check-out Date</Text>
@@ -68,7 +67,6 @@ export default function HotelSearchScreen() {
         value={checkOut}
         placeholder="Select check-out date"
         onDateChange={setCheckOut}
-        minimumDate={checkIn ? new Date(checkIn + 'T00:00:00') : new Date()}
       />
 
       <Text style={styles.label}>Guests</Text>

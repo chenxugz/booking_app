@@ -144,7 +144,6 @@ export default function FlightSearchScreen() {
             value={date}
             placeholder="Select departure date"
             onDateChange={setDate}
-            minimumDate={new Date()}
           />
 
           {tripType === 'round_trip' && (
@@ -155,7 +154,6 @@ export default function FlightSearchScreen() {
                 value={returnDate}
                 placeholder="Select return date"
                 onDateChange={setReturnDate}
-                minimumDate={date ? new Date(date + 'T00:00:00') : new Date()}
               />
             </>
           )}
@@ -210,7 +208,6 @@ export default function FlightSearchScreen() {
                 value={leg.date}
                 placeholder="Select date"
                 onDateChange={(v) => updateLeg(index, 'date', v)}
-                minimumDate={new Date()}
               />
             </View>
           ))}

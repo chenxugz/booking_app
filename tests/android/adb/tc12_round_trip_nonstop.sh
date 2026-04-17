@@ -1,69 +1,28 @@
 #!/bin/bash
+# TC12: Round-trip non-stop SFO -> JFK
+# Dates: Departure = 2024-04-01, Return = 2024-04-08
 source ./tests/android/adb/common.sh
 TC_ID="TC12"
 PASS=0
 
-echo "[$TC_ID] Search round-trip non-stop flights"
+echo "[TC12] Search round-trip flights SFO to JFK (depart 2024-04-01, return 2024-04-08), then filter by non-stop only"
+clear_db
+tap 540 2303; sleep 2
+find_and_tap "trip_type_round_trip"; sleep 0.5
+find_and_tap "flight_origin_input"; sleep 0.3; type_text "SFO"; adb shell input keyevent KEYCODE_ESCAPE; sleep 0.3
+find_and_tap "flight_destination_input"; sleep 0.3; type_text "JFK"; adb shell input keyevent KEYCODE_ESCAPE; sleep 0.3
+pick_date "flight_departure_date" "2024-04-01"  # April 1, 2024
+pick_date "flight_return_date" "2024-04-08"      # April 8, 2024
+find_and_tap "search_button"; sleep 4
 
-launch_app
-screenshot "before_${TC_ID}"
-
-# Tap Flights tab
-tap 540 2200
-sleep 1
-
-# Tap Round-trip toggle
-tap 810 350
-sleep 1
-
-# Tap origin input
-tap 540 460
-sleep 1
-type_text "SFO"
-sleep 1
-
-# Tap destination input
-tap 540 580
-sleep 1
-type_text "JFK"
-sleep 1
-
-# Tap departure date picker
-tap 270 700
-sleep 1
-tap 540 900
-sleep 1
-
-# Tap return date picker
-tap 810 700
-sleep 1
-tap 720 900
-sleep 1
-
-# Tap Search
-tap 540 950
-sleep 3
-
-# Tap Filter on results
-tap 810 300
-sleep 2
-
-# Toggle non-stop filter
-tap 540 450
-sleep 1
-
-# Apply
-tap 540 2100
-sleep 2
-
+find_and_tap "filter_button"; sleep 1
+find_and_tap "filter_stops_0"; sleep 0.5
+find_and_tap "filter_close_button"; sleep 1
 screenshot "after_${TC_ID}"
 
-pull_db
-
-COUNT=$(sqlite3 $DB_LOCAL \
-  "SELECT COUNT(*) FROM search_log WHERE search_type='flight';" 2>/dev/null)
-[ "${COUNT:-0}" -gt "0" ] && PASS=1
-
-STATUS="FAIL"
-[ $PASS -eq 1 ] && STATUS="PASS"
-log_result "$TC_ID" "$STATUS"
+pull_db_cat
+C=$(qdb "SELECT COUNT(*) FROM search_log WHERE search_type='flight' AND query_params = '{\"origin\":\"SFO\",\"destination\":\"JFK\",\"date\":\"2024-04-01\",\"returnDate\":\"2024-04-08\",\"passengers\":1,\"tripType\":\"round_trip\"}';")
+RC=$(qdb "SELECT COUNT(*) FROM search_log WHERE search_type LIKE '%_filter' AND query_params = '{\"stops\":0}' AND result_count = 4;")
+[ "$RC" -gt 0 ] && PASS=1
+STATUS="FAIL"; [ $PASS -eq 1 ] && STATUS="PASS"
+log_result "$TC_ID" "$STATUS — nonstop filter matching_entries=$RC (expected >=1 with result_count=4)"

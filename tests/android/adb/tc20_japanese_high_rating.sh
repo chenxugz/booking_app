@@ -1,51 +1,26 @@
 #!/bin/bash
+# TC20: Japanese cuisine >= 4.5
+# DB Check: restaurant_filter with Japanese+4.5 -> result_count = 4
 source ./tests/android/adb/common.sh
 TC_ID="TC20"
 PASS=0
 
-echo "[$TC_ID] Filter Japanese cuisine with rating >= 4.5"
+echo "[TC20] Search restaurants in San Francisco on 2024-04-07, then filter by Japanese cuisine with rating >= 4.5"
+clear_db
 
-launch_app
-screenshot "before_${TC_ID}"
+tap 900 2303; sleep 2
+find_and_tap "restaurant_search_input"; sleep 0.3; type_text "San%sFrancisco"; adb shell input keyevent KEYCODE_ESCAPE; sleep 0.3
+find_and_tap "search_button"; sleep 4
 
-# Tap Restaurants tab
-tap 900 2200
-sleep 1
-
-# Tap location input
-tap 540 420
-sleep 1
-type_text "San%20Francisco"
-sleep 1
-
-# Tap Search
-tap 540 950
-sleep 3
-
-# Tap Filter
-tap 810 300
-sleep 2
-
-# Select Japanese cuisine chip
-tap 270 500
-sleep 1
-
-# Select 4.5 star rating filter
-tap 810 650
-sleep 1
-
-# Apply
-tap 540 2100
-sleep 2
-
+find_and_tap "filter_button"; sleep 1
+find_and_tap "filter_cuisine_japanese"; sleep 0.5
+adb shell input swipe 540 1800 540 600 400; sleep 0.5
+find_and_tap "filter_rating_4.5"; sleep 0.5
+find_and_tap "filter_close_button"; sleep 2
 screenshot "after_${TC_ID}"
 
-pull_db
-
-COUNT=$(sqlite3 $DB_LOCAL \
-  "SELECT COUNT(*) FROM search_log WHERE search_type='restaurant';" 2>/dev/null)
-[ "${COUNT:-0}" -gt "0" ] && PASS=1
-
-STATUS="FAIL"
-[ $PASS -eq 1 ] && STATUS="PASS"
-log_result "$TC_ID" "$STATUS"
+pull_db_cat
+RC=$(qdb "SELECT COUNT(*) FROM search_log WHERE search_type LIKE '%_filter' AND query_params = '{\"cuisine\":\"Japanese\",\"minRating\":4.5}' AND result_count = 4;")
+[ "$RC" -gt 0 ] && PASS=1
+STATUS="FAIL"; [ $PASS -eq 1 ] && STATUS="PASS"
+log_result "$TC_ID" "$STATUS — Japanese>=4.5 matching_entries=$RC (expected >=1 with result_count=4)"

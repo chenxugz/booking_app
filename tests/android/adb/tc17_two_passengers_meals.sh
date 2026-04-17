@@ -1,97 +1,36 @@
 #!/bin/bash
+# TC17: 2 passengers with vegetarian meal
+# Dates: Departure = 2024-04-01
 source ./tests/android/adb/common.sh
 TC_ID="TC17"
 PASS=0
 
-echo "[$TC_ID] Book flight for 2 passengers with meal preferences"
+echo "[TC17] Book a flight SFO to JFK on 2024-04-01 for 2 passengers, select vegetarian meal preference"
+clear_db
+tap 540 2303; sleep 2
+find_and_tap "flight_origin_input"; sleep 0.3; type_text "SFO"; adb shell input keyevent KEYCODE_ESCAPE; sleep 0.3
+find_and_tap "flight_destination_input"; sleep 0.3; type_text "JFK"; adb shell input keyevent KEYCODE_ESCAPE; sleep 0.3
+pick_date "flight_departure_date" "2024-04-01"
+find_and_tap "passenger_count_increment"; sleep 0.3  # 1->2
+find_and_tap "search_button"; sleep 4
 
-launch_app
-screenshot "before_${TC_ID}"
+tap 540 570; sleep 3
+adb shell input swipe 540 1800 540 400 400; sleep 0.5
+find_and_tap "book_now_button" || { adb shell input swipe 540 1800 540 400 400; sleep 0.5; find_and_tap "book_now_button"; }; sleep 3
 
-# Tap Flights tab
-tap 540 2200
-sleep 1
+find_and_tap "guest_name_input"; sleep 0.3; type_text "Duo%sFlyer"; adb shell input keyevent KEYCODE_ESCAPE; sleep 0.3
+find_and_tap "guest_email_input"; sleep 0.3; type_text "duo@fly.com"; adb shell input keyevent KEYCODE_ESCAPE; sleep 0.3
+find_and_tap "guest_phone_input"; sleep 0.3; type_text "15550001717"; adb shell input keyevent KEYCODE_ESCAPE; sleep 0.5
+find_and_tap "checkout_next_button"; sleep 3
+find_and_tap "seat_class_option_economy"; sleep 0.5
+adb shell input swipe 540 1800 540 600 400; sleep 0.5
+find_and_tap "meal_pref_vegetarian" || { adb shell input swipe 540 1800 540 600 400; sleep 0.5; find_and_tap "meal_pref_vegetarian"; }; sleep 0.5
+find_and_tap "checkout_next_button"; sleep 3
+find_and_tap "confirm_booking_button"; sleep 4
 
-# One-way
-tap 270 350
-sleep 1
-
-# Origin
-tap 540 460
-sleep 1
-type_text "SFO"
-sleep 1
-
-# Destination
-tap 540 580
-sleep 1
-type_text "JFK"
-sleep 1
-
-# Date
-tap 540 700
-sleep 1
-tap 540 900
-sleep 1
-
-# Increase passengers to 2 (tap + stepper)
-tap 650 820
-sleep 1
-
-# Tap Search
-tap 540 950
-sleep 3
-
-# Tap first flight card
-tap 540 600
-sleep 2
-
-# Tap Book Now
-tap 540 2050
-sleep 2
-
-# Step 1: Guest info (primary passenger)
-tap 540 400
-sleep 1
-type_text "Grace%20Lee"
-sleep 1
-tap 540 520
-sleep 1
-type_text "grace@example.com"
-sleep 1
-tap 540 640
-sleep 1
-type_text "5556667777"
-sleep 1
-
-# Next
-tap 540 2050
-sleep 2
-
-# Step 2: Set meal preferences
-# Passenger 1 meal: standard
-tap 270 450
-sleep 1
-# Passenger 2 meal: vegetarian
-tap 540 550
-sleep 1
-
-# Next
-tap 540 2050
-sleep 2
-
-# Step 3: Confirm
-tap 540 2050
-sleep 3
-
-screenshot "after_${TC_ID}"
-
-pull_db
-
-COUNT=$(sqlite3 $DB_LOCAL \
-  "SELECT COUNT(*) FROM bookings WHERE booking_type='flight' AND guests=2;" 2>/dev/null)
-[ "${COUNT:-0}" -gt "0" ] && PASS=1
-
-STATUS="FAIL"
-[ $PASS -eq 1 ] && STATUS="PASS"
-log_result "$TC_ID" "$STATUS"
+pull_db_cat
+G=$(qdb "SELECT guests FROM bookings ORDER BY created_at DESC LIMIT 1;")
+E=$(qdb "SELECT extras FROM bookings ORDER BY created_at DESC LIMIT 1;")
+[ "$G" = "2" ] && echo "$E" | grep -q '"meal_preference":"vegetarian"' && PASS=1
+STATUS="FAIL"; [ $PASS -eq 1 ] && STATUS="PASS"
+log_result "$TC_ID" "$STATUS — guests=$G, extras=$E"

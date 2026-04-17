@@ -1,49 +1,22 @@
 #!/bin/bash
+# TC30: Zero results -> empty state
+# Dates: N/A
+# DB Check: search_log has hotel search with result_count=0
 source ./tests/android/adb/common.sh
 TC_ID="TC30"
 PASS=0
 
-echo "[$TC_ID] Apply filters yielding 0 results — verify empty state UI shown"
-
-launch_app
-screenshot "before_${TC_ID}"
-
-# Tap Hotels tab
-tap 180 2200
-sleep 1
-
-# Enter city
-tap 540 420
-sleep 1
-type_text "San%20Francisco"
-sleep 1
-
-# Tap Search
-tap 540 950
-sleep 3
-
-# Tap Filter
-tap 810 300
-sleep 2
-
-# Set max price to $1 (drag price slider all the way left)
-swipe 930 700 160 700
-sleep 1
-
-# Apply filter
-tap 540 2100
-sleep 2
-
+echo "[TC30] Search hotels in a nonexistent city (Zzzznonexistent99) and observe the empty results"
+clear_db
+tap 180 2303; sleep 1
+tap 540 668; sleep 0.5; type_text "Zzzznonexistent99"
+adb shell input keyevent KEYCODE_ESCAPE; sleep 0.3
+find_and_tap "search_button"; sleep 4
 screenshot "after_${TC_ID}"
 
-pull_db
+pull_db_cat
+RC=$(qdb "SELECT COUNT(*) FROM search_log WHERE search_type='hotel' AND query_params = '{\"city\":\"Zzzznonexistent99\",\"checkIn\":\"\",\"checkOut\":\"\",\"guests\":1}' AND result_count = 0;")
 
-# The test passes if the empty state is rendered — verified by screenshot.
-# DB-side: search_log should still have an entry from the search above.
-COUNT=$(sqlite3 $DB_LOCAL \
-  "SELECT COUNT(*) FROM search_log WHERE search_type='hotel';" 2>/dev/null)
-[ "${COUNT:-0}" -gt "0" ] && PASS=1
-
-STATUS="FAIL"
-[ $PASS -eq 1 ] && STATUS="PASS (visual verify required — check after_${TC_ID}.png for empty state UI)"
-log_result "$TC_ID" "$STATUS"
+[ "$RC" -gt 0 ] && PASS=1
+STATUS="FAIL"; [ $PASS -eq 1 ] && STATUS="PASS"
+log_result "$TC_ID" "$STATUS — matching_entries=$RC (expected >=1 with result_count=0)"

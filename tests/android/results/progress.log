@@ -54,3 +54,54 @@
 - TC24 initial fail: hardcoded coordinate missed time slot chip. Fix: find by testID.
 - TC35 initial fail: delayed flight booking was off-screen. Fix: filter by flights first, scroll more.
 - TC36/37 initial fail: onTouchEnd on View doesn't trigger from ADB taps. Fix: log on component mount via useEffect.
+Starting Booking Benchmark Test Suite - Fri Apr 17 11:55:10 PDT 2026
+[TC01] FAIL — searches=, entries_with_24_results= (expected >=1) - Fri Apr 17 11:56:01 PDT 2026
+[TC02] FAIL — filter matching_entries=0 (expected >=1 with result_count=10) - Fri Apr 17 11:56:31 PDT 2026
+[TC03] FAIL — 4-star filter matching_entries=0 (expected >=1 with result_count=8) - Fri Apr 17 11:57:02 PDT 2026
+[TC01] FAIL — searches=, entries_with_24_results= (expected >=1) - Fri Apr 17 12:01:31 PDT 2026
+[TC01] FAIL — searches=, entries_with_24_results= (expected >=1) - Fri Apr 17 12:07:18 PDT 2026
+[TC02] FAIL — filter matching_entries=0 (expected >=1 with result_count=10) - Fri Apr 17 12:07:48 PDT 2026
+[TC03] FAIL — 4-star filter matching_entries=0 (expected >=1 with result_count=8) - Fri Apr 17 12:08:19 PDT 2026
+[TC01] FAIL — searches=, entries_with_24_results= (expected >=1) - Fri Apr 17 12:12:52 PDT 2026
+[TC01] FAIL — searches=, entries_with_24_results= (expected >=1) - Fri Apr 17 12:18:15 PDT 2026
+[TC01] PASS — searches=1, entries_with_24_results=1 (expected >=1) - Fri Apr 17 12:20:27 PDT 2026
+[TC02] PASS — filter matching_entries=1 (expected >=1 with result_count=10) - Fri Apr 17 12:20:57 PDT 2026
+[TC03] PASS — 4-star filter matching_entries=1 (expected >=1 with result_count=8) - Fri Apr 17 12:21:28 PDT 2026
+[TC04] PASS — pet_friendly+gym matching_entries=1 (expected >=1 with result_count=10) - Fri Apr 17 12:24:37 PDT 2026
+[TC05] FAIL — ref=BOOK-HOTEL-20260417-FD52, price=372.0, status=confirmed - Fri Apr 17 12:25:55 PDT 2026
+[TC06] PASS — pool+breakfast+parking matching_entries=1 (expected >=1 with result_count=1) - Fri Apr 17 12:26:34 PDT 2026
+[TC07] PASS — guests=6 - Fri Apr 17 12:27:44 PDT 2026
+[TC08] PASS — room_type=King Suite - Fri Apr 17 12:29:00 PDT 2026
+[TC09] PASS — promo=SAVE10 - Fri Apr 17 12:30:17 PDT 2026
+[TC10] PASS — 1 hotel bookings - Fri Apr 17 12:31:26 PDT 2026
+[TC11] PASS — matching_entries=1 (expected >=1 with result_count=4) - Fri Apr 17 12:31:59 PDT 2026
+[TC12] PASS — nonstop filter matching_entries=1 (expected >=1 with result_count=4) - Fri Apr 17 12:32:48 PDT 2026
+[TC13] PASS — morning departure matching_entries=1 (expected >=1 with result_count=3) - Fri Apr 17 12:33:31 PDT 2026
+[TC14] PASS — ref=, status= - Fri Apr 17 12:37:02 PDT 2026
+[TC15] PASS — extras={"baggage":true,"meal_preference":"standard"} - Fri Apr 17 12:38:22 PDT 2026
+[TC16] PASS — extras={"seat_preference":"window","meal_preference":"standard"} - Fri Apr 17 12:39:41 PDT 2026
+[TC17] PASS — guests=2, extras={"meal_preference":"vegetarian"} - Fri Apr 17 12:41:05 PDT 2026
+[TC18] PASS — matching_entries=1 (expected >=1 with result_count=5) - Fri Apr 17 12:41:39 PDT 2026
+[TC19] PASS — 1 restaurant search(es) - Fri Apr 17 12:42:09 PDT 2026
+[TC20] PASS — Japanese>=4.5 matching_entries=1 (expected >=1 with result_count=4) - Fri Apr 17 12:42:47 PDT 2026
+[TC21] FAIL — guests=2 - Fri Apr 17 12:44:01 PDT 2026
+[TC22] PASS — outdoor+valet matching_entries=1 (expected >=1 with result_count=5) - Fri Apr 17 12:44:35 PDT 2026
+[TC23] PASS — sort matching_entries=1 (expected >=1 with result_count=30) - Fri Apr 17 12:45:01 PDT 2026
+[TC24] PASS — 1 restaurant booking(s) - Fri Apr 17 12:46:12 PDT 2026
+[TC25] PASS — time_slot=18:00 - Fri Apr 17 12:47:23 PDT 2026
+[TC26] PASS — ref=BOOK-HOTEL-20260417-FPK3 - Fri Apr 17 12:48:32 PDT 2026
+[TC27] PASS — hotel_bookings=1, ref=BOOK-HOTEL-20260417-JMYP (expected 1 booking) - Fri Apr 17 12:49:47 PDT 2026
+[TC28] PASS — bookings_before=0, bookings_after=0 (no new booking) - Fri Apr 17 12:50:31 PDT 2026
+[TC29] PASS — bookings_before=0, bookings_after=0 (validation blocked) - Fri Apr 17 12:51:03 PDT 2026
+[TC30] PASS — matching_entries=1 (expected >=1 with result_count=0) - Fri Apr 17 12:51:20 PDT 2026
+[TC31] PASS — 1 receipts downloaded - Fri Apr 17 12:51:52 PDT 2026
+[TC32] PASS — keyword=construction noise - Fri Apr 17 12:52:25 PDT 2026
+[TC33] PASS — 10 corporate bookings - Fri Apr 17 12:54:28 PDT 2026
+[TC34] PASS — 1 multi-city searches - Fri Apr 17 12:55:12 PDT 2026
+[TC35] PASS — claim=CLM-MO3BVSSP - Fri Apr 17 12:55:45 PDT 2026
+[TC36] FAIL — 1 baggage views - Fri Apr 17 12:56:23 PDT 2026
+[TC37] FAIL — 1 menu views - Fri Apr 17 12:57:02 PDT 2026
+[TC05] PASS — ref=BOOK-HOTEL-20260417-4FKG, price=372.0, status=confirmed - Fri Apr 17 13:15:51 PDT 2026
+[TC21] PASS — guests=8 - Fri Apr 17 13:17:04 PDT 2026
+[TC36] PASS — 3 baggage views - Fri Apr 17 13:17:43 PDT 2026
+[TC37] PASS — 3 menu views - Fri Apr 17 13:18:21 PDT 2026

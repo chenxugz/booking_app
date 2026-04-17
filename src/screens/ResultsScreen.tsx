@@ -1,4 +1,4 @@
-import React, { useState, useMemo, useCallback } from 'react';
+import React, { useState, useMemo, useCallback, useEffect, useRef } from 'react';
 import {
   View, Text, FlatList, TouchableOpacity, StyleSheet,
   Modal, ScrollView, Switch,
@@ -12,6 +12,7 @@ import {
   filterHotels, filterFlights, filterRestaurants,
   sortHotels, sortFlights, sortRestaurants, SortOption,
 } from '../utils/filterEngine';
+import { logSearch } from '../db/queries';
 
 type NavProp = NativeStackNavigationProp<RootStackParamList>;
 type RoutePropType = RouteProp<RootStackParamList, 'Results'>;
@@ -75,6 +76,41 @@ export default function ResultsScreen() {
     }
   }, [type, hotels, flights, restaurants, hotelSearch, flightSearch, restaurantSearch,
       sortOption, maxPrice, minStars, selectedAmenities, stopsFilter, minDeptHour, maxDeptHour,
+      cuisineFilter, minRating, priceTierFilter, restaurantAmenities]);
+
+  // Log every filter/sort change to search_log for DB-based test verification
+  const isFirstRender = useRef(true);
+  useEffect(() => {
+    if (isFirstRender.current) {
+      isFirstRender.current = false;
+      return;
+    }
+    const filterParams: Record<string, unknown> = {};
+    if (type === 'hotel') {
+      if (maxPrice !== undefined) filterParams.maxPrice = maxPrice;
+      if (minStars !== undefined) filterParams.minStars = minStars;
+      if (selectedAmenities.length > 0) filterParams.amenities = selectedAmenities;
+    } else if (type === 'flight') {
+      if (stopsFilter !== undefined) filterParams.stops = stopsFilter;
+      if (minDeptHour !== undefined) filterParams.departureWindow = `${minDeptHour}-${maxDeptHour}`;
+    } else {
+      if (cuisineFilter) filterParams.cuisine = cuisineFilter;
+      if (minRating !== undefined) filterParams.minRating = minRating;
+      if (priceTierFilter !== undefined) filterParams.priceTier = priceTierFilter;
+      if (restaurantAmenities.length > 0) filterParams.amenities = restaurantAmenities;
+    }
+    // Log filters and sort separately
+    logSearch({
+      search_type: `${type}_filter`,
+      query_params: JSON.stringify(filterParams),
+      result_count: results.length,
+    }).catch(() => {});
+    logSearch({
+      search_type: `${type}_sort`,
+      query_params: JSON.stringify({ sort: sortOption }),
+      result_count: results.length,
+    }).catch(() => {});
+  }, [sortOption, maxPrice, minStars, selectedAmenities, stopsFilter, minDeptHour, maxDeptHour,
       cuisineFilter, minRating, priceTierFilter, restaurantAmenities]);
 
   const toggleAmenity = useCallback((amenity: string) => {

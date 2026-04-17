@@ -1,95 +1,33 @@
 #!/bin/bash
+# TC14: Sort by price ascending, book cheapest
+# Dates: Departure = 2024-04-01
 source ./tests/android/adb/common.sh
 TC_ID="TC14"
 PASS=0
 
-echo "[$TC_ID] Sort by price ascending and book cheapest flight"
+echo "[TC14] Search flights SFO to JFK on 2024-04-01, sort by price ascending, and book the cheapest flight in Economy class"
+clear_db
+tap 540 2303; sleep 2
+find_and_tap "flight_origin_input"; sleep 0.3; type_text "SFO"; adb shell input keyevent KEYCODE_ESCAPE; sleep 0.3
+find_and_tap "flight_destination_input"; sleep 0.3; type_text "JFK"; adb shell input keyevent KEYCODE_ESCAPE; sleep 0.3
+pick_date "flight_departure_date" "2024-04-01"
+find_and_tap "search_button"; sleep 4
 
-launch_app
-screenshot "before_${TC_ID}"
+# Default sort is price_asc; book first result
+tap 540 570; sleep 3
+adb shell input swipe 540 1800 540 400 400; sleep 0.5
+find_and_tap "book_now_button" || { adb shell input swipe 540 1800 540 400 400; sleep 0.5; find_and_tap "book_now_button"; }; sleep 3
 
-# Tap Flights tab
-tap 540 2200
-sleep 1
+find_and_tap "guest_name_input"; sleep 0.3; type_text "Cheap%sFlyer"; adb shell input keyevent KEYCODE_ESCAPE; sleep 0.3
+find_and_tap "guest_email_input"; sleep 0.3; type_text "cheap@fly.com"; adb shell input keyevent KEYCODE_ESCAPE; sleep 0.3
+find_and_tap "guest_phone_input"; sleep 0.3; type_text "15550001414"; adb shell input keyevent KEYCODE_ESCAPE; sleep 0.5
+find_and_tap "checkout_next_button"; sleep 3
+find_and_tap "seat_class_option_economy"; sleep 0.5
+find_and_tap "checkout_next_button"; sleep 3
+find_and_tap "confirm_booking_button"; sleep 4
 
-# One-way
-tap 270 350
-sleep 1
-
-# Origin
-tap 540 460
-sleep 1
-type_text "SFO"
-sleep 1
-
-# Destination
-tap 540 580
-sleep 1
-type_text "JFK"
-sleep 1
-
-# Date
-tap 540 700
-sleep 1
-tap 540 900
-sleep 1
-
-# Tap Search
-tap 540 950
-sleep 3
-
-# Tap Sort
-tap 270 300
-sleep 2
-
-# Select Price: Low to High
-tap 540 450
-sleep 1
-
-screenshot "mid_${TC_ID}_sorted"
-
-# Tap first (cheapest) flight card
-tap 540 600
-sleep 2
-
-# Tap Book Now
-tap 540 2050
-sleep 2
-
-# Step 1: Guest info
-tap 540 400
-sleep 1
-type_text "Dave%20Brown"
-sleep 1
-tap 540 520
-sleep 1
-type_text "dave@example.com"
-sleep 1
-tap 540 640
-sleep 1
-type_text "5557778888"
-sleep 1
-
-# Next
-tap 540 2050
-sleep 2
-
-# Step 2: Next
-tap 540 2050
-sleep 2
-
-# Step 3: Confirm
-tap 540 2050
-sleep 3
-
-screenshot "after_${TC_ID}"
-
-pull_db
-
-COUNT=$(sqlite3 $DB_LOCAL \
-  "SELECT COUNT(*) FROM bookings WHERE booking_type='flight';" 2>/dev/null)
-[ "${COUNT:-0}" -gt "0" ] && PASS=1
-
-STATUS="FAIL"
-[ $PASS -eq 1 ] && STATUS="PASS"
-log_result "$TC_ID" "$STATUS"
+pull_db_cat
+C=$(qdb "SELECT COUNT(*) FROM bookings WHERE booking_type='flight';")
+[ "$C" -gt 0 ] && PASS=1
+STATUS="FAIL"; [ $PASS -eq 1 ] && STATUS="PASS"
+log_result "$TC_ID" "$STATUS — ref=$REF, status=$STATUS_DB"
