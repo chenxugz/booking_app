@@ -6,7 +6,7 @@ source ./tests/android/adb/common.sh
 TC_ID="TC27"
 PASS=0
 
-echo "[TC27] Book a hotel in San Francisco (check-in 2024-04-01, check-out 2024-04-04), then navigate to My Bookings to verify the booking appears"
+echo "[TC27] Search hotels in San Francisco (check-in 2024-04-01, check-out 2024-04-04), book the first result (Tenderloin Budget Motel), select Standard Double room, with guest name TC27 User, email tc27@test.com, phone 15550002727, then navigate to My Bookings to verify the booking appears"
 clear_db
 
 # Do a full hotel booking first
@@ -32,9 +32,8 @@ find_and_tap "view_my_bookings_button"; sleep 3
 screenshot "after_${TC_ID}"
 
 pull_db_cat
-TOTAL=$(qdb "SELECT COUNT(*) FROM bookings WHERE booking_type='hotel';")
-LATEST_REF=$(qdb "SELECT reference_number FROM bookings ORDER BY created_at DESC LIMIT 1;")
-
-[ "$TOTAL" = "1" ] && echo "$LATEST_REF" | grep -q "BOOK-HOTEL" && PASS=1
+RC=$(qdb "SELECT COUNT(*) FROM bookings WHERE booking_type='hotel' AND user_name='TC27 User' AND room_type='Standard Double' AND status='confirmed';")
+REF=$(qdb "SELECT reference_number FROM bookings WHERE user_name='TC27 User' ORDER BY created_at DESC LIMIT 1;")
+[ "$RC" = "1" ] && echo "$REF" | grep -q "BOOK-HOTEL" && PASS=1
 STATUS="FAIL"; [ $PASS -eq 1 ] && STATUS="PASS"
-log_result "$TC_ID" "$STATUS — hotel_bookings=$TOTAL, ref=$LATEST_REF (expected 1 booking)"
+log_result "$TC_ID" "$STATUS — ref=$REF, matches=$RC (expected 1 booking, TC27 User, confirmed)"

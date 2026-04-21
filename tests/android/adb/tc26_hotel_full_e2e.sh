@@ -5,7 +5,7 @@ source ./tests/android/adb/common.sh
 TC_ID="TC26"
 PASS=0
 
-echo "[TC26] Complete a full hotel booking: search San Francisco (check-in 2024-04-15, check-out 2024-04-18, 2 guests), select a hotel, fill guest info, select a room, and confirm the booking"
+echo "[TC26] Complete a full hotel booking: search San Francisco (check-in 2024-04-15, check-out 2024-04-18, 2 guests), book the first result (Tenderloin Budget Motel), select Standard Double room, with guest name Alice E2E, email alice@e2e.com, phone 15550002626, and confirm"
 clear_db
 tap 180 2303; sleep 1
 tap 540 668; sleep 0.5; type_text "San%sFrancisco"
@@ -29,7 +29,8 @@ find_and_tap "confirm_booking_button"; sleep 4
 screenshot "after_${TC_ID}"
 
 pull_db_cat
-REF=$(qdb "SELECT reference_number FROM bookings ORDER BY created_at DESC LIMIT 1;")
-echo "$REF" | grep -q "BOOK-HOTEL" && PASS=1
+RC=$(qdb "SELECT COUNT(*) FROM bookings WHERE booking_type='hotel' AND item_id='hotel_029' AND user_name='Alice E2E' AND room_type='Standard Double' AND guests=2 AND status='confirmed';")
+REF=$(qdb "SELECT reference_number FROM bookings WHERE user_name='Alice E2E' ORDER BY created_at DESC LIMIT 1;")
+[ "$RC" -gt 0 ] && PASS=1
 STATUS="FAIL"; [ $PASS -eq 1 ] && STATUS="PASS"
-log_result "$TC_ID" "$STATUS — ref=$REF"
+log_result "$TC_ID" "$STATUS — ref=$REF, matches=$RC (expected hotel_029, Alice E2E, guests=2, confirmed)"

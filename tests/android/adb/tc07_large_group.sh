@@ -5,7 +5,7 @@ source ./tests/android/adb/common.sh
 TC_ID="TC07"
 PASS=0
 
-echo "[TC07] Book a hotel in San Francisco for 6 guests, check-in 2024-04-01, check-out 2024-04-04"
+echo "[TC07] Search hotels in San Francisco (check-in 2024-04-01, check-out 2024-04-04, 6 guests), book the first result (Tenderloin Budget Motel), select Standard Double room, with guest name Group Leader, email group@test.com, phone 15550006666"
 clear_db
 tap 180 2303; sleep 1
 tap 540 668; sleep 0.5; type_text "San%sFrancisco"
@@ -28,7 +28,7 @@ find_and_tap "checkout_next_button"; sleep 3
 find_and_tap "confirm_booking_button"; sleep 4
 
 pull_db_cat
-G=$(qdb "SELECT guests FROM bookings ORDER BY created_at DESC LIMIT 1;")
-[ "$G" = "6" ] && PASS=1
+RC=$(qdb "SELECT COUNT(*) FROM bookings WHERE booking_type='hotel' AND item_id='hotel_029' AND user_name='Group Leader' AND room_type='Standard Double' AND guests=6 AND status='confirmed';")
+[ "$RC" -gt 0 ] && PASS=1
 STATUS="FAIL"; [ $PASS -eq 1 ] && STATUS="PASS"
-log_result "$TC_ID" "$STATUS — guests=$G"
+log_result "$TC_ID" "$STATUS — matches=$RC (expected hotel_029, Group Leader, guests=6, confirmed)"

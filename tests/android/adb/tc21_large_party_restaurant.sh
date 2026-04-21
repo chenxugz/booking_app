@@ -5,7 +5,7 @@ source ./tests/android/adb/common.sh
 TC_ID="TC21"
 PASS=0
 
-echo "[TC21] Search restaurants in San Francisco on 2024-04-01 for a party of 8, book a restaurant and select an available time slot"
+echo "[TC21] Search restaurants in San Francisco on 2024-04-01 for a party of 8, book the first result (El Farolito), select the 18:00 time slot, with guest name Party Host, email party@test.com, phone 15550002121"
 clear_db
 tap 900 2303; sleep 2
 find_and_tap "restaurant_search_input"; sleep 0.3; type_text "San%sFrancisco"; adb shell input keyevent KEYCODE_ESCAPE; sleep 0.3
@@ -27,7 +27,7 @@ find_and_tap "checkout_next_button"; sleep 3
 find_and_tap "confirm_booking_button"; sleep 4
 
 pull_db_cat
-G=$(qdb "SELECT guests FROM bookings WHERE booking_type='restaurant' ORDER BY created_at DESC LIMIT 1;")
-[ "$G" -ge 8 ] 2>/dev/null && PASS=1
+RC=$(qdb "SELECT COUNT(*) FROM bookings WHERE booking_type='restaurant' AND user_name='Party Host' AND guests>=8 AND status='confirmed';")
+[ "$RC" -gt 0 ] && PASS=1
 STATUS="FAIL"; [ $PASS -eq 1 ] && STATUS="PASS"
-log_result "$TC_ID" "$STATUS — guests=$G"
+log_result "$TC_ID" "$STATUS — matches=$RC (expected Party Host, guests>=8, confirmed)"

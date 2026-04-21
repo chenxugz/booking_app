@@ -105,3 +105,16 @@ Starting Booking Benchmark Test Suite - Fri Apr 17 11:55:10 PDT 2026
 [TC21] PASS — guests=8 - Fri Apr 17 13:17:04 PDT 2026
 [TC36] PASS — 3 baggage views - Fri Apr 17 13:17:43 PDT 2026
 [TC37] PASS — 3 menu views - Fri Apr 17 13:18:21 PDT 2026
+[TC05] FAIL — ref=, matches= (expected hotel_029, John Doe, $372, confirmed) - Mon Apr 20 22:56:10 PDT 2026
+[TC07] FAIL — matches= (expected hotel_029, Group Leader, guests=6, confirmed) - Mon Apr 20 22:57:20 PDT 2026
+[TC08] FAIL — matches= (expected hotel_005, Suite Guest, King Suite, confirmed) - Mon Apr 20 22:58:36 PDT 2026
+[TC14] FAIL — matches= (expected flight_004, Cheap Flyer, Economy, confirmed) - Mon Apr 20 22:59:52 PDT 2026
+[TC21] FAIL — matches= (expected Party Host, guests>=8, confirmed) - Mon Apr 20 23:01:05 PDT 2026
+[TC05] PASS — ref=BOOK-HOTEL-20260420-SUM5, matches=1 (expected hotel_029, John Doe, $372, confirmed) - Mon Apr 20 23:07:21 PDT 2026
+[TC07] PASS — matches=1 (expected hotel_029, Group Leader, guests=6, confirmed) - Mon Apr 20 23:08:31 PDT 2026
+[TC08] PASS — matches=1 (expected hotel_005, Suite Guest, King Suite, confirmed) - Mon Apr 20 23:09:47 PDT 2026
+[TC14] PASS — matches=1 (expected flight_004, Cheap Flyer, Economy, confirmed) - Mon Apr 20 23:11:03 PDT 2026
+[TC21] PASS — matches=1 (expected Party Host, guests>=8, confirmed) - Mon Apr 20 23:12:17 PDT 2026
+[TC05] PASS — ref=BOOK-HOTEL-20260420-Y6GP, matches=1 (expected hotel_029, John Doe, $372, confirmed) - Mon Apr 20 23:16:11 PDT 2026
+[TC07] PASS — matches=1 (expected hotel_029, Group Leader, guests=6, confirmed) - Mon Apr 20 23:17:21 PDT 2026
+[TC26] PASS — ref=BOOK-HOTEL-20260420-E3QV, matches=1 (expected hotel_029, Alice E2E, guests=2, confirmed) - Mon Apr 20 23:18:31 PDT 2026

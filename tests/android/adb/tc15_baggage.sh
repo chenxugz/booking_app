@@ -5,7 +5,7 @@ source ./tests/android/adb/common.sh
 TC_ID="TC15"
 PASS=0
 
-echo "[TC15] Book a flight SFO to JFK on 2024-04-01, add checked baggage at checkout"
+echo "[TC15] Search flights SFO to JFK on 2024-04-01, book the first result (JetBlue B6 415) in Economy class with checked baggage, guest name Bag User, email bag@fly.com, phone 15550001515"
 clear_db
 tap 540 2303; sleep 2
 find_and_tap "flight_origin_input"; sleep 0.3; type_text "SFO"; adb shell input keyevent KEYCODE_ESCAPE; sleep 0.3
@@ -28,7 +28,7 @@ find_and_tap "checkout_next_button"; sleep 3
 find_and_tap "confirm_booking_button"; sleep 4
 
 pull_db_cat
-E=$(qdb "SELECT extras FROM bookings ORDER BY created_at DESC LIMIT 1;")
-echo "$E" | grep -q '"baggage":true' && PASS=1
+RC=$(qdb "SELECT COUNT(*) FROM bookings WHERE booking_type='flight' AND item_id='flight_004' AND user_name='Bag User' AND extras LIKE '%baggage%true%' AND status='confirmed';")
+[ "$RC" -gt 0 ] && PASS=1
 STATUS="FAIL"; [ $PASS -eq 1 ] && STATUS="PASS"
-log_result "$TC_ID" "$STATUS — extras=$E"
+log_result "$TC_ID" "$STATUS — matches=$RC (expected flight_004, Bag User, baggage=true, confirmed)"

@@ -5,7 +5,7 @@ source ./tests/android/adb/common.sh
 TC_ID="TC17"
 PASS=0
 
-echo "[TC17] Book a flight SFO to JFK on 2024-04-01 for 2 passengers, select vegetarian meal preference"
+echo "[TC17] Search flights SFO to JFK on 2024-04-01 for 2 passengers, book the first result (JetBlue B6 415) in Economy class with vegetarian meal, guest name Duo Flyer, email duo@fly.com, phone 15550001717"
 clear_db
 tap 540 2303; sleep 2
 find_and_tap "flight_origin_input"; sleep 0.3; type_text "SFO"; adb shell input keyevent KEYCODE_ESCAPE; sleep 0.3
@@ -30,7 +30,7 @@ find_and_tap "confirm_booking_button"; sleep 4
 
 pull_db_cat
 G=$(qdb "SELECT guests FROM bookings ORDER BY created_at DESC LIMIT 1;")
-E=$(qdb "SELECT extras FROM bookings ORDER BY created_at DESC LIMIT 1;")
-[ "$G" = "2" ] && echo "$E" | grep -q '"meal_preference":"vegetarian"' && PASS=1
+RC=$(qdb "SELECT COUNT(*) FROM bookings WHERE booking_type='flight' AND item_id='flight_004' AND user_name='Duo Flyer' AND guests=2 AND extras LIKE '%meal_preference%vegetarian%' AND status='confirmed';")
+[ "$RC" -gt 0 ] && PASS=1
 STATUS="FAIL"; [ $PASS -eq 1 ] && STATUS="PASS"
-log_result "$TC_ID" "$STATUS — guests=$G, extras=$E"
+log_result "$TC_ID" "$STATUS — matches=$RC (expected flight_004, Duo Flyer, guests=2, vegetarian, confirmed)"

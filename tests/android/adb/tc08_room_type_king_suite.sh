@@ -5,7 +5,7 @@ source ./tests/android/adb/common.sh
 TC_ID="TC08"
 PASS=0
 
-echo "[TC08] Search hotels in San Francisco, find Union Square Premier, book it and select King Suite room type"
+echo "[TC08] Search hotels in San Francisco, find Union Square Premier, book it with King Suite room type, guest name Suite Guest, email suite@test.com, phone 15550008888"
 clear_db
 tap 180 2303; sleep 1
 tap 540 668; sleep 0.5; type_text "San%sFrancisco"
@@ -33,7 +33,7 @@ find_and_tap "checkout_next_button"; sleep 3
 find_and_tap "confirm_booking_button"; sleep 4
 
 pull_db_cat
-RT=$(qdb "SELECT room_type FROM bookings ORDER BY created_at DESC LIMIT 1;")
-echo "$RT" | grep -qi "king suite" && PASS=1
+RC=$(qdb "SELECT COUNT(*) FROM bookings WHERE booking_type='hotel' AND item_id='hotel_005' AND item_name='Union Square Premier' AND user_name='Suite Guest' AND room_type='King Suite' AND status='confirmed';")
+[ "$RC" -gt 0 ] && PASS=1
 STATUS="FAIL"; [ $PASS -eq 1 ] && STATUS="PASS"
-log_result "$TC_ID" "$STATUS — room_type=$RT"
+log_result "$TC_ID" "$STATUS — matches=$RC (expected hotel_005, Suite Guest, King Suite, confirmed)"
