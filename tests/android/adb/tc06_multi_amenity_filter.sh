@@ -6,11 +6,14 @@ source ./tests/android/adb/common.sh
 TC_ID="TC06"
 PASS=0
 
-echo "[TC06] Search hotels in San Francisco, then filter by pool + breakfast + free parking simultaneously"
+echo "[TC06] Search hotels in San Francisco (check-in 2024-04-01, check-out 2024-04-04, 2 guests), then filter by pool + breakfast + free parking simultaneously"
 clear_db
 tap 180 2303; sleep 1
 tap 540 668; sleep 0.5; type_text "San%sFrancisco"
 adb shell input keyevent KEYCODE_ESCAPE; sleep 0.3
+pick_date "checkin_date_picker" "2024-04-01"
+pick_date "checkout_date_picker" "2024-04-04"
+tap 985 1334; sleep 0.3
 find_and_tap "search_button"; sleep 4
 
 find_and_tap "filter_button"; sleep 1

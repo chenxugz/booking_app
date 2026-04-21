@@ -32,7 +32,7 @@ find_and_tap "view_my_bookings_button"; sleep 3
 screenshot "after_${TC_ID}"
 
 pull_db_cat
-RC=$(qdb "SELECT COUNT(*) FROM bookings WHERE booking_type='hotel' AND user_name='TC27 User' AND room_type='Standard Double' AND status='confirmed';")
+RC=$(qdb "SELECT COUNT(*) FROM bookings WHERE booking_type='hotel' AND user_name='TC27 User' AND user_email='tc27@test.com' AND user_phone='15550002727' AND room_type='Standard Double' AND status='confirmed';")
 REF=$(qdb "SELECT reference_number FROM bookings WHERE user_name='TC27 User' ORDER BY created_at DESC LIMIT 1;")
 [ "$RC" = "1" ] && echo "$REF" | grep -q "BOOK-HOTEL" && PASS=1
 STATUS="FAIL"; [ $PASS -eq 1 ] && STATUS="PASS"

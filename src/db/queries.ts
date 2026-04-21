@@ -8,6 +8,8 @@ export interface Booking {
   item_id: string;
   item_name: string;
   user_name?: string;
+  user_email?: string;
+  user_phone?: string;
   check_in?: string;
   check_out?: string;
   guests?: number;
@@ -30,14 +32,16 @@ export interface SearchLog {
 export async function insertBooking(booking: Booking): Promise<void> {
   const db = await getDatabase();
   await db.executeSql(
-    `INSERT INTO bookings (booking_type, reference_number, item_id, item_name, user_name, check_in, check_out, guests, room_type, seat_class, extras, promo_code, total_price, status)
-     VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+    `INSERT INTO bookings (booking_type, reference_number, item_id, item_name, user_name, user_email, user_phone, check_in, check_out, guests, room_type, seat_class, extras, promo_code, total_price, status)
+     VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
     [
       booking.booking_type,
       booking.reference_number,
       booking.item_id,
       booking.item_name,
       booking.user_name ?? null,
+      booking.user_email ?? null,
+      booking.user_phone ?? null,
       booking.check_in ?? null,
       booking.check_out ?? null,
       booking.guests ?? null,

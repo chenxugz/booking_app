@@ -24,6 +24,14 @@ export default function HotelSearchScreen() {
   const [guests, setGuests] = useState(String(hotelSearch.guests));
 
   const handleSearch = async () => {
+    if (!checkIn.trim()) {
+      Alert.alert('Required', 'Please select a check-in date.');
+      return;
+    }
+    if (!checkOut.trim()) {
+      Alert.alert('Required', 'Please select a check-out date.');
+      return;
+    }
     const guestsNum = parseInt(guests, 10) || 1;
     setHotelSearch({ city, checkIn, checkOut, guests: guestsNum });
     const results = filterHotels(hotels, { city });

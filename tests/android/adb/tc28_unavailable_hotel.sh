@@ -6,11 +6,13 @@ source ./tests/android/adb/common.sh
 TC_ID="TC28"
 PASS=0
 
-echo "[TC28] Search hotels in San Francisco, find Presidio Heights Inn (which is unavailable), and attempt to book it"
+echo "[TC28] Search hotels in San Francisco (check-in 2024-04-01, check-out 2024-04-04), find Presidio Heights Inn (which is unavailable), and attempt to book it"
 clear_db
 tap 180 2303; sleep 1
 tap 540 668; sleep 0.5; type_text "San%sFrancisco"
 adb shell input keyevent KEYCODE_ESCAPE; sleep 0.3
+pick_date "checkin_date_picker" "2024-04-01"
+pick_date "checkout_date_picker" "2024-04-04"
 find_and_tap "search_button"; sleep 4
 
 # Count bookings BEFORE attempt

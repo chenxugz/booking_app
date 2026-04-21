@@ -108,6 +108,8 @@ export default function CheckoutScreen() {
         : draft.type === 'flight' ? `${draft.item.airline} ${draft.item.flight_number}`
         : draft.item.name,
       user_name: draft.guestName,
+      user_email: draft.email,
+      user_phone: draft.phone,
       check_in: draft.type === 'hotel' ? hotelSearch.checkIn
         : draft.type === 'flight' ? draft.item.date
         : draft.timeSlot,

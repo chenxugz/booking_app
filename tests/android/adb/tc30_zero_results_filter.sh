@@ -6,16 +6,18 @@ source ./tests/android/adb/common.sh
 TC_ID="TC30"
 PASS=0
 
-echo "[TC30] Search hotels in a nonexistent city (Zzzznonexistent99) and observe the empty results"
+echo "[TC30] Search hotels in a nonexistent city Zzzznonexistent99 (check-in 2024-04-01, check-out 2024-04-04) and observe the empty results"
 clear_db
 tap 180 2303; sleep 1
 tap 540 668; sleep 0.5; type_text "Zzzznonexistent99"
 adb shell input keyevent KEYCODE_ESCAPE; sleep 0.3
+pick_date "checkin_date_picker" "2024-04-01"
+pick_date "checkout_date_picker" "2024-04-04"
 find_and_tap "search_button"; sleep 4
 screenshot "after_${TC_ID}"
 
 pull_db_cat
-RC=$(qdb "SELECT COUNT(*) FROM search_log WHERE search_type='hotel' AND query_params = '{\"city\":\"Zzzznonexistent99\",\"checkIn\":\"\",\"checkOut\":\"\",\"guests\":1}' AND result_count = 0;")
+RC=$(qdb "SELECT COUNT(*) FROM search_log WHERE search_type='hotel' AND query_params = '{\"city\":\"Zzzznonexistent99\",\"checkIn\":\"2024-04-01\",\"checkOut\":\"2024-04-04\",\"guests\":1}' AND result_count = 0;")
 
 [ "$RC" -gt 0 ] && PASS=1
 STATUS="FAIL"; [ $PASS -eq 1 ] && STATUS="PASS"

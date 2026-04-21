@@ -9,6 +9,8 @@ export async function createTables(db: SQLiteDatabase): Promise<void> {
       item_id TEXT NOT NULL,
       item_name TEXT NOT NULL,
       user_name TEXT,
+      user_email TEXT,
+      user_phone TEXT,
       check_in TEXT,
       check_out TEXT,
       guests INTEGER,

@@ -6,11 +6,13 @@ source ./tests/android/adb/common.sh
 TC_ID="TC29"
 PASS=0
 
-echo "[TC29] Search hotels in San Francisco, select a hotel, go to checkout, and attempt to proceed without filling in name, email, or phone"
+echo "[TC29] Search hotels in San Francisco (check-in 2024-04-01, check-out 2024-04-04), select a hotel, go to checkout, and attempt to proceed without filling in name, email, or phone"
 clear_db
 tap 180 2303; sleep 1
 tap 540 668; sleep 0.5; type_text "San%sFrancisco"
 adb shell input keyevent KEYCODE_ESCAPE; sleep 0.3
+pick_date "checkin_date_picker" "2024-04-01"
+pick_date "checkout_date_picker" "2024-04-04"
 find_and_tap "search_button"; sleep 4
 
 # Count bookings BEFORE

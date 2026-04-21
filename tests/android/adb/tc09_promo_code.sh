@@ -32,7 +32,7 @@ find_and_tap "checkout_next_button"; sleep 3
 find_and_tap "confirm_booking_button"; sleep 4
 
 pull_db_cat
-RC=$(qdb "SELECT COUNT(*) FROM bookings WHERE booking_type='hotel' AND item_id='hotel_029' AND user_name='Promo User' AND room_type='Standard Double' AND promo_code='SAVE10' AND status='confirmed';")
+RC=$(qdb "SELECT COUNT(*) FROM bookings WHERE booking_type='hotel' AND item_id='hotel_029' AND user_name='Promo User' AND user_email='promo@test.com' AND user_phone='15550009999' AND room_type='Standard Double' AND promo_code='SAVE10' AND status='confirmed';")
 [ "$RC" -gt 0 ] && PASS=1
 STATUS="FAIL"; [ $PASS -eq 1 ] && STATUS="PASS"
 log_result "$TC_ID" "$STATUS — matches=$RC (expected hotel_029, Promo User, SAVE10, confirmed)"

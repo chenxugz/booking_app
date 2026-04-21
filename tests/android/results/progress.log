@@ -118,3 +118,59 @@ Starting Booking Benchmark Test Suite - Fri Apr 17 11:55:10 PDT 2026
 [TC05] PASS — ref=BOOK-HOTEL-20260420-Y6GP, matches=1 (expected hotel_029, John Doe, $372, confirmed) - Mon Apr 20 23:16:11 PDT 2026
 [TC07] PASS — matches=1 (expected hotel_029, Group Leader, guests=6, confirmed) - Mon Apr 20 23:17:21 PDT 2026
 [TC26] PASS — ref=BOOK-HOTEL-20260420-E3QV, matches=1 (expected hotel_029, Alice E2E, guests=2, confirmed) - Mon Apr 20 23:18:31 PDT 2026
+[TC01] FAIL — searches=0, entries_with_24_results=0 (expected >=1) - Tue Apr 21 14:45:54 PDT 2026
+[TC02] FAIL — filter matching_entries=0 (expected >=1 with result_count=10) - Tue Apr 21 14:46:20 PDT 2026
+[TC03] FAIL — 4-star filter matching_entries=0 (expected >=1 with result_count=8) - Tue Apr 21 14:46:50 PDT 2026
+[TC02] PASS — search_matches=1, filter_matches=1 (expected search=24, filter=10) - Tue Apr 21 14:50:26 PDT 2026
+[TC03] PASS — search_matches=1, filter_matches=1 (expected search=24, filter=8) - Tue Apr 21 14:51:07 PDT 2026
+[TC04] PASS — search_matches=1, filter_matches=1 (expected search=24, filter=10) - Tue Apr 21 14:51:50 PDT 2026
+[TC01] PASS — searches=1, entries_with_24_results=1 (expected >=1) - Tue Apr 21 14:54:54 PDT 2026
+[TC02] PASS — search_matches=1, filter_matches=1 (expected search=24, filter=10) - Tue Apr 21 14:55:34 PDT 2026
+[TC03] PASS — search_matches=1, filter_matches=1 (expected search=24, filter=8) - Tue Apr 21 14:56:14 PDT 2026
+[TC04] PASS — search_matches=1, filter_matches=1 (expected search=24, filter=10) - Tue Apr 21 14:56:58 PDT 2026
+[TC05] PASS — ref=BOOK-HOTEL-20260421-BYGY, matches=1 (expected hotel_029, John Doe, $372, confirmed) - Tue Apr 21 14:58:17 PDT 2026
+[TC06] FAIL — pool+breakfast+parking matching_entries=0 (expected >=1 with result_count=1) - Tue Apr 21 14:58:57 PDT 2026
+[TC07] PASS — matches=1 (expected hotel_029, Group Leader, guests=6, confirmed) - Tue Apr 21 15:00:08 PDT 2026
+[TC08] FAIL — matches=0 (expected hotel_005, Suite Guest, King Suite, confirmed) - Tue Apr 21 15:01:25 PDT 2026
+[TC09] PASS — matches=1 (expected hotel_029, Promo User, SAVE10, confirmed) - Tue Apr 21 15:02:43 PDT 2026
+[TC10] PASS — matches=1 (expected hotel_029, NonRef User, confirmed) - Tue Apr 21 15:03:51 PDT 2026
+[TC11] PASS — matching_entries=1 (expected >=1 with result_count=4) - Tue Apr 21 15:04:24 PDT 2026
+[TC12] PASS — nonstop filter matching_entries=1 (expected >=1 with result_count=4) - Tue Apr 21 15:05:14 PDT 2026
+[TC13] PASS — morning departure matching_entries=1 (expected >=1 with result_count=3) - Tue Apr 21 15:05:56 PDT 2026
+[TC14] PASS — matches=1 (expected flight_004, Cheap Flyer, Economy, confirmed) - Tue Apr 21 15:07:11 PDT 2026
+[TC15] PASS — matches=1 (expected flight_004, Bag User, baggage=true, confirmed) - Tue Apr 21 15:08:31 PDT 2026
+[TC16] PASS — matches=1 (expected flight_004, Window User, seat=window, confirmed) - Tue Apr 21 15:09:51 PDT 2026
+[TC17] PASS — matches=1 (expected flight_004, Duo Flyer, guests=2, vegetarian, confirmed) - Tue Apr 21 15:11:14 PDT 2026
+[TC18] PASS — matching_entries=1 (expected >=1 with result_count=5) - Tue Apr 21 15:11:49 PDT 2026
+[TC19] PASS — 1 restaurant search(es) - Tue Apr 21 15:12:18 PDT 2026
+[TC20] PASS — Japanese>=4.5 matching_entries=1 (expected >=1 with result_count=4) - Tue Apr 21 15:12:57 PDT 2026
+[TC21] PASS — matches=1 (expected Party Host, guests>=8, confirmed) - Tue Apr 21 15:14:11 PDT 2026
+[TC22] PASS — outdoor+valet matching_entries=1 (expected >=1 with result_count=5) - Tue Apr 21 15:14:45 PDT 2026
+[TC23] PASS — sort matching_entries=1 (expected >=1 with result_count=30) - Tue Apr 21 15:15:11 PDT 2026
+[TC24] PASS — matches=1 (expected GF User, restaurant, confirmed) - Tue Apr 21 15:16:22 PDT 2026
+[TC25] PASS — matches=1, time_slot=18:00 (expected Early User, confirmed, with time slot) - Tue Apr 21 15:17:34 PDT 2026
+[TC26] PASS — ref=BOOK-HOTEL-20260421-CSMG, matches=1 (expected hotel_029, Alice E2E, guests=2, confirmed) - Tue Apr 21 15:18:43 PDT 2026
+[TC27] PASS — ref=BOOK-HOTEL-20260421-N98M, matches=1 (expected 1 booking, TC27 User, confirmed) - Tue Apr 21 15:19:58 PDT 2026
+[TC28] PASS — bookings_before=0, bookings_after=0 (no new booking) - Tue Apr 21 15:21:08 PDT 2026
+[TC29] PASS — bookings_before=0, bookings_after=0 (validation blocked) - Tue Apr 21 15:21:42 PDT 2026
+[TC30] FAIL — matching_entries=0 (expected >=1 with result_count=0) - Tue Apr 21 15:21:59 PDT 2026
+[TC31] PASS — 1 receipts downloaded - Tue Apr 21 15:22:30 PDT 2026
+[TC32] FAIL — keyword= - Tue Apr 21 15:23:04 PDT 2026
+[TC33] FAIL — 0 corporate bookings - Tue Apr 21 15:25:43 PDT 2026
+[TC34] PASS — 1 multi-city searches - Tue Apr 21 15:26:27 PDT 2026
+[TC35] PASS — claim=CLM-MO971P8I - Tue Apr 21 15:27:00 PDT 2026
+[TC36] PASS — 3 baggage views - Tue Apr 21 15:27:39 PDT 2026
+[TC37] PASS — 3 menu views - Tue Apr 21 15:28:17 PDT 2026
+[TC06] PASS — pool+breakfast+parking matching_entries=1 (expected >=1 with result_count=1) - Tue Apr 21 15:31:21 PDT 2026
+[TC08] PASS — matches=1 (expected hotel_005, Suite Guest, King Suite, confirmed) - Tue Apr 21 15:32:46 PDT 2026
+[TC28] PASS — bookings_before=0, bookings_after=0 (no new booking) - Tue Apr 21 15:33:39 PDT 2026
+[TC29] PASS — bookings_before=0, bookings_after=0 (validation blocked) - Tue Apr 21 15:34:21 PDT 2026
+[TC30] PASS — matching_entries=1 (expected >=1 with result_count=0) - Tue Apr 21 15:34:46 PDT 2026
+[TC32] PASS — keyword=construction noise - Tue Apr 21 15:35:32 PDT 2026
+[TC33] PASS — 10 corporate bookings - Tue Apr 21 15:37:47 PDT 2026
+[TC33] PASS — total=10 corporate bookings with card ****4242 (expected 10 with specific guest names) - Tue Apr 21 15:42:26 PDT 2026
+[TC33] PASS — total=10 bookings with card 4242424242424242, 5 Standard Double + 5 Single Room - Tue Apr 21 15:48:59 PDT 2026
+[TC31] FAIL — MOCK01=1, MOCK02=0, MOCK03=0, total=1, folder_opened=0 (expected 3 receipts, folder viewed with 3) - Tue Apr 21 15:56:02 PDT 2026
+[TC31] FAIL — MOCK01=1, MOCK02=0, MOCK03=0, total=1, folder_opened=0 (expected 3 receipts, folder viewed with 3) - Tue Apr 21 15:59:53 PDT 2026
+[TC31] FAIL — MOCK04=1, MOCK07=0, MOCK10=0, total=1, folder_opened=0 (expected 3 receipts, folder viewed with 3) - Tue Apr 21 16:02:52 PDT 2026
+[TC31] PASS — MOCK04=1, MOCK07=1, MOCK10=1, total=3, folder_opened=1 (expected 3 receipts, folder viewed with 3) - Tue Apr 21 16:07:12 PDT 2026

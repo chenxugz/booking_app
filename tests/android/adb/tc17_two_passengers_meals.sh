@@ -30,7 +30,7 @@ find_and_tap "confirm_booking_button"; sleep 4
 
 pull_db_cat
 G=$(qdb "SELECT guests FROM bookings ORDER BY created_at DESC LIMIT 1;")
-RC=$(qdb "SELECT COUNT(*) FROM bookings WHERE booking_type='flight' AND item_id='flight_004' AND user_name='Duo Flyer' AND guests=2 AND extras LIKE '%meal_preference%vegetarian%' AND status='confirmed';")
+RC=$(qdb "SELECT COUNT(*) FROM bookings WHERE booking_type='flight' AND item_id='flight_004' AND user_name='Duo Flyer' AND user_email='duo@fly.com' AND user_phone='15550001717' AND guests=2 AND extras LIKE '%meal_preference%vegetarian%' AND status='confirmed';")
 [ "$RC" -gt 0 ] && PASS=1
 STATUS="FAIL"; [ $PASS -eq 1 ] && STATUS="PASS"
 log_result "$TC_ID" "$STATUS — matches=$RC (expected flight_004, Duo Flyer, guests=2, vegetarian, confirmed)"

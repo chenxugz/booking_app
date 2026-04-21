@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useCallback } from 'react';
 import { View, Text, FlatList, StyleSheet } from 'react-native';
 import { useFocusEffect } from '@react-navigation/native';
-import { getDownloadLog } from '../db/queries';
+import { getDownloadLog, logSearch } from '../db/queries';
 
 interface DownloadEntry {
   reference_number: string;
@@ -13,7 +13,14 @@ export default function ExpenseFolderScreen() {
 
   useFocusEffect(
     useCallback(() => {
-      getDownloadLog().then(setReceipts).catch(() => setReceipts([]));
+      getDownloadLog().then((logs) => {
+        setReceipts(logs);
+        logSearch({
+          search_type: 'expense_folder_view',
+          query_params: JSON.stringify({ receipts_count: logs.length }),
+          result_count: logs.length,
+        }).catch(() => {});
+      }).catch(() => setReceipts([]));
     }, [])
   );
 

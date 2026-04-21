@@ -68,7 +68,7 @@ export default function BulkBookingScreen() {
           user_name: rooms[i].guestName,
           room_type: rooms[i].roomType,
           guests: 1,
-          extras: JSON.stringify({ corporate_card: `****${corporateCard.slice(-4)}`, room_index: i + 1 }),
+          extras: JSON.stringify({ corporate_card: corporateCard, room_index: i + 1 }),
           total_price: pricePerNight,
           status: 'confirmed',
         });
