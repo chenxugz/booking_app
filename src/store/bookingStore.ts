@@ -8,6 +8,7 @@ export interface BookingDraft {
   phone: string;
   // Hotel specific
   roomType: string;
+  cancellationPolicy: 'flexible' | 'moderate' | 'non_refundable';
   checkIn: string;
   checkOut: string;
   guests: number;
@@ -40,6 +41,7 @@ const emptyDraft: Omit<BookingDraft, 'type' | 'item'> = {
   email: '',
   phone: '',
   roomType: '',
+  cancellationPolicy: 'flexible',
   checkIn: '',
   checkOut: '',
   guests: 1,

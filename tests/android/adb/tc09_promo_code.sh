@@ -5,7 +5,7 @@ source ./tests/android/adb/common.sh
 TC_ID="TC09"
 PASS=0
 
-echo "[TC09] Search hotels in San Francisco (check-in 2024-04-01, check-out 2024-04-04), book the first result (Tenderloin Budget Motel), select Standard Double room, apply promo code SAVE10, with guest name Promo User, email promo@test.com, phone 15550009999"
+echo "[TC09] Search hotels in San Francisco (check-in 2024-04-01, check-out 2024-04-04), book the first result (Tenderloin Budget Motel), select Standard Double room, choose Flexible Rate, apply promo code SAVE10, with guest name Promo User, email promo@test.com, phone 15550009999"
 clear_db
 tap 180 2303; sleep 1
 tap 540 668; sleep 0.5; type_text "San%sFrancisco"
@@ -32,7 +32,7 @@ find_and_tap "checkout_next_button"; sleep 3
 find_and_tap "confirm_booking_button"; sleep 4
 
 pull_db_cat
-RC=$(qdb "SELECT COUNT(*) FROM bookings WHERE booking_type='hotel' AND item_id='hotel_029' AND user_name='Promo User' AND user_email='promo@test.com' AND user_phone='15550009999' AND room_type='Standard Double' AND promo_code='SAVE10' AND status='confirmed';")
+RC=$(qdb "SELECT COUNT(*) FROM bookings WHERE booking_type='hotel' AND item_id='hotel_029' AND user_name='Promo User' AND user_email='promo@test.com' AND user_phone='15550009999' AND room_type='Standard Double' AND extras LIKE '%cancellation_policy%flexible%' AND promo_code='SAVE10' AND status='confirmed';")
 [ "$RC" -gt 0 ] && PASS=1
 STATUS="FAIL"; [ $PASS -eq 1 ] && STATUS="PASS"
 log_result "$TC_ID" "$STATUS — matches=$RC (expected hotel_029, Promo User, SAVE10, confirmed)"

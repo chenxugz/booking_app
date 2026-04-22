@@ -5,7 +5,7 @@ source ./tests/android/adb/common.sh
 TC_ID="TC05"
 PASS=0
 
-echo "[TC05] Search hotels in San Francisco (check-in 2024-04-01, check-out 2024-04-04, 2 guests), use the Sort menu to select Best Value (highest rating-to-price ratio), then book the top result (Tenderloin Budget Motel, \$62/night), select Standard Double room, with guest name John Doe, email john@best.com, phone 15550001234"
+echo "[TC05] Search hotels in San Francisco (check-in 2024-04-01, check-out 2024-04-04, 2 guests), use the Sort menu to select Best Value (highest rating-to-price ratio), then book the top result (Tenderloin Budget Motel, \$62/night), select Standard Double room, choose Flexible Rate, with guest name John Doe, email john@best.com, phone 15550001234"
 clear_db
 tap 180 2303; sleep 1
 tap 540 668; sleep 0.5; type_text "San%sFrancisco"
@@ -32,7 +32,8 @@ find_and_tap "checkout_next_button"; sleep 3
 
 # Step 2: select first room
 tap 540 745; sleep 0.5
-find_and_tap "checkout_next_button"; sleep 3
+adb shell input swipe 540 1800 540 600 400; sleep 0.5
+find_and_tap "checkout_next_button" || { adb shell input swipe 540 1800 540 600 400; sleep 0.5; find_and_tap "checkout_next_button"; }; sleep 3
 
 # Step 3: confirm
 find_and_tap "confirm_booking_button"; sleep 4
@@ -40,7 +41,7 @@ screenshot "after_${TC_ID}"
 
 pull_db_cat
 # Verify exact booking: Tenderloin Budget Motel (hotel_029), guest John Doe, $372 total, confirmed
-RC=$(qdb "SELECT COUNT(*) FROM bookings WHERE booking_type='hotel' AND item_id='hotel_029' AND item_name='Tenderloin Budget Motel' AND user_name='John Doe' AND user_email='john@best.com' AND user_phone='15550001234' AND room_type='Standard Double' AND total_price=372.0 AND status='confirmed';")
+RC=$(qdb "SELECT COUNT(*) FROM bookings WHERE booking_type='hotel' AND item_id='hotel_029' AND item_name='Tenderloin Budget Motel' AND user_name='John Doe' AND user_email='john@best.com' AND user_phone='15550001234' AND room_type='Standard Double' AND extras LIKE '%cancellation_policy%flexible%' AND total_price=372.0 AND status='confirmed';")
 [ "$RC" -gt 0 ] && PASS=1
 REF=$(qdb "SELECT reference_number FROM bookings WHERE item_id='hotel_029' ORDER BY created_at DESC LIMIT 1;")
 STATUS="FAIL"; [ $PASS -eq 1 ] && STATUS="PASS"

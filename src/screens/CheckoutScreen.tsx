@@ -75,6 +75,10 @@ export default function CheckoutScreen() {
         ? Math.max(1, (new Date(hotelSearch.checkOut).getTime() - new Date(hotelSearch.checkIn).getTime()) / 86400000)
         : 1;
       base = draft.item.price_per_night * nights * (hotelSearch.guests || 1);
+      // Apply rate discount
+      const rateDiscounts: Record<string, number> = { flexible: 0, moderate: 0.05, non_refundable: 0.15 };
+      const rateDiscount = rateDiscounts[draft.cancellationPolicy] || 0;
+      base = base * (1 - rateDiscount);
     } else if (draft.type === 'flight') {
       base = draft.item.price * (flightSearch.passengers || 1);
       if (draft.baggageAdded) base += 35 * (flightSearch.passengers || 1);
@@ -94,6 +98,9 @@ export default function CheckoutScreen() {
     );
 
     const extrasObj: Record<string, any> = {};
+    if (draft.type === 'hotel') {
+      extrasObj.cancellation_policy = draft.cancellationPolicy;
+    }
     if (draft.type === 'flight') {
       if (draft.baggageAdded) extrasObj.baggage = true;
       if (draft.seatPreference) extrasObj.seat_preference = draft.seatPreference;
@@ -264,6 +271,23 @@ function Step2Preferences({ draft, setDraft, errors, promoInput, setPromoInput, 
           </TouchableOpacity>
         ))}
         {errors.roomType && <Text testID="error_room_type" style={styles.errorMsg}>{errors.roomType}</Text>}
+
+        <Text style={styles.sectionTitle}>Rate Type</Text>
+        {[
+          { key: 'flexible', label: 'Flexible Rate — Free cancellation', discount: 0 },
+          { key: 'moderate', label: 'Moderate Rate — Cancel 48h before (5% off)', discount: 0.05 },
+          { key: 'non_refundable', label: 'Non-Refundable Rate — No cancellation (15% off)', discount: 0.15 },
+        ].map((rate) => (
+          <TouchableOpacity
+            key={rate.key}
+            testID={`rate_option_${rate.key}`}
+            style={[styles.optionCard, draft.cancellationPolicy === rate.key && styles.optionCardActive]}
+            onPress={() => setDraft({ cancellationPolicy: rate.key })}
+          >
+            <Text style={[styles.optionText, draft.cancellationPolicy === rate.key && styles.optionTextActive]}>{rate.label}</Text>
+          </TouchableOpacity>
+        ))}
+
         <PromoSection promoInput={promoInput} setPromoInput={setPromoInput} promoMessage={promoMessage} applyPromo={applyPromo} />
       </>
     );
@@ -381,6 +405,7 @@ function Step3Review({ draft, total, hotelSearch, flightSearch, restaurantSearch
         {draft.type === 'hotel' && (
           <>
             <SummaryRow label="Room" value={draft.roomType} />
+            <SummaryRow label="Rate" value={draft.cancellationPolicy === 'non_refundable' ? 'Non-Refundable (15% off)' : draft.cancellationPolicy === 'moderate' ? 'Moderate (5% off)' : 'Flexible'} />
             <SummaryRow label="Check-in" value={hotelSearch.checkIn} />
             <SummaryRow label="Check-out" value={hotelSearch.checkOut} />
             <SummaryRow label="Guests" value={String(hotelSearch.guests)} />

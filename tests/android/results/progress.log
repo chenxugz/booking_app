@@ -174,3 +174,11 @@ Starting Booking Benchmark Test Suite - Fri Apr 17 11:55:10 PDT 2026
 [TC31] FAIL — MOCK01=1, MOCK02=0, MOCK03=0, total=1, folder_opened=0 (expected 3 receipts, folder viewed with 3) - Tue Apr 21 15:59:53 PDT 2026
 [TC31] FAIL — MOCK04=1, MOCK07=0, MOCK10=0, total=1, folder_opened=0 (expected 3 receipts, folder viewed with 3) - Tue Apr 21 16:02:52 PDT 2026
 [TC31] PASS — MOCK04=1, MOCK07=1, MOCK10=1, total=3, folder_opened=1 (expected 3 receipts, folder viewed with 3) - Tue Apr 21 16:07:12 PDT 2026
+[TC10] PASS — matches=1 (expected hotel_029, NonRef User, cancellation_policy=non_refundable, confirmed) - Tue Apr 21 21:58:49 PDT 2026
+[TC10] PASS — matches=1 (expected hotel_029, NonRef User, non_refundable rate, total=$158.10) - Tue Apr 21 22:04:25 PDT 2026
+[TC05] FAIL — ref=BOOK-HOTEL-20260421-6GDW, matches=0 (expected hotel_029, John Doe, $372, confirmed) - Tue Apr 21 22:10:43 PDT 2026
+[TC08] FAIL — matches=0 (expected hotel_005, Suite Guest, King Suite, confirmed) - Tue Apr 21 22:12:08 PDT 2026
+[TC10] PASS — matches=1 (expected hotel_029, NonRef User, non_refundable rate, total=$158.10) - Tue Apr 21 22:13:22 PDT 2026
+[TC05] PASS — ref=BOOK-HOTEL-20260421-1PVE, matches=1 (expected hotel_029, John Doe, $372, confirmed) - Tue Apr 21 22:16:29 PDT 2026
+[TC08] PASS — matches=1 (expected hotel_005, Suite Guest, King Suite, confirmed) - Tue Apr 21 22:17:55 PDT 2026
+[TC09] PASS — matches=1 (expected hotel_029, Promo User, SAVE10, confirmed) - Tue Apr 21 22:19:14 PDT 2026
