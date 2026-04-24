@@ -28,7 +28,7 @@ find_and_tap "checkout_next_button"; sleep 3
 find_and_tap "confirm_booking_button"; sleep 4
 
 pull_db_cat
-RC=$(qdb "SELECT COUNT(*) FROM bookings WHERE booking_type='flight' AND item_id='flight_004' AND user_name='Bag User' AND user_email='bag@fly.com' AND user_phone='15550001515' AND extras LIKE '%baggage%true%' AND status='confirmed';")
+RC=$(qdb "SELECT COUNT(*) FROM bookings WHERE booking_type='flight' AND item_id='flight_004' AND user_name='Bag User' AND user_email='bag@fly.com' AND user_phone='15550001515' AND seat_class='Economy' AND extras LIKE '%baggage%true%' AND status='confirmed';")
 [ "$RC" -gt 0 ] && PASS=1
 STATUS="FAIL"; [ $PASS -eq 1 ] && STATUS="PASS"
 log_result "$TC_ID" "$STATUS — matches=$RC (expected flight_004, Bag User, baggage=true, confirmed)"

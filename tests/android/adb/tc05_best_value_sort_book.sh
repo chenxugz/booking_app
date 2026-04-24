@@ -40,9 +40,11 @@ find_and_tap "confirm_booking_button"; sleep 4
 screenshot "after_${TC_ID}"
 
 pull_db_cat
+# Verify the Best Value sort was applied
+SORT=$(qdb "SELECT COUNT(*) FROM search_log WHERE search_type='hotel_sort' AND query_params = '{\"sort\":\"best_value\"}' AND result_count = 24;")
 # Verify exact booking: Tenderloin Budget Motel (hotel_029), guest John Doe, $372 total, confirmed
 RC=$(qdb "SELECT COUNT(*) FROM bookings WHERE booking_type='hotel' AND item_id='hotel_029' AND item_name='Tenderloin Budget Motel' AND user_name='John Doe' AND user_email='john@best.com' AND user_phone='15550001234' AND room_type='Standard Double' AND extras LIKE '%cancellation_policy%flexible%' AND total_price=372.0 AND status='confirmed';")
-[ "$RC" -gt 0 ] && PASS=1
+[ "$RC" -gt 0 ] && [ "$SORT" -gt 0 ] && PASS=1
 REF=$(qdb "SELECT reference_number FROM bookings WHERE item_id='hotel_029' ORDER BY created_at DESC LIMIT 1;")
 STATUS="FAIL"; [ $PASS -eq 1 ] && STATUS="PASS"
-log_result "$TC_ID" "$STATUS — ref=$REF, matches=$RC (expected hotel_029, John Doe, \$372, confirmed)"
+log_result "$TC_ID" "$STATUS — ref=$REF, booking=$RC, sort_best_value=$SORT (expected hotel_029, John Doe, \$372, best_value sort)"

@@ -32,7 +32,8 @@ adb shell input swipe 540 1800 540 600 400; sleep 0.5
 find_and_tap "rate_option_non_refundable" || { adb shell input swipe 540 1800 540 600 400; sleep 0.5; find_and_tap "rate_option_non_refundable"; }
 sleep 0.5
 
-find_and_tap "checkout_next_button"; sleep 3
+adb shell input swipe 540 1800 540 600 400; sleep 0.5
+find_and_tap "checkout_next_button" || { adb shell input swipe 540 1800 540 600 400; sleep 0.5; find_and_tap "checkout_next_button"; }; sleep 3
 
 # Step 3: Confirm
 find_and_tap "confirm_booking_button"; sleep 4

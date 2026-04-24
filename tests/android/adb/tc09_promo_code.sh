@@ -25,10 +25,12 @@ find_and_tap "checkout_next_button"; sleep 3
 
 tap 540 745; sleep 0.5  # first room type
 adb shell input swipe 540 1800 540 600 400; sleep 0.5
-find_and_tap "promo_code_input"; sleep 0.3
+adb shell input swipe 540 1800 540 600 400; sleep 0.5
+find_and_tap "promo_code_input" || { adb shell input swipe 540 1800 540 600 400; sleep 0.5; find_and_tap "promo_code_input"; }; sleep 0.3
 type_text "SAVE10"; adb shell input keyevent KEYCODE_ESCAPE; sleep 0.3
 find_and_tap "apply_promo_button"; sleep 1
-find_and_tap "checkout_next_button"; sleep 3
+adb shell input swipe 540 1800 540 600 400; sleep 0.5
+find_and_tap "checkout_next_button" || { adb shell input swipe 540 1800 540 600 400; sleep 0.5; find_and_tap "checkout_next_button"; }; sleep 3
 find_and_tap "confirm_booking_button"; sleep 4
 
 pull_db_cat
