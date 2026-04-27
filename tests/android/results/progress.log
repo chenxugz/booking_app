@@ -231,3 +231,17 @@ Starting Booking Benchmark Test Suite - Fri Apr 17 11:55:10 PDT 2026
 [TC15] PASS — matches=1 (expected flight_004, Bag User, baggage=true, confirmed) - Fri Apr 24 15:31:02 PDT 2026
 [TC16] PASS — matches=1 (expected flight_004, Window User, seat=window, confirmed) - Fri Apr 24 15:32:22 PDT 2026
 [TC17] PASS — matches=1 (expected flight_004, Duo Flyer, guests=2, vegetarian, confirmed) - Fri Apr 24 15:33:46 PDT 2026
+[TC23] PASS — search=1, sort_review_count=1 (expected both >=1 with result_count=30) - Mon Apr 27 12:26:50 PDT 2026
+[TC07] PASS (search=1) — matches=1 (expected hotel_029, Group Leader, guests=6, confirmed) - Mon Apr 27 12:32:37 PDT 2026
+[TC14] PASS (search=1) — matches=1 (expected flight_004, Cheap Flyer, Economy, confirmed) - Mon Apr 27 12:33:53 PDT 2026
+[TC22] FAIL (search=0) — outdoor+valet matching_entries=1 (expected >=1 with result_count=5) - Mon Apr 27 12:34:27 PDT 2026
+[TC28] PASS (search=1) — bookings_before=0, bookings_after=0 (no new booking) - Mon Apr 27 12:35:20 PDT 2026
+[TC20] PASS (search=1) — Japanese>=4.5 matching_entries=1 (expected >=1 with result_count=4) - Mon Apr 27 12:37:33 PDT 2026
+[TC22] PASS (search=1) — outdoor+valet matching_entries=1 (expected >=1 with result_count=5) - Mon Apr 27 12:38:16 PDT 2026
+[TC05] PASS (search=1) — ref=BOOK-HOTEL-20260427-AGPX, booking=1, sort_best_value=1 (expected hotel_029, John Doe, $372, best_value sort) - Mon Apr 27 13:00:25 PDT 2026
+[TC06] PASS (search=1) — pool+breakfast+parking matching_entries=1 (expected >=1 with result_count=1) - Mon Apr 27 13:01:13 PDT 2026
+[TC07] PASS (search=1) — matches=1 (expected hotel_029, Group Leader, guests=6, confirmed) - Mon Apr 27 13:02:25 PDT 2026
+[TC08] PASS (search=1) — matches=1 (expected hotel_005, Suite Guest, King Suite, confirmed) - Mon Apr 27 13:03:52 PDT 2026
+[TC09] PASS (search=1) — matches=1 (expected hotel_029, Promo User, SAVE10, confirmed) - Mon Apr 27 13:05:12 PDT 2026
+[TC10] PASS (search=1) — matches=1 (expected hotel_029, NonRef User, non_refundable rate, total=$158.10) - Mon Apr 27 13:06:27 PDT 2026
+[TC13] PASS (search=1) — morning departure matching_entries=1 (expected >=1 with result_count=3) - Mon Apr 27 13:07:10 PDT 2026

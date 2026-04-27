@@ -29,8 +29,10 @@ find_and_tap "checkout_next_button"; sleep 3
 find_and_tap "confirm_booking_button"; sleep 4
 
 pull_db_cat
+# Verify search was logged with correct params
+SC=$(qdb "SELECT COUNT(*) FROM search_log WHERE search_type='flight' AND query_params = '{\"origin\":\"SFO\",\"destination\":\"JFK\",\"date\":\"2024-04-01\",\"returnDate\":\"\",\"passengers\":2,\"tripType\":\"one_way\"}' AND result_count = 4;")
 G=$(qdb "SELECT guests FROM bookings ORDER BY created_at DESC LIMIT 1;")
 RC=$(qdb "SELECT COUNT(*) FROM bookings WHERE booking_type='flight' AND item_id='flight_004' AND user_name='Duo Flyer' AND user_email='duo@fly.com' AND user_phone='15550001717' AND seat_class='Economy' AND guests=2 AND extras LIKE '%meal_preference%vegetarian%' AND status='confirmed';")
-[ "$RC" -gt 0 ] && PASS=1
+[ "$RC" -gt 0 ] && [ "$SC" -gt 0 ] && PASS=1
 STATUS="FAIL"; [ $PASS -eq 1 ] && STATUS="PASS"
-log_result "$TC_ID" "$STATUS — matches=$RC (expected flight_004, Duo Flyer, guests=2, vegetarian, confirmed)"
+log_result "$TC_ID" "$STATUS (search=$SC) — matches=$RC (expected flight_004, Duo Flyer, guests=2, vegetarian, confirmed)"

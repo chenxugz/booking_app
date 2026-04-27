@@ -17,6 +17,8 @@ find_and_tap "search_button"; sleep 4
 
 # Count bookings BEFORE
 pull_db_cat
+# Verify search was logged with correct params
+SC=$(qdb "SELECT COUNT(*) FROM search_log WHERE search_type='hotel' AND query_params = '{\"city\":\"San Francisco\",\"checkIn\":\"2024-04-01\",\"checkOut\":\"2024-04-04\",\"guests\":1}' AND result_count = 24;")
 BEFORE=$(qdb "SELECT COUNT(*) FROM bookings;")
 
 tap 540 570; sleep 3
@@ -29,10 +31,12 @@ screenshot "after_${TC_ID}"
 
 # Count bookings AFTER — should be same (validation blocked submission)
 pull_db_cat
+# Verify search was logged with correct params
+SC=$(qdb "SELECT COUNT(*) FROM search_log WHERE search_type='hotel' AND query_params = '{\"city\":\"San Francisco\",\"checkIn\":\"2024-04-01\",\"checkOut\":\"2024-04-04\",\"guests\":1}' AND result_count = 24;")
 AFTER=$(qdb "SELECT COUNT(*) FROM bookings;")
 
-if [ "$AFTER" = "$BEFORE" ]; then
+if [ "$AFTER" = "$BEFORE" ] && [ "$SC" -gt 0 ]; then
   PASS=1
 fi
 STATUS="FAIL"; [ $PASS -eq 1 ] && STATUS="PASS"
-log_result "$TC_ID" "$STATUS — bookings_before=$BEFORE, bookings_after=$AFTER (validation blocked)"
+log_result "$TC_ID" "$STATUS (search=$SC) — bookings_before=$BEFORE, bookings_after=$AFTER (validation blocked)"

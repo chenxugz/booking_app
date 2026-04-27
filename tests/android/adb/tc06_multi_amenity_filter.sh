@@ -25,7 +25,9 @@ find_and_tap "filter_close_button"; sleep 2
 screenshot "after_${TC_ID}"
 
 pull_db_cat
+# Verify search was logged with correct params
+SC=$(qdb "SELECT COUNT(*) FROM search_log WHERE search_type='hotel' AND query_params = '{\"city\":\"San Francisco\",\"checkIn\":\"2024-04-01\",\"checkOut\":\"2024-04-04\",\"guests\":2}' AND result_count = 24;")
 RC=$(qdb "SELECT COUNT(*) FROM search_log WHERE search_type LIKE '%_filter' AND query_params = '{\"amenities\":[\"pool\",\"breakfast\",\"free_parking\"]}' AND result_count = 1;")
-[ "$RC" -gt 0 ] && PASS=1
+[ "$RC" -gt 0 ] && [ "$SC" -gt 0 ] && PASS=1
 STATUS="FAIL"; [ $PASS -eq 1 ] && STATUS="PASS"
-log_result "$TC_ID" "$STATUS — pool+breakfast+parking matching_entries=$RC (expected >=1 with result_count=1)"
+log_result "$TC_ID" "$STATUS (search=$SC) — pool+breakfast+parking matching_entries=$RC (expected >=1 with result_count=1)"

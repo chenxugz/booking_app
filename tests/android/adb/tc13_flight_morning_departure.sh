@@ -21,7 +21,9 @@ find_and_tap "filter_close_button"; sleep 2
 screenshot "after_${TC_ID}"
 
 pull_db_cat
+# Verify search was logged with correct params
+SC=$(qdb "SELECT COUNT(*) FROM search_log WHERE search_type='flight' AND query_params = '{\"origin\":\"SFO\",\"destination\":\"JFK\",\"date\":\"2024-04-01\",\"returnDate\":\"\",\"passengers\":1,\"tripType\":\"one_way\"}' AND result_count = 4;")
 RC=$(qdb "SELECT COUNT(*) FROM search_log WHERE search_type LIKE '%_filter' AND query_params = '{\"departureWindow\":\"6-12\"}' AND result_count = 3;")
-[ "$RC" -gt 0 ] && PASS=1
+[ "$RC" -gt 0 ] && [ "$SC" -gt 0 ] && PASS=1
 STATUS="FAIL"; [ $PASS -eq 1 ] && STATUS="PASS"
-log_result "$TC_ID" "$STATUS — morning departure matching_entries=$RC (expected >=1 with result_count=3)"
+log_result "$TC_ID" "$STATUS (search=$SC) — morning departure matching_entries=$RC (expected >=1 with result_count=3)"

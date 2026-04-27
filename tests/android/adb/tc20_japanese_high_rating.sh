@@ -10,6 +10,8 @@ clear_db
 
 tap 900 2303; sleep 2
 find_and_tap "restaurant_search_input"; sleep 0.3; type_text "San%sFrancisco"; adb shell input keyevent KEYCODE_ESCAPE; sleep 0.3
+pick_date "restaurant_date_picker" "2024-04-07"
+pick_time "restaurant_time_picker" "20:00"
 find_and_tap "search_button"; sleep 4
 
 find_and_tap "filter_button"; sleep 1
@@ -20,7 +22,9 @@ find_and_tap "filter_close_button"; sleep 2
 screenshot "after_${TC_ID}"
 
 pull_db_cat
+# Verify search was logged with correct params
+SC=$(qdb "SELECT COUNT(*) FROM search_log WHERE search_type='restaurant' AND query_params = '{\"city\":\"San Francisco\",\"date\":\"2024-04-07\",\"time\":\"20:00\",\"partySize\":2}' AND result_count = 30;")
 RC=$(qdb "SELECT COUNT(*) FROM search_log WHERE search_type LIKE '%_filter' AND query_params = '{\"cuisine\":\"Japanese\",\"minRating\":4.5}' AND result_count = 4;")
-[ "$RC" -gt 0 ] && PASS=1
+[ "$RC" -gt 0 ] && [ "$SC" -gt 0 ] && PASS=1
 STATUS="FAIL"; [ $PASS -eq 1 ] && STATUS="PASS"
-log_result "$TC_ID" "$STATUS — Japanese>=4.5 matching_entries=$RC (expected >=1 with result_count=4)"
+log_result "$TC_ID" "$STATUS (search=$SC) — Japanese>=4.5 matching_entries=$RC (expected >=1 with result_count=4)"

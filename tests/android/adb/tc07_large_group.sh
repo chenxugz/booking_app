@@ -29,7 +29,9 @@ find_and_tap "checkout_next_button" || { adb shell input swipe 540 1800 540 600 
 find_and_tap "confirm_booking_button"; sleep 4
 
 pull_db_cat
+# Verify search was logged with correct params
+SC=$(qdb "SELECT COUNT(*) FROM search_log WHERE search_type='hotel' AND query_params = '{\"city\":\"San Francisco\",\"checkIn\":\"2024-04-01\",\"checkOut\":\"2024-04-04\",\"guests\":6}' AND result_count = 24;")
 RC=$(qdb "SELECT COUNT(*) FROM bookings WHERE booking_type='hotel' AND item_id='hotel_029' AND user_name='Group Leader' AND user_email='group@test.com' AND user_phone='15550006666' AND room_type='Standard Double' AND extras LIKE '%cancellation_policy%flexible%' AND guests=6 AND status='confirmed';")
-[ "$RC" -gt 0 ] && PASS=1
+[ "$RC" -gt 0 ] && [ "$SC" -gt 0 ] && PASS=1
 STATUS="FAIL"; [ $PASS -eq 1 ] && STATUS="PASS"
-log_result "$TC_ID" "$STATUS — matches=$RC (expected hotel_029, Group Leader, guests=6, confirmed)"
+log_result "$TC_ID" "$STATUS (search=$SC) — matches=$RC (expected hotel_029, Group Leader, guests=6, confirmed)"

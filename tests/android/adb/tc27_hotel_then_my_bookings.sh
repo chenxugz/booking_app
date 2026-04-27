@@ -33,8 +33,10 @@ find_and_tap "view_my_bookings_button"; sleep 3
 screenshot "after_${TC_ID}"
 
 pull_db_cat
+# Verify search was logged with correct params
+SC=$(qdb "SELECT COUNT(*) FROM search_log WHERE search_type='hotel' AND query_params = '{\"city\":\"San Francisco\",\"checkIn\":\"2024-04-01\",\"checkOut\":\"2024-04-04\",\"guests\":1}' AND result_count = 24;")
 RC=$(qdb "SELECT COUNT(*) FROM bookings WHERE booking_type='hotel' AND user_name='Sarah Chen' AND user_email='sarah.chen@email.com' AND user_phone='15550002727' AND room_type='Standard Double' AND extras LIKE '%cancellation_policy%flexible%' AND status='confirmed';")
 REF=$(qdb "SELECT reference_number FROM bookings WHERE user_name='Sarah Chen' ORDER BY created_at DESC LIMIT 1;")
-[ "$RC" = "1" ] && echo "$REF" | grep -q "BOOK-HOTEL" && PASS=1
+[ "$RC" = "1" ] && [ "$SC" -gt 0 ] && echo "$REF" | grep -q "BOOK-HOTEL" && PASS=1
 STATUS="FAIL"; [ $PASS -eq 1 ] && STATUS="PASS"
-log_result "$TC_ID" "$STATUS — ref=$REF, matches=$RC (expected 1 booking, Sarah Chen, confirmed)"
+log_result "$TC_ID" "$STATUS (search=$SC) — ref=$REF, matches=$RC (expected 1 booking, Sarah Chen, confirmed)"

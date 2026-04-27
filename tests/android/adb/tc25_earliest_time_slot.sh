@@ -26,8 +26,10 @@ find_and_tap "checkout_next_button"; sleep 3
 find_and_tap "confirm_booking_button"; sleep 4
 
 pull_db_cat
+# Verify search was logged with correct params
+SC=$(qdb "SELECT COUNT(*) FROM search_log WHERE search_type='restaurant' AND query_params = '{\"city\":\"San Francisco\",\"date\":\"2024-04-01\",\"time\":\"\",\"partySize\":2}' AND result_count = 30;")
 RC=$(qdb "SELECT COUNT(*) FROM bookings WHERE booking_type='restaurant' AND user_name='Early User' AND user_email='early@test.com' AND user_phone='15550002525' AND check_in IS NOT NULL AND check_in != '' AND status='confirmed';")
 CI=$(qdb "SELECT check_in FROM bookings WHERE user_name='Early User' ORDER BY created_at DESC LIMIT 1;")
-[ "$RC" -gt 0 ] && PASS=1
+[ "$RC" -gt 0 ] && [ "$SC" -gt 0 ] && PASS=1
 STATUS="FAIL"; [ $PASS -eq 1 ] && STATUS="PASS"
-log_result "$TC_ID" "$STATUS — matches=$RC, time_slot=$CI (expected Early User, confirmed, with time slot)"
+log_result "$TC_ID" "$STATUS (search=$SC) — matches=$RC, time_slot=$CI (expected Early User, confirmed, with time slot)"

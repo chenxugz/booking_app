@@ -30,8 +30,10 @@ find_and_tap "confirm_booking_button"; sleep 4
 screenshot "after_${TC_ID}"
 
 pull_db_cat
+# Verify search was logged with correct params
+SC=$(qdb "SELECT COUNT(*) FROM search_log WHERE search_type='hotel' AND query_params = '{\"city\":\"San Francisco\",\"checkIn\":\"2024-04-15\",\"checkOut\":\"2024-04-18\",\"guests\":2}' AND result_count = 24;")
 RC=$(qdb "SELECT COUNT(*) FROM bookings WHERE booking_type='hotel' AND item_id='hotel_029' AND user_name='Alice E2E' AND user_email='alice@e2e.com' AND user_phone='15550002626' AND room_type='Standard Double' AND extras LIKE '%cancellation_policy%flexible%' AND guests=2 AND status='confirmed';")
 REF=$(qdb "SELECT reference_number FROM bookings WHERE user_name='Alice E2E' ORDER BY created_at DESC LIMIT 1;")
-[ "$RC" -gt 0 ] && PASS=1
+[ "$RC" -gt 0 ] && [ "$SC" -gt 0 ] && PASS=1
 STATUS="FAIL"; [ $PASS -eq 1 ] && STATUS="PASS"
-log_result "$TC_ID" "$STATUS — ref=$REF, matches=$RC (expected hotel_029, Alice E2E, guests=2, confirmed)"
+log_result "$TC_ID" "$STATUS (search=$SC) — ref=$REF, matches=$RC (expected hotel_029, Alice E2E, guests=2, confirmed)"

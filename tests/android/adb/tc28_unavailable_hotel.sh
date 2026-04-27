@@ -17,6 +17,8 @@ find_and_tap "search_button"; sleep 4
 
 # Count bookings BEFORE attempt
 pull_db_cat
+# Verify search was logged with correct params
+SC=$(qdb "SELECT COUNT(*) FROM search_log WHERE search_type='hotel' AND query_params = '{\"city\":\"San Francisco\",\"checkIn\":\"2024-04-01\",\"checkOut\":\"2024-04-04\",\"guests\":1}' AND result_count = 24;")
 BEFORE=$(qdb "SELECT COUNT(*) FROM bookings;")
 
 # Scroll to find hotel_028
@@ -33,10 +35,12 @@ tap 540 1400; sleep 0.5
 
 # Count bookings AFTER attempt
 pull_db_cat
+# Verify search was logged with correct params
+SC=$(qdb "SELECT COUNT(*) FROM search_log WHERE search_type='hotel' AND query_params = '{\"city\":\"San Francisco\",\"checkIn\":\"2024-04-01\",\"checkOut\":\"2024-04-04\",\"guests\":1}' AND result_count = 24;")
 AFTER=$(qdb "SELECT COUNT(*) FROM bookings;")
 
-if [ "$AFTER" = "$BEFORE" ]; then
+if [ "$AFTER" = "$BEFORE" ] && [ "$SC" -gt 0 ]; then
   PASS=1
 fi
 STATUS="FAIL"; [ $PASS -eq 1 ] && STATUS="PASS"
-log_result "$TC_ID" "$STATUS — bookings_before=$BEFORE, bookings_after=$AFTER (no new booking)"
+log_result "$TC_ID" "$STATUS (search=$SC) — bookings_before=$BEFORE, bookings_after=$AFTER (no new booking)"

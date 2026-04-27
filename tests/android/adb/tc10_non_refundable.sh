@@ -40,8 +40,10 @@ find_and_tap "confirm_booking_button"; sleep 4
 screenshot "after_${TC_ID}"
 
 pull_db_cat
+# Verify search was logged with correct params
+SC=$(qdb "SELECT COUNT(*) FROM search_log WHERE search_type='hotel' AND query_params = '{\"city\":\"San Francisco\",\"checkIn\":\"2024-04-01\",\"checkOut\":\"2024-04-04\",\"guests\":1}' AND result_count = 24;")
 # Verify: hotel_029, NonRef User, non_refundable in extras, total = $158.10 (62 * 3 nights * 1 guest * 0.85)
 RC=$(qdb "SELECT COUNT(*) FROM bookings WHERE booking_type='hotel' AND item_id='hotel_029' AND user_name='NonRef User' AND user_email='nonref@test.com' AND user_phone='15550001010' AND room_type='Standard Double' AND extras LIKE '%non_refundable%' AND total_price=158.1 AND status='confirmed';")
-[ "$RC" -gt 0 ] && PASS=1
+[ "$RC" -gt 0 ] && [ "$SC" -gt 0 ] && PASS=1
 STATUS="FAIL"; [ $PASS -eq 1 ] && STATUS="PASS"
-log_result "$TC_ID" "$STATUS — matches=$RC (expected hotel_029, NonRef User, non_refundable rate, total=\$158.10)"
+log_result "$TC_ID" "$STATUS (search=$SC) — matches=$RC (expected hotel_029, NonRef User, non_refundable rate, total=\$158.10)"
