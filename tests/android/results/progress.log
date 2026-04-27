@@ -245,3 +245,18 @@ Starting Booking Benchmark Test Suite - Fri Apr 17 11:55:10 PDT 2026
 [TC09] PASS (search=1) — matches=1 (expected hotel_029, Promo User, SAVE10, confirmed) - Mon Apr 27 13:05:12 PDT 2026
 [TC10] PASS (search=1) — matches=1 (expected hotel_029, NonRef User, non_refundable rate, total=$158.10) - Mon Apr 27 13:06:27 PDT 2026
 [TC13] PASS (search=1) — morning departure matching_entries=1 (expected >=1 with result_count=3) - Mon Apr 27 13:07:10 PDT 2026
+[TC14] PASS (search=1) — matches=1 (expected flight_004, Cheap Flyer, Economy, confirmed) - Mon Apr 27 13:08:26 PDT 2026
+[TC15] PASS (search=1) — matches=1 (expected flight_004, Bag User, baggage=true, confirmed) - Mon Apr 27 13:09:46 PDT 2026
+[TC16] PASS (search=1) — matches=1 (expected flight_004, Window User, seat=window, confirmed) - Mon Apr 27 13:11:05 PDT 2026
+[TC17] PASS (search=1) — matches=1 (expected flight_004, Duo Flyer, guests=2, vegetarian, confirmed) - Mon Apr 27 13:12:29 PDT 2026
+[TC20] PASS (search=1) — Japanese>=4.5 matching_entries=1 (expected >=1 with result_count=4) - Mon Apr 27 13:13:17 PDT 2026
+[TC21] PASS (search=1) — matches=1 (expected Party Host, guests>=8, confirmed) - Mon Apr 27 13:14:31 PDT 2026
+[TC22] PASS (search=1) — outdoor+valet matching_entries=1 (expected >=1 with result_count=5) - Mon Apr 27 13:15:14 PDT 2026
+[TC24] PASS (search=1) — matches=1 (expected GF User, restaurant, confirmed) - Mon Apr 27 13:16:26 PDT 2026
+[TC25] PASS (search=1) — matches=1, time_slot=18:00 (expected Early User, confirmed, with time slot) - Mon Apr 27 13:17:37 PDT 2026
+[TC26] PASS (search=1) — ref=BOOK-HOTEL-20260427-XZ1N, matches=1 (expected hotel_029, Alice E2E, guests=2, confirmed) - Mon Apr 27 13:18:48 PDT 2026
+[TC27] PASS (search=1) — ref=BOOK-HOTEL-20260427-P85C, matches=1 (expected 1 booking, Sarah Chen, confirmed) - Mon Apr 27 13:20:05 PDT 2026
+[TC28] PASS (search=1) — bookings_before=0, bookings_after=0 (no new booking) - Mon Apr 27 13:20:58 PDT 2026
+[TC29] PASS (search=1) — bookings_before=0, bookings_after=0 (validation blocked) - Mon Apr 27 13:21:39 PDT 2026
+[TC24] PASS (search=1) — matches=1 (expected El Farolito, GF User, 18:00, confirmed) - Mon Apr 27 13:59:19 PDT 2026
+[TC25] PASS (search=1) — matches=1 (expected El Farolito, Early User, 11:00, confirmed) - Mon Apr 27 14:05:43 PDT 2026
