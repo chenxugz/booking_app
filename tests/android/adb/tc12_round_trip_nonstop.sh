@@ -7,7 +7,7 @@ PASS=0
 
 echo "[TC12] Search round-trip flights SFO to JFK (depart 2024-04-01, return 2024-04-08), then filter by non-stop only"
 clear_db
-tap 540 2303; sleep 2
+find_and_tap "tab_flights"; sleep 1
 find_and_tap "trip_type_round_trip"; sleep 0.5
 find_and_tap "flight_origin_input"; sleep 0.3; type_text "SFO"; adb shell input keyevent KEYCODE_ESCAPE; sleep 0.3
 find_and_tap "flight_destination_input"; sleep 0.3; type_text "JFK"; adb shell input keyevent KEYCODE_ESCAPE; sleep 0.3

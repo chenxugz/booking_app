@@ -7,7 +7,7 @@ PASS=0
 
 echo "[TC19] Search restaurants in San Francisco for Sunday 2024-04-07 at 20:00"
 clear_db
-tap 900 2303; sleep 2  # Restaurants tab
+find_and_tap "tab_restaurants"; sleep 1
 find_and_tap "restaurant_search_input"; sleep 0.3; type_text "San%sFrancisco"; adb shell input keyevent KEYCODE_ESCAPE; sleep 0.3
 pick_date "restaurant_date_picker" "2024-04-07" # April 7, 2024 (Sunday)
 pick_time "restaurant_time_picker" "20:00"

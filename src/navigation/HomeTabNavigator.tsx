@@ -4,6 +4,7 @@ import { HomeTabParamList } from './types';
 import HotelSearchScreen from '../screens/HotelSearchScreen';
 import FlightSearchScreen from '../screens/FlightSearchScreen';
 import RestaurantSearchScreen from '../screens/RestaurantSearchScreen';
+import MyBookingsScreen from '../screens/MyBookingsScreen';
 import { Text, TouchableOpacity, StyleSheet, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
@@ -34,12 +35,17 @@ export default function HomeTabNavigator() {
         component={RestaurantSearchScreen}
         options={{ title: 'Restaurants' }}
       />
+      <Tab.Screen
+        name="MyBookings"
+        component={MyBookingsScreen}
+        options={{ title: 'My Bookings' }}
+      />
     </Tab.Navigator>
   );
 }
 
 function CustomTabBar({ state, descriptors, navigation }: any) {
-  const tabTestIDs = ['tab_hotels', 'tab_flights', 'tab_restaurants'];
+  const tabTestIDs = ['tab_hotels', 'tab_flights', 'tab_restaurants', 'tab_my_bookings'];
   return (
     <View style={styles.tabBar}>
       {state.routes.map((route: any, index: number) => {
@@ -81,7 +87,7 @@ const styles = StyleSheet.create({
     paddingVertical: 6,
   },
   tabLabel: {
-    fontSize: 12,
+    fontSize: 11,
     color: '#666',
     fontWeight: '500',
   },

@@ -58,6 +58,7 @@ export async function createTables(db: SQLiteDatabase): Promise<void> {
       id INTEGER PRIMARY KEY AUTOINCREMENT,
       booking_reference TEXT,
       delay_minutes INTEGER,
+      description TEXT,
       claim_reference TEXT,
       submitted_at INTEGER DEFAULT (strftime('%s','now'))
     )

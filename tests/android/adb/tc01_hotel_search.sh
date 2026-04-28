@@ -7,7 +7,7 @@ PASS=0
 
 echo "[TC01] Search hotels in San Francisco for 2 guests, 3 nights (check-in 2024-04-01, check-out 2024-04-04)"
 clear_db
-tap 180 2303; sleep 1  # Hotels tab
+find_and_tap "tab_hotels"; sleep 1
 screenshot "before_${TC_ID}"
 
 tap 540 668; sleep 0.5; type_text "San%sFrancisco"

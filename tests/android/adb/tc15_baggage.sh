@@ -7,7 +7,7 @@ PASS=0
 
 echo "[TC15] Search flights SFO to JFK on 2024-04-01, book the first result (JetBlue B6 415) in Economy class with checked baggage, guest name Bag User, email bag@fly.com, phone 15550001515"
 clear_db
-tap 540 2303; sleep 2
+find_and_tap "tab_flights"; sleep 1
 find_and_tap "flight_origin_input"; sleep 0.3; type_text "SFO"; adb shell input keyevent KEYCODE_ESCAPE; sleep 0.3
 find_and_tap "flight_destination_input"; sleep 0.3; type_text "JFK"; adb shell input keyevent KEYCODE_ESCAPE; sleep 0.3
 pick_date "flight_departure_date" "2024-04-01"

@@ -7,7 +7,7 @@ PASS=0
 
 echo "[TC14] Search flights SFO to JFK on 2024-04-01, sort by price ascending, book the cheapest flight (JetBlue B6 415, $199) in Economy class with guest name Cheap Flyer, email cheap@fly.com, phone 15550001414"
 clear_db
-tap 540 2303; sleep 2
+find_and_tap "tab_flights"; sleep 1
 find_and_tap "flight_origin_input"; sleep 0.3; type_text "SFO"; adb shell input keyevent KEYCODE_ESCAPE; sleep 0.3
 find_and_tap "flight_destination_input"; sleep 0.3; type_text "JFK"; adb shell input keyevent KEYCODE_ESCAPE; sleep 0.3
 pick_date "flight_departure_date" "2024-04-01"

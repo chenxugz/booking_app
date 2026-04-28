@@ -8,7 +8,7 @@ PASS=0
 
 echo "[TC30] Search hotels in a nonexistent city Zzzznonexistent99 (check-in 2024-04-01, check-out 2024-04-04) and observe the empty results"
 clear_db
-tap 180 2303; sleep 1
+find_and_tap "tab_hotels"; sleep 1
 tap 540 668; sleep 0.5; type_text "Zzzznonexistent99"
 adb shell input keyevent KEYCODE_ESCAPE; sleep 0.3
 pick_date "checkin_date_picker" "2024-04-01"

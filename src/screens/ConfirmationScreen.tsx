@@ -55,7 +55,7 @@ export default function ConfirmationScreen() {
         style={styles.primaryButton}
         onPress={() => {
           clearDraft();
-          navigation.navigate('MyBookings');
+          navigation.navigate('HomeTabs', { screen: 'MyBookings' });
         }}
       >
         <Text style={styles.primaryButtonText}>View My Bookings</Text>

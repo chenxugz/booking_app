@@ -7,7 +7,7 @@ PASS=0
 
 echo "[TC26] Complete a full hotel booking: search San Francisco (check-in 2024-04-15, check-out 2024-04-18, 2 guests), book the first result (Tenderloin Budget Motel), select Standard Double room, choose Flexible Rate, with guest name Alice E2E, email alice@e2e.com, phone 15550002626, and confirm"
 clear_db
-tap 180 2303; sleep 1
+find_and_tap "tab_hotels"; sleep 1
 tap 540 668; sleep 0.5; type_text "San%sFrancisco"
 adb shell input keyevent KEYCODE_ESCAPE; sleep 0.3
 pick_date "checkin_date_picker" "2024-04-15"   # April 15, 2024

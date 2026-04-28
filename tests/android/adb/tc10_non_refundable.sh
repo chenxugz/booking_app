@@ -7,7 +7,7 @@ PASS=0
 
 echo "[TC10] Search hotels in San Francisco (check-in 2024-04-01, check-out 2024-04-04), book the first result (Tenderloin Budget Motel, \$62/night), select Standard Double room, choose the Non-Refundable Rate (15% off) at checkout, with guest name NonRef User, email nonref@test.com, phone 15550001010"
 clear_db
-tap 180 2303; sleep 1
+find_and_tap "tab_hotels"; sleep 1
 tap 540 668; sleep 0.5; type_text "San%sFrancisco"
 adb shell input keyevent KEYCODE_ESCAPE; sleep 0.3
 pick_date "checkin_date_picker" "2024-04-01"

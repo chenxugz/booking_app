@@ -260,3 +260,10 @@ Starting Booking Benchmark Test Suite - Fri Apr 17 11:55:10 PDT 2026
 [TC29] PASS (search=1) — bookings_before=0, bookings_after=0 (validation blocked) - Mon Apr 27 13:21:39 PDT 2026
 [TC24] PASS (search=1) — matches=1 (expected El Farolito, GF User, 18:00, confirmed) - Mon Apr 27 13:59:19 PDT 2026
 [TC25] PASS (search=1) — matches=1 (expected El Farolito, Early User, 11:00, confirmed) - Mon Apr 27 14:05:43 PDT 2026
+[TC35] FAIL — claim=CLM-MOJ9P1B5, matches= (expected BOOK-FLIGHT-MOCK05, 180 min, description verified) - Tue Apr 28 16:38:51 PDT 2026
+[TC35] PASS — claim=CLM-MOJ9S1IT, matches=1 (expected BOOK-FLIGHT-MOCK05, 180 min, description verified) - Tue Apr 28 16:41:11 PDT 2026
+[TC01] PASS — searches=1, entries_with_24_results=1 (expected >=1) - Tue Apr 28 16:48:17 PDT 2026
+[TC11] PASS — matching_entries=1 (expected >=1 with result_count=4) - Tue Apr 28 16:48:53 PDT 2026
+[TC19] PASS — 1 restaurant search(es) - Tue Apr 28 16:49:24 PDT 2026
+[TC31] PASS — MOCK04=1, MOCK07=1, MOCK10=1, total=3, folder_opened=1 (expected 3 receipts, folder viewed with 3) - Tue Apr 28 16:50:15 PDT 2026
+[TC35] PASS — claim=CLM-MOJA4L77, matches=1 (expected BOOK-FLIGHT-MOCK05, 180 min, description verified) - Tue Apr 28 16:50:56 PDT 2026

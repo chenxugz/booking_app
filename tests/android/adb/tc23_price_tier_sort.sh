@@ -8,7 +8,7 @@ PASS=0
 
 echo "[TC23] Search restaurants in San Francisco on 2024-04-01, then sort by most reviewed (review count descending)"
 clear_db
-tap 900 2303; sleep 2
+find_and_tap "tab_restaurants"; sleep 1
 find_and_tap "restaurant_search_input"; sleep 0.3; type_text "San%sFrancisco"; adb shell input keyevent KEYCODE_ESCAPE; sleep 0.3
 pick_date "restaurant_date_picker" "2024-04-01"
 find_and_tap "search_button"; sleep 4

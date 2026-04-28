@@ -12,8 +12,8 @@ dismiss_alert() {
 }
 
 echo "[TC31] Navigate to My Bookings, scroll down to find and download receipts for Hilton Downtown (BOOK-HOTEL-MOCK04), Marina Bay Inn (BOOK-HOTEL-MOCK07), and Airport Lodge (BOOK-HOTEL-MOCK10), then scroll back up and open the Expense Reports folder to view downloaded receipts"
-clear_db; tap 180 2303; sleep 1
-find_and_tap "my_bookings_button"; sleep 3
+clear_db
+find_and_tap "tab_my_bookings"; sleep 3
 screenshot "before_${TC_ID}"
 
 # Download BOOK-HOTEL-MOCK04 (Hilton Downtown) — need to scroll down

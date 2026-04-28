@@ -4,7 +4,7 @@ TC_ID="TC32"
 PASS=0
 
 echo "[TC32] Search hotels in San Francisco (check-in 2024-04-01, check-out 2024-04-04), open the first hotel, view its reviews, and search for the keyword construction noise"
-clear_db; tap 180 2303; sleep 1
+clear_db; find_and_tap "tab_hotels"; sleep 1
 tap 540 668; sleep 0.5; type_text "San%sFrancisco"; adb shell input keyevent KEYCODE_ESCAPE; sleep 0.3
 pick_date "checkin_date_picker" "2024-04-01"
 pick_date "checkout_date_picker" "2024-04-04"

@@ -4,6 +4,7 @@ export type HomeTabParamList = {
   Hotels: undefined;
   Flights: undefined;
   Restaurants: undefined;
+  MyBookings: undefined;
 };
 
 export type RootStackParamList = {

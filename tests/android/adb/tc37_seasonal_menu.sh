@@ -4,7 +4,7 @@ TC_ID="TC37"
 PASS=0
 
 echo "[TC37] Search restaurants in San Francisco on 2024-04-01, open 3 different restaurant detail pages to compare their seasonal specials menus"
-clear_db; tap 900 2303; sleep 2
+clear_db; find_and_tap "tab_restaurants"; sleep 1
 find_and_tap "restaurant_search_input"; sleep 0.3; type_text "San%sFrancisco"; adb shell input keyevent KEYCODE_ESCAPE; sleep 0.3
 find_and_tap "search_button"; sleep 4; screenshot "before_${TC_ID}"
 for y in 570 770 970; do

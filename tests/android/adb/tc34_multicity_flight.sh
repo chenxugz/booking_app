@@ -7,7 +7,7 @@ PASS=0
 
 echo "[TC34] Search multi-city flights: leg 1 SFO to JFK on 2024-04-01, leg 2 JFK to LAX on 2024-04-05"
 clear_db
-tap 540 2303; sleep 2
+find_and_tap "tab_flights"; sleep 1
 find_and_tap "trip_type_multi_city"; sleep 1
 screenshot "before_${TC_ID}"
 

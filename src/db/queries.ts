@@ -106,12 +106,13 @@ export async function logReviewSearch(hotelId: string, keyword: string, matchCou
 export async function insertCompensationClaim(
   bookingReference: string,
   delayMinutes: number,
+  description: string,
   claimReference: string
 ): Promise<void> {
   const db = await getDatabase();
   await db.executeSql(
-    'INSERT INTO compensation_claims (booking_reference, delay_minutes, claim_reference) VALUES (?, ?, ?)',
-    [bookingReference, delayMinutes, claimReference]
+    'INSERT INTO compensation_claims (booking_reference, delay_minutes, description, claim_reference) VALUES (?, ?, ?, ?)',
+    [bookingReference, delayMinutes, description, claimReference]
   );
 }
 

@@ -13,7 +13,7 @@ export default function CompensationClaimScreen() {
   const route = useRoute<ClaimRouteProp>();
   const { bookingReference, delayMinutes: initialDelay } = route.params;
 
-  const [delayInput, setDelayInput] = useState(String(initialDelay));
+  const [delayInput, setDelayInput] = useState('');
   const [description, setDescription] = useState('');
   const [claimRef, setClaimRef] = useState('');
   const [submitted, setSubmitted] = useState(false);
@@ -26,7 +26,7 @@ export default function CompensationClaimScreen() {
     }
     const ref = `CLM-${Date.now().toString(36).toUpperCase()}`;
     try {
-      await insertCompensationClaim(bookingReference, mins, ref);
+      await insertCompensationClaim(bookingReference, mins, description, ref);
       setClaimRef(ref);
       setSubmitted(true);
     } catch (e) {

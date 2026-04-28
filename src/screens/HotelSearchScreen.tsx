@@ -110,13 +110,6 @@ export default function HotelSearchScreen() {
         <Text style={styles.searchButtonText}>Search Hotels</Text>
       </TouchableOpacity>
 
-      <TouchableOpacity
-        testID="my_bookings_button"
-        style={styles.myBookingsButton}
-        onPress={() => navigation.navigate('MyBookings')}
-      >
-        <Text style={styles.myBookingsText}>My Bookings</Text>
-      </TouchableOpacity>
     </ScrollView>
   );
 }

@@ -9,7 +9,7 @@ PASS=0
 echo "[TC02] Search hotels in San Francisco (check-in 2024-04-01, check-out 2024-04-04, 2 guests), then filter by max price \$150/night"
 clear_db
 
-tap 180 2303; sleep 1
+find_and_tap "tab_hotels"; sleep 1
 tap 540 668; sleep 0.5; type_text "San%sFrancisco"
 adb shell input keyevent KEYCODE_ESCAPE; sleep 0.3
 pick_date "checkin_date_picker" "2024-04-01"

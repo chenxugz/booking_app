@@ -96,7 +96,7 @@ export default function BulkBookingScreen() {
         <TouchableOpacity
           testID="bulk_booking_done_button"
           style={styles.doneBtn}
-          onPress={() => navigation.navigate('MyBookings')}
+          onPress={() => navigation.navigate('HomeTabs', { screen: 'MyBookings' })}
         >
           <Text style={styles.doneBtnText}>View My Bookings</Text>
         </TouchableOpacity>

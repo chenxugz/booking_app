@@ -7,7 +7,7 @@ PASS=0
 
 echo "[TC21] Search restaurants in San Francisco on 2024-04-01 for a party of 8, book the first result (El Farolito), select the 18:00 time slot, with guest name Party Host, email party@test.com, phone 15550002121"
 clear_db
-tap 900 2303; sleep 2
+find_and_tap "tab_restaurants"; sleep 1
 find_and_tap "restaurant_search_input"; sleep 0.3; type_text "San%sFrancisco"; adb shell input keyevent KEYCODE_ESCAPE; sleep 0.3
 pick_date "restaurant_date_picker" "2024-04-01"  # April 1, 2024
 # Increment party size: default 2 -> 8 (tap +6 times at known coordinate)

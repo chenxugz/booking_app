@@ -7,7 +7,6 @@ import ResultsScreen from '../screens/ResultsScreen';
 import DetailScreen from '../screens/DetailScreen';
 import CheckoutScreen from '../screens/CheckoutScreen';
 import ConfirmationScreen from '../screens/ConfirmationScreen';
-import MyBookingsScreen from '../screens/MyBookingsScreen';
 import ExpenseFolderScreen from '../screens/ExpenseFolderScreen';
 import ReviewsScreen from '../screens/ReviewsScreen';
 import BulkBookingScreen from '../screens/BulkBookingScreen';
@@ -43,11 +42,6 @@ export default function RootNavigator() {
           name="Confirmation"
           component={ConfirmationScreen}
           options={{ title: 'Booking Confirmed', headerLeft: () => null }}
-        />
-        <Stack.Screen
-          name="MyBookings"
-          component={MyBookingsScreen}
-          options={{ title: 'My Bookings' }}
         />
         <Stack.Screen
           name="ExpenseFolder"
