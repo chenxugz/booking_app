@@ -269,3 +269,5 @@ Starting Booking Benchmark Test Suite - Fri Apr 17 11:55:10 PDT 2026
 [TC35] PASS — claim=CLM-MOJA4L77, matches=1 (expected BOOK-FLIGHT-MOCK05, 180 min, description verified) - Tue Apr 28 16:50:56 PDT 2026
 [TC36] PASS (search=1) — booking=1 (expected flight_002 Delta DL 209, Baggage Hunter, Economy, baggage, confirmed) - Tue Apr 28 21:38:43 PDT 2026
 [TC36] PASS (search=1) — booking=1 (expected flight_002 Delta DL 209, Baggage Hunter, Economy, baggage, confirmed) - Tue Apr 28 21:44:05 PDT 2026
+[TC37] FAIL (search=0) — booking=0 (expected rest_012 Alexander's Steakhouse, Oyster Fan, 18:00, confirmed) - Tue Apr 28 22:48:54 PDT 2026
+[TC37] PASS (search=1) — booking=1 (expected rest_012 Alexander's Steakhouse, Oyster Fan, 18:00, confirmed) - Tue Apr 28 22:52:59 PDT 2026
