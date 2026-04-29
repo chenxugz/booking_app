@@ -81,7 +81,10 @@ export default function CheckoutScreen() {
       base = base * (1 - rateDiscount);
     } else if (draft.type === 'flight') {
       base = draft.item.price * (flightSearch.passengers || 1);
-      if (draft.baggageAdded) base += 35 * (flightSearch.passengers || 1);
+      if (draft.baggageAdded) {
+        const bagFee = draft.item.baggage_policy?.checked_bag_fee ?? 35;
+        base += bagFee * (flightSearch.passengers || 1);
+      }
     } else {
       base = draft.item.price_tier * 30 * (restaurantSearch.partySize || 2);
     }
@@ -339,7 +342,7 @@ function Step2Preferences({ draft, setDraft, errors, promoInput, setPromoInput, 
           onPress={() => setDraft({ baggageAdded: !draft.baggageAdded })}
         >
           <Text style={[styles.optionText, draft.baggageAdded && styles.optionTextActive]}>
-            {draft.baggageAdded ? '✓ ' : '+ '}Add Checked Baggage ($35)
+            {draft.baggageAdded ? '✓ ' : '+ '}Add Checked Baggage (${draft.item.baggage_policy?.checked_bag_fee ?? 35})
           </Text>
         </TouchableOpacity>
         <PromoSection promoInput={promoInput} setPromoInput={setPromoInput} promoMessage={promoMessage} applyPromo={applyPromo} />
@@ -417,7 +420,7 @@ function Step3Review({ draft, total, hotelSearch, flightSearch, restaurantSearch
             <SummaryRow label="Date" value={draft.item.date} />
             <SummaryRow label="Seat Class" value={draft.seatClass} />
             <SummaryRow label="Passengers" value={String(flightSearch.passengers)} />
-            {draft.baggageAdded && <SummaryRow label="Baggage" value="Added (+$35/person)" />}
+            {draft.baggageAdded && <SummaryRow label="Baggage" value={`Added (+$${draft.item.baggage_policy?.checked_bag_fee ?? 35}/person)`} />}
           </>
         )}
         {draft.type === 'restaurant' && (
